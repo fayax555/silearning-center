@@ -11,7 +11,7 @@ export default function SectionThree() {
         </div>
         <a
           href='#'
-          className='font-neue rounded-md bg-slate-400 px-4 py-4 text-xl'
+          className='font-neue rounded-md bg-slate-400 px-8 py-4 text-xl'
         >
           FIND OUR MORE
         </a>

@@ -3,6 +3,8 @@ import Hero from '../components/Hero'
 import Navbar from '../components/Navbar'
 import SectionTwo from '../components/SectionTwo'
 import SectionThree from '../components/SectionThree'
+import SectionFour from '../components/SectionFour'
+import MeetOurTeachers from '../components/MeetOurTeachers'
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
       <Features />
       <SectionTwo />
       <SectionThree />
+      <SectionFour />
+      <MeetOurTeachers />
     </div>
   )
 }
