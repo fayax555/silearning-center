@@ -15,6 +15,15 @@ a {
   box-sizing: border-box;
 }
 
+.hero {
+  height: 710px;
+  background: url('/img/slide1-1.jpg') no-repeat center center/cover;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font-neue {
+  font-family: var(--font-neue);
+}
