@@ -24,6 +24,6 @@ a {
 @tailwind components;
 @tailwind utilities;
 
-.font-neue {
-  font-family: var(--font-neue) !important;
+.font-neue,h2 {
+  font-family: var(--font-neue);
 }
