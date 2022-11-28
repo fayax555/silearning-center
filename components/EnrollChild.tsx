@@ -6,7 +6,7 @@ const inputs = [
 
 export default function EnrollChild() {
   return (
-    <section className="bg-[url('/img/enroll-bg.jpg')] bg-cover bg-center bg-no-repeat py-24">
+    <section className="bg-slate-600 bg-[url('/img/enroll-bg.jpg')] bg-cover bg-center bg-no-repeat py-24">
       <div className='mx-auto max-w-[1200px] px-4 text-white'>
         <div className='text-center'>
           <h2 className='text-3xl md:text-4xl'>HOW TO ENROLL YOUR CHILD?</h2>

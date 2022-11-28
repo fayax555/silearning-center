@@ -31,10 +31,10 @@ export default function ChooseClasses() {
             </li>
           ))}
         </ul>
-        <div className='mt-6 bg-red-100'>
+        {/* <div className='mt-6 bg-red-100'>
           <button type='button'>prev</button>
           <button type='button'>next</button>
-        </div>
+        </div> */}
       </div>
     </section>
   )

@@ -23,7 +23,7 @@ export default function Home() {
       <ChooseClasses />
       <MeetOurTeachers />
       <ParentReviews />
-      <ClassTimetable />
+      {/* <ClassTimetable /> */}
       <UpcomingEvents />
       <PhotoGallery />
       <EnrollChild />
