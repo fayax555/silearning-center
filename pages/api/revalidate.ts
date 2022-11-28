@@ -6,6 +6,6 @@ export default async function handler(
 ) {
   
     await res.revalidate('/')
-    return res.json({ revalidated: true })
+    return res.status(200).json('ok')
   
 }
