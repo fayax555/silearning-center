@@ -23,7 +23,7 @@ export default function Home({
     <div>
       <Navbar />
       <Hero />
-      {/* <Features features={features} /> */}
+      <Features features={features} />
       <SectionTwo />
       <SectionThree />
       <ChooseClasses />
