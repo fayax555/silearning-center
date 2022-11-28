@@ -1,6 +1,6 @@
 export default function ClassTimetable() {
   return (
-    <section className='h-[920px] bg-gray-800 py-24'>
+    <section className='h-[920px] bg-gray-100 py-24'>
       <div className='mx-auto max-w-[1200px] px-6'>
         <h2 className='text-center text-5xl'>CLASS TIMETABLE</h2>
         <div className='mt-20 grid grid-cols-1 gap-10 md:grid-cols-2'>

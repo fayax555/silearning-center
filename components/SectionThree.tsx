@@ -1,6 +1,6 @@
 export default function SectionThree() {
   return (
-    <section className='bg-slate-100 py-16'>
+    <section className='bg-lime-500 py-16 text-white'>
       <div className='mx-auto flex max-w-[1200px] items-center gap-4 px-6 md:gap-32'>
         <div>
           <h2 className='text-4xl'>HOW TO ENTROLL YOUR CHILD TO A CLASS?</h2>
@@ -11,7 +11,7 @@ export default function SectionThree() {
         </div>
         <a
           href='#'
-          className='font-neue rounded-md bg-slate-400 px-8 py-4 text-xl'
+          className='font-neue rounded-md bg-white px-8 py-4 text-xl text-slate-800'
         >
           FIND OUR MORE
         </a>

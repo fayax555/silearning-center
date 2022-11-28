@@ -1,6 +1,6 @@
 export default function ParentReviews() {
   return (
-    <section className='grid bg-purple-400 py-24 text-center'>
+    <section className='grid bg-purple-500 py-24 text-center text-white'>
       <div className='mx-auto max-w-[1200px] px-6'>
         <h2 className='text-5xl'>WHAT THE PARENTS SAY</h2>
         <q className='mt-20 block text-2xl'>

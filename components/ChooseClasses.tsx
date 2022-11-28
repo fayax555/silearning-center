@@ -8,7 +8,7 @@ const items = [
 
 export default function ChooseClasses() {
   return (
-    <section className='bg-slate-200 py-24 px-8'>
+    <section className='py-24 px-8 text-slate-700'>
       <div className='mx-auto max-w-[1200px]'>
         <h2 className=' text-center text-4xl'>CHOOSE CLASSES FOR YOUR CHILD</h2>
         <ul className='mt-20 grid grid-cols-3 gap-10'>

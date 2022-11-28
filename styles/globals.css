@@ -9,21 +9,11 @@ a {
   text-decoration: none;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.hero {
-  height: 710px;
-  background: url('/img/slide1-1.jpg') no-repeat center center/cover;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.font-neue,h2 {
+.font-neue,
+h2 {
   font-family: var(--font-neue);
 }
