@@ -5,7 +5,7 @@ export default function Hero() {
         "mx-auto grid h-[710px] items-center bg-[url('/img/slide1-1.jpg')] bg-cover bg-center bg-no-repeat px-4"
       }
     >
-      <div className='mx-auto grid w-full max-w-[1200px] gap-10 px-8'>
+      <div className='mx-auto grid max-w-[1200px] gap-10 md:w-full md:px-8'>
         <h1 className='text-left font-sans text-4xl text-white sm:text-7xl '>
           <span>WELCOME TO </span>
           <div>

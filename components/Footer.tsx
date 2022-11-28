@@ -4,7 +4,7 @@ import { AiFillInstagram } from 'react-icons/ai'
 import { IoLocationSharp } from 'react-icons/io5'
 import { ImClock, ImMobile } from 'react-icons/im'
 
-const contactDetails = [
+const contactDetails = [ 
   [IoLocationSharp, 'San Franciscor, CA 94102, US 1234, Some Str'],
   [
     ImClock,
