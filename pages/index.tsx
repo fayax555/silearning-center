@@ -6,6 +6,9 @@ import SectionThree from 'components/SectionThree'
 import ChooseClasses from 'components/ChooseClasses'
 import MeetOurTeachers from 'components/MeetOurTeachers'
 import ParentReviews from 'components/ParentReviews'
+import ClassTimetable from 'components/ClassTimetable'
+import UpcomingEvents from 'components/UpcomingEvents'
+import PhotoGallery from 'components/PhotoGallery'
 
 export default function Home() {
   return (
@@ -18,6 +21,9 @@ export default function Home() {
       <ChooseClasses />
       <MeetOurTeachers />
       <ParentReviews />
+      <ClassTimetable />
+      <UpcomingEvents />
+      <PhotoGallery />
     </div>
   )
 }
