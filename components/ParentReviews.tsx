@@ -9,7 +9,7 @@ export default function ParentReviews() {
           consectetur fringilla mi in mollis.
         </q>
         <div className='mt-10'>
-          <h2 className='mb-2 text-xl'>ISABELLE GOULARD</h2>
+          <h2 className='mb-1 text-2xl'>ISABELLE GOULARD</h2>
           <p>Mother of 4-year old</p>
         </div>
       </div>

@@ -6,7 +6,7 @@ const items = [
   ['GEOGRAPHY', '4-6 YEARS', '5', 'bg-green-400'],
 ] as const
 
-export default function SectionFour() {
+export default function ChooseClasses() {
   return (
     <section className='bg-slate-200 py-24 px-8'>
       <div className='mx-auto max-w-[1200px]'>

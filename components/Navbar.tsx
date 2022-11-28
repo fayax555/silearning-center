@@ -4,7 +4,7 @@ const navItems = [
   ['HOME', 'text-red-500'],
   ['TIMETABLE', 'text-orange-500'],
   ['FEATURES', 'text-yellow-500'],
-  ['SHORTCODES', 'text-green-500'],
+  ['SHORTCODES', 'text-lime-500'],
   ['POST TYPES', 'text-blue-500'],
   ['SHOP', 'text-indigo-500'],
 ] as const
@@ -16,7 +16,7 @@ export default function Navbar() {
       <ul className='flex'>
         {navItems.map(([item, color]) => (
           <li key={item}>
-            <a href='#' className={`block ${color} p-4 py-7 font-bold`}>
+            <a href='#' className={`block ${color} p-4 py-7 text-lg font-bold font-neue`}>
               {item}
             </a>
           </li>
