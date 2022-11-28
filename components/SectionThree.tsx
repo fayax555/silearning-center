@@ -1,9 +1,11 @@
 export default function SectionThree() {
   return (
     <section className='bg-lime-500 py-16 text-white'>
-      <div className='mx-auto flex max-w-[1200px] items-center gap-4 px-6 md:gap-32'>
+      <div className='g mx-auto flex max-w-[1200px] flex-col items-center gap-10 px-6 md:flex-row md:gap-32'>
         <div>
-          <h2 className='text-4xl'>HOW TO ENTROLL YOUR CHILD TO A CLASS?</h2>
+          <h2 className='text-3xl md:text-4xl'>
+            HOW TO ENTROLL YOUR CHILD TO A CLASS?
+          </h2>
           <p className='mt-2 text-lg font-semibold'>
             Interested in good preschool education for your child? Our
             kindergarten is the right decision!

@@ -23,10 +23,12 @@ const items = [
 
 export default function UpcomingEvents() {
   return (
-    <section className='mx-auto max-w-[1200px] px-6 pt-16 pb-10'>
-      <h2 className='text-center text-4xl text-slate-700'>UPCOMING EVENTS</h2>
-      <div className='grid grid-cols-2 justify-between'>
-        <div className='mt-20'>
+    <section className='mx-auto max-w-[1200px] px-6 pt-16 pb-12'>
+      <h2 className='text-center text-3xl text-slate-700 md:text-4xl'>
+        UPCOMING EVENTS
+      </h2>
+      <div className='grid justify-between md:grid-cols-2'>
+        <div className='mt-10 md:mt-20'>
           <h3 className='text-lg'>UPCOMING EVENTS</h3>
           <ul className='mt-6 ml-6'>
             {items.map(([month, day, date, title]) => (

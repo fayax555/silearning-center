@@ -10,8 +10,8 @@ const items = [
 export default function MeetOurTeachers() {
   return (
     <section className='mx-auto max-w-[1200px] py-24 px-8 text-slate-700'>
-      <h2 className='text-center text-4xl'>MEET OUR TEACHERS</h2>
-      <ul className='mt-16  grid grid-cols-4 gap-8 text-center'>
+      <h2 className='text-center text-3xl md:text-4xl'>MEET OUR TEACHERS</h2>
+      <ul className='mt-16 grid justify-center gap-8 text-center md:grid-cols-4'>
         {items.map(([name, title], idx) => (
           <li key={name} className=''>
             <Image

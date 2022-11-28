@@ -9,8 +9,8 @@ export default function EnrollChild() {
     <section className="bg-[url('/img/enroll-bg.jpg')] bg-cover bg-center bg-no-repeat py-24">
       <div className='mx-auto max-w-[1200px] px-4 text-white'>
         <div className='text-center'>
-          <h2 className='text-4xl'>HOW TO ENROLL YOUR CHILD?</h2>
-          <p className='mt-20 text-xl font-bold'>
+          <h2 className='text-3xl md:text-4xl'>HOW TO ENROLL YOUR CHILD?</h2>
+          <p className='mt-10 text-xl font-bold md:mt-20'>
             CALL +1 000 123 1234 OR FILL IN THE FORM BELOW
           </p>
           <p className='mx-auto mt-6 max-w-[90ch]'>
@@ -21,7 +21,7 @@ export default function EnrollChild() {
           </p>
         </div>
 
-        <form className='mt-14 grid grid-cols-2 gap-8 text-slate-800'>
+        <form className='mt-14 grid gap-8 text-slate-800 md:grid-cols-2'>
           <div className='grid gap-3'>
             {inputs.map((input) => (
               <input
@@ -33,12 +33,12 @@ export default function EnrollChild() {
             ))}
           </div>
           <textarea
-            className='col-[2] row-[1/4] max-h-[400px] rounded-md p-4 placeholder:font-bold placeholder:text-slate-600'
+            className='row-[1/4] max-h-[400px] min-h-[120px] rounded-md p-4 placeholder:font-bold placeholder:text-slate-600 md:col-[2]'
             placeholder='YOUR MESSAGE'
           ></textarea>
           <button
             type='submit'
-            className='mt-4 font-neue col-[1/-1] justify-self-center rounded-md bg-red-500 px-14 py-3 text-xl text-white'
+            className='font-neue col-[1/-1] mt-4 justify-self-center rounded-md bg-red-500 px-14 py-3 text-xl text-white'
           >
             SUBMIT
           </button>

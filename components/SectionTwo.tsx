@@ -2,10 +2,10 @@ import Image from 'next/image'
 
 export default function SectionTwo() {
   return (
-    <section className='mx-auto grid max-w-[1200px] grid-cols-2 items-center gap-10 px-4 py-20 text-slate-700'>
+    <section className='mx-auto grid max-w-[1200px] items-center gap-10 px-4 py-20 text-slate-700 md:grid-cols-2'>
       <Image src='/img/8-2.jpg' alt='' width={1200} height={600} />
       <div className='grid gap-10'>
-        <h2 className='font-neue text-6xl'>
+        <h2 className='font-neue text-4xl md:text-6xl'>
           WELCOME TO <span className='block'>THE KINDERGARTEN!</span>
         </h2>
         <p>

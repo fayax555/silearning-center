@@ -10,9 +10,9 @@ const items = [
 export default function Features() {
   return (
     <div className='bg-slate-50 py-16 px-4'>
-      <ul className='mx-auto flex max-w-[1200px] justify-between gap-4  px-8'>
+      <ul className='mx-auto flex max-w-[1200px] flex-col justify-between gap-8 px-8 md:flex-row md:gap-4'>
         {items.map((item, i) => (
-          <li className='grid place-items-center gap-8' key={item}>
+          <li className='grid place-items-center gap-2 md:gap-8' key={item}>
             <Image
               height={120}
               width={120}
