@@ -9,6 +9,8 @@ import ParentReviews from 'components/ParentReviews'
 import ClassTimetable from 'components/ClassTimetable'
 import UpcomingEvents from 'components/UpcomingEvents'
 import PhotoGallery from 'components/PhotoGallery'
+import EnrollChild from 'components/EnrollChild'
+import Footer from 'components/Footer'
 
 export default function Home() {
   return (
@@ -24,6 +26,8 @@ export default function Home() {
       <ClassTimetable />
       <UpcomingEvents />
       <PhotoGallery />
+      <EnrollChild />
+      <Footer />
     </div>
   )
 }

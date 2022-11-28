@@ -9,7 +9,7 @@ const neue = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={`${neue.variable} mb-[70rem]`}>
+    <main className={`${neue.variable}`}>
       <Component {...pageProps} />
     </main>
   )

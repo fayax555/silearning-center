@@ -16,7 +16,7 @@ export default function SectionTwo() {
         </p>
         <a
           href='#'
-          className='font-neue justify-self-start rounded-md bg-orange-600 px-8 py-4 text-lg text-white'
+          className='font-neue justify-self-start rounded-md bg-orange-600 px-8 py-4 text-xl text-white'
         >
           WHY KINDERGARTEN
         </a>

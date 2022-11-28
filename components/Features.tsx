@@ -19,7 +19,7 @@ export default function Features() {
               src={`/img/features/${i + 1}.png`}
               alt={item}
             />
-            <h2 className='text-xl font-semibold text-slate-600'>{item}</h2>
+            <h2 className='text-2xl  text-slate-800'>{item}</h2>
           </li>
         ))}
       </ul>

@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
 const items = [
-  ['ACTIVE LEARNING', '2-5 YEARS', '12', 'bg-purple-400'],
-  ['MATHEMATICS', '3-5 YEARS', '5', 'bg-orange-400'],
-  ['GEOGRAPHY', '4-6 YEARS', '5', 'bg-green-400'],
+  ['ACTIVE LEARNING', '2-5 YEARS', '12', 'bg-purple-500'],
+  ['MATHEMATICS', '3-5 YEARS', '5', 'bg-orange-500'],
+  ['GEOGRAPHY', '4-6 YEARS', '5', 'bg-lime-500'],
 ] as const
 
 export default function ChooseClasses() {
@@ -21,10 +21,10 @@ export default function ChooseClasses() {
                 alt={title}
                 className='rounded-t-md'
               />
-              <div className={`${color} rounded-b-md px-8 py-6`}>
-                <h3 className='font-neue mb-4 text-2xl text-white'>{title}</h3>
-                <p className='font-neue text-white'>{`AGE GROUP: ${ageGroup}`}</p>
-                <p className='font-neue text-white'>{`CLASS SIZE: ${classSize}`}</p>
+              <div className={`${color} rounded-b-md px-8 py-6 text-white`}>
+                <h3 className='font-neue mb-4 text-2xl'>{title}</h3>
+                <p className='font-neue'>{`AGE GROUP: ${ageGroup}`}</p>
+                <p className='font-neue'>{`CLASS SIZE: ${classSize}`}</p>
               </div>
             </li>
           ))}

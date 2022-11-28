@@ -16,13 +16,13 @@ export default function Hero() {
         <div className='flex gap-6'>
           <a
             href='#'
-            className='rounded-md bg-slate-200 px-4 py-3 text-lg font-bold'
+            className='font-neue rounded-md bg-white px-4 py-3 text-lg '
           >
             SEE WAITING LISTS
           </a>
           <a
             href='#'
-            className='rounded-md bg-slate-200 px-4 py-3 text-lg font-bold'
+            className='font-neue rounded-md bg-lime-500 px-4 py-3 text-lg  text-white'
           >
             PROGRAM & PRICES
           </a>
