@@ -1,4 +1,4 @@
-import { InferGetStaticPropsType, GetStaticProps } from 'next'
+import { type InferGetStaticPropsType } from 'next'
 import { Directus } from '@directus/sdk'
 
 import Features from 'components/Features'
@@ -13,11 +13,12 @@ import UpcomingEvents from 'components/UpcomingEvents'
 import PhotoGallery from 'components/PhotoGallery'
 import EnrollChild from 'components/EnrollChild'
 import Footer from 'components/Footer'
-import { FeatureSchema, type Feature } from 'types'
-import { z } from 'zod'
+import { FeatureSchema, GallerySchema, TeacherSchema } from 'types'
 
 export default function Home({
   features,
+  teachers,
+  gallery,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
@@ -27,10 +28,10 @@ export default function Home({
       <SectionTwo />
       <SectionThree />
       <ChooseClasses />
-      <MeetOurTeachers />
+      <MeetOurTeachers teachers={teachers} />
       <ParentReviews />
       <UpcomingEvents />
-      <PhotoGallery />
+      <PhotoGallery gallery={gallery} />
       <EnrollChild />
       <Footer />
     </div>
@@ -41,16 +42,28 @@ export const getStaticProps = async () => {
   const directus = new Directus('https://a4ida36s.directus.app')
 
   const featuresRes = await directus.items('features').readByQuery({
-    fields: ['title', 'id', 'image'],
+    fields: ['id', 'title', 'image'],
+  })
+
+  const teachersRes = await directus.items('teachers').readByQuery({
+    fields: ['id', 'name', 'title', 'image'],
+  })
+
+  const galleryRes = await directus.items('photo_gallery').readByQuery({
+    fields: ['id', 'image'],
   })
 
   const features = FeatureSchema.array().parse(featuresRes.data)
+  const teachers = TeacherSchema.array().parse(teachersRes.data)
+  const gallery = GallerySchema.array().parse(galleryRes.data)
 
   // console.log(features)
 
   return {
     props: {
-      features: features,
+      features,
+      teachers,
+      gallery,
     },
   }
 }
