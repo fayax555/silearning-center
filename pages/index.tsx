@@ -13,12 +13,13 @@ import UpcomingEvents from 'components/UpcomingEvents'
 import PhotoGallery from 'components/PhotoGallery'
 import EnrollChild from 'components/EnrollChild'
 import Footer from 'components/Footer'
-import { FeatureSchema, GallerySchema, TeacherSchema } from 'types'
+import { ClassSchema, FeatureSchema, GallerySchema, TeacherSchema } from 'types'
 
 export default function Home({
   features,
   teachers,
   gallery,
+  classes,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
@@ -27,7 +28,7 @@ export default function Home({
       <Features features={features} />
       <SectionTwo />
       <SectionThree />
-      <ChooseClasses />
+      <ChooseClasses classes={classes} />
       <MeetOurTeachers teachers={teachers} />
       <ParentReviews />
       <UpcomingEvents />
@@ -53,17 +54,18 @@ export const getStaticProps = async () => {
     fields: ['id', 'image'],
   })
 
+  const classRes = await directus.items('classes').readByQuery({
+    fields: ['id', 'name', 'age_group', 'class_size', 'image'],
+  })
+
   const features = FeatureSchema.array().parse(featuresRes.data)
   const teachers = TeacherSchema.array().parse(teachersRes.data)
   const gallery = GallerySchema.array().parse(galleryRes.data)
+  const classes = ClassSchema.array().parse(classRes.data)
 
   // console.log(features)
 
   return {
-    props: {
-      features,
-      teachers,
-      gallery,
-    },
+    props: { features, teachers, gallery, classes },
   }
 }
