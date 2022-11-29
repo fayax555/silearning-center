@@ -4,7 +4,7 @@ import { Directus } from '@directus/sdk'
 import Features from 'components/Features'
 import Hero from 'components/Hero'
 import Navbar from 'components/Navbar'
-import SectionTwo from 'components/SectionTwo'
+import AboutUs from 'components/AboutUs'
 import SectionThree from 'components/SectionThree'
 import ChooseClasses from 'components/ChooseClasses'
 import MeetOurTeachers from 'components/MeetOurTeachers'
@@ -13,20 +13,27 @@ import UpcomingEvents from 'components/UpcomingEvents'
 import PhotoGallery from 'components/PhotoGallery'
 import EnrollChild from 'components/EnrollChild'
 import Footer from 'components/Footer'
-import { ClassSchema, FeatureSchema, GallerySchema, TeacherSchema } from 'types'
+import {
+  AboutUsSchema,
+  ClassSchema,
+  FeatureSchema,
+  GallerySchema,
+  TeacherSchema,
+} from 'types'
 
 export default function Home({
   features,
   teachers,
   gallery,
   classes,
+  aboutUs,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
       <Navbar />
       <Hero />
       <Features features={features} />
-      <SectionTwo />
+      <AboutUs aboutUs={aboutUs} />
       <SectionThree />
       <ChooseClasses classes={classes} />
       <MeetOurTeachers teachers={teachers} />
@@ -58,14 +65,17 @@ export const getStaticProps = async () => {
     fields: ['id', 'name', 'age_group', 'class_size', 'image'],
   })
 
-  const features = FeatureSchema.array().parse(featuresRes.data)
-  const teachers = TeacherSchema.array().parse(teachersRes.data)
-  const gallery = GallerySchema.array().parse(galleryRes.data)
-  const classes = ClassSchema.array().parse(classRes.data)
+  const aboutUsRes = await directus.items('about_us').readByQuery({
+    fields: ['title', 'text', 'image'],
+  })
 
-  // console.log(features)
+  const features = FeatureSchema.parse(featuresRes.data)
+  const teachers = TeacherSchema.parse(teachersRes.data)
+  const gallery = GallerySchema.parse(galleryRes.data)
+  const classes = ClassSchema.parse(classRes.data)
+  const aboutUs = AboutUsSchema.parse(aboutUsRes.data)
 
   return {
-    props: { features, teachers, gallery, classes },
+    props: { features, teachers, gallery, classes, aboutUs },
   }
 }
