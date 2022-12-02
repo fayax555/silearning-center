@@ -12,7 +12,7 @@ const navItems = [
 export default function Navbar() {
   return (
     <nav className='mx-auto flex max-w-[1200px] items-center justify-between px-4'>
-      <Image height={180} width={180} src='/img/logo.png' alt='' />
+      <Image height={180} width={180} src='/img/silogo.svg' alt='' />
       <ul className='hidden md:flex'>
         {navItems.map(([item, color]) => (
           <li key={item}>
