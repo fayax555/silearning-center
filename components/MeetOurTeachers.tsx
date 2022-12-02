@@ -19,7 +19,7 @@ export default function MeetOurTeachers({ teachers }: { teachers: Teacher[] }) {
               height={250}
               width={250}
               src={`https://a4ida36s.directus.app/assets/${image}`}
-              alt={name}
+              alt={name ?? ''}
               className='rounded-full'
             />
             <h3 className='font-neue mt-8 text-2xl'>{name}</h3>
