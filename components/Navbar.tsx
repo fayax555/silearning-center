@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const navItems = [
   ['HOME', 'text-red-500'],
@@ -12,15 +13,13 @@ const navItems = [
 export default function Navbar() {
   return (
     <nav className='mx-auto flex max-w-[1200px] items-center justify-between px-4'>
-      <Image height={180} width={180} src='/img/silogo.svg' alt='' />
+      <Link href='/'>
+        <Image height={150} width={150} src='/img/silogo.svg' alt='' />
+      </Link>
       <ul className='hidden md:flex'>
         {navItems.map(([item, color]) => (
           <li key={item}>
-            <a
-              href='#'
-              target='_blank'
-              className={`block ${color} font-neue p-4 py-7 text-lg`}
-            >
+            <a href='#' className={`block ${color} font-neue p-4 py-7 text-lg`}>
               {item}
             </a>
           </li>

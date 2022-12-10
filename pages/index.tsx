@@ -9,17 +9,16 @@ import SectionThree from 'components/SectionThree'
 import ChooseClasses from 'components/ChooseClasses'
 import MeetOurTeachers from 'components/MeetOurTeachers'
 import ParentReviews from 'components/ParentReviews'
-import UpcomingEvents from 'components/UpcomingEvents'
 import PhotoGallery from 'components/PhotoGallery'
 import EnrollChild from 'components/EnrollChild'
 import Footer from 'components/Footer'
 import {
   AboutUsSchema,
   ClassSchema,
-  FeatureSchema,
   GallerySchema,
   TeacherSchema,
-} from 'types'
+} from '../types'
+import { z } from 'zod'
 
 export default function Home({
   features,
@@ -38,13 +37,20 @@ export default function Home({
       <ChooseClasses classes={classes} />
       <MeetOurTeachers teachers={teachers} />
       <ParentReviews />
-      <UpcomingEvents />
       <PhotoGallery gallery={gallery} />
       <EnrollChild />
       <Footer />
     </div>
   )
 }
+
+const FeatureSchema = z
+  .object({
+    id: z.number(),
+    title: z.string().nullable(),
+    image: z.string().nullable(),
+  })
+  .array()
 
 export const getStaticProps = async () => {
   const directus = new Directus('https://a4ida36s.directus.app')
@@ -57,9 +63,11 @@ export const getStaticProps = async () => {
     fields: ['id', 'name', 'title', 'image'],
   })
 
-  const galleryRes = await directus.items('photo_gallery').readByQuery({
-    fields: ['id', 'image'],
+  const galleryRes = await directus.items('gallery').readByQuery({
+    fields: ['id', 'title', 'thumbnail'],
   })
+
+  console.log(galleryRes)
 
   const classRes = await directus.items('classes').readByQuery({
     fields: ['id', 'name', 'age_group', 'class_size', 'image'],

@@ -1,13 +1,6 @@
 import Image from 'next/image'
 import type { Teacher } from 'types'
 
-// const items = [
-//   ['Lily Carter', 'Literacy Teacher'],
-//   ['Jennifer lawrence', 'Active Learning Teacher'],
-//   ['Regina Spektor', 'Preshool Teacher'],
-//   ['Richard Hill', 'Art and Music Teacher'],
-// ] as const
-
 export default function MeetOurTeachers({ teachers }: { teachers: Teacher[] }) {
   return (
     <section className='mx-auto max-w-[1200px] py-24 px-8 text-slate-700'>
