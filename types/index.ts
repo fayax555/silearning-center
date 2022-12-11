@@ -36,7 +36,6 @@ export const ClassSchema = z
   .array()
 
 export const AboutUsSchema = z.object({
-  title: z.string().nullable(),
   text: z.string().nullable(),
   image: z.string().nullable(),
 })

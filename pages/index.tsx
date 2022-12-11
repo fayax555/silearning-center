@@ -53,7 +53,7 @@ const FeatureSchema = z
   .array()
 
 export const getStaticProps = async () => {
-  const directus = new Directus('https://a4ida36s.directus.app')
+  const directus = new Directus('http://localhost:8055')
 
   const featuresRes = await directus.items('features').readByQuery({
     fields: ['id', 'title', 'image'],
@@ -84,6 +84,6 @@ export const getStaticProps = async () => {
   const aboutUs = AboutUsSchema.parse(aboutUsRes.data)
 
   return {
-    props: { features, teachers, gallery, classes, aboutUs },
+    props: { features,teachers,gallery, classes, aboutUs },
   }
 }

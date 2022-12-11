@@ -11,7 +11,7 @@ export default function MeetOurTeachers({ teachers }: { teachers: Teacher[] }) {
             <Image
               height={250}
               width={250}
-              src={`https://a4ida36s.directus.app/assets/${image}`}
+              src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${image}`}
               alt={name ?? ''}
               className='rounded-full'
             />

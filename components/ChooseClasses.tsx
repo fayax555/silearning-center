@@ -16,7 +16,7 @@ export default function ChooseClasses({ classes }: { classes: Class[] }) {
               <Image
                 height={480}
                 width={480}
-                src={`https://a4ida36s.directus.app/assets/${image}`}
+                src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${image}`}
                 alt={name ?? ''}
                 className='rounded-t-md'
               />

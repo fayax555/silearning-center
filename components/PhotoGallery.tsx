@@ -18,7 +18,7 @@ export default function PhotoGallery({ gallery }: { gallery: Gallery[] }) {
                 <Image
                   height={300}
                   width={300}
-                  src={`https://a4ida36s.directus.app/assets/${thumbnail}`}
+                  src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${thumbnail}`}
                   alt=''
                   className='block h-[88%] object-cover'
                 />

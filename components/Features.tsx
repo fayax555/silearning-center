@@ -17,7 +17,7 @@ export default function Features({ features }: { features: Feature[] }) {
             <Image
               height={120}
               width={120}
-              src={`https://a4ida36s.directus.app/assets/${image}`}
+              src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${image}`}
               alt={title ?? ''}
             />
             <h2 className='text-2xl  text-slate-800'>{title}</h2>
