@@ -18,7 +18,7 @@ export default function ChooseClasses({ classes }: { classes: Class[] }) {
           {classes.map(({ id, name, age_group, class_size, image }, idx) => (
             <li
               key={id}
-              className={`border-[1px] ${itemColors[idx][2]} rounded-xl text-center`}
+              className={`border-2 ${itemColors[idx][2]} rounded-xl text-center`}
             >
               <Image
                 height={480}
@@ -30,7 +30,7 @@ export default function ChooseClasses({ classes }: { classes: Class[] }) {
               <div
                 className={`${itemColors[idx][0]} ${itemColors[idx][1]} rounded-b-xl   px-8 py-6 font-semibold`}
               >
-                <h3 className='font-nunito mb-4 text-center text-xl font-bold'>
+                <h3 className='mb-4 text-center text-xl font-bold'>
                   {name}
                 </h3>
                 <p>{`Age: ${age_group}`}</p>

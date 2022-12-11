@@ -8,7 +8,7 @@ export default function Hero() {
       }
     >
       <div className='z-10 mx-auto  grid max-w-[1200px] gap-10 md:w-full md:px-8'>
-        <h1 className='text-center text-4xl font-bold text-white sm:text-7xl '>
+        <h1 className='text-center text-4xl font-extrabold text-white sm:text-7xl '>
           <span>WELCOME TO </span>
           <div>
             <span>THE </span>
