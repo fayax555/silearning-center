@@ -38,7 +38,7 @@ export default function EnrollChild() {
           ></textarea>
           <button
             type='submit'
-            className='font-neue col-[1/-1] mt-4 justify-self-center rounded-md bg-red-500 px-14 py-3 text-xl text-white'
+            className='font-nunito col-[1/-1] mt-4 justify-self-center rounded-md bg-red-500 px-14 py-3 text-xl text-white'
           >
             SUBMIT
           </button>

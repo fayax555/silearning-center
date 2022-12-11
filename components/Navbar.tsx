@@ -2,12 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const navItems = [
-  ['HOME', 'text-red-500'],
-  ['TIMETABLE', 'text-orange-500'],
-  ['FEATURES', 'text-yellow-500'],
-  ['SHORTCODES', 'text-lime-500'],
-  ['POST TYPES', 'text-blue-500'],
-  ['SHOP', 'text-indigo-500'],
+  ['HOME', 'text-red-600'],
+  ['ADMISSION', 'text-[hsl(308,95%,40%)]'],
+  ['TIMETABLE', 'text-blue-600'],
+  ['CONTACT', 'text-[hsl(113,85%,29%)]'],
 ] as const
 
 export default function Navbar() {
@@ -19,7 +17,10 @@ export default function Navbar() {
       <ul className='hidden md:flex'>
         {navItems.map(([item, color]) => (
           <li key={item}>
-            <a href='#' className={`block ${color} font-neue p-4 py-7 text-lg`}>
+            <a
+              href='#'
+              className={`block ${color} p-4 py-7 font-extrabold`}
+            >
               {item}
             </a>
           </li>

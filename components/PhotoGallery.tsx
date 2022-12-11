@@ -6,8 +6,8 @@ export default function PhotoGallery({ gallery }: { gallery: Gallery[] }) {
   return (
     <section className='bg-zinc-100 py-20 '>
       <div className='mx-auto max-w-[1200px] px-6 pb-8'>
-        <h2 className='text-center text-4xl'>PHOTO GALLERY</h2>
-        <div className='mt-16 grid gap-10 sm:grid-cols-2 md:grid-cols-3'>
+        <h2 className='text-center text-4xl font-bold text-slate-700'>PHOTO GALLERY</h2>
+        <div className='mt-16 grid gap-10 grid-flow-col justify-center'>
           {gallery.map(({ id, title, thumbnail }) => (
             <Link
               href={`/gallery/${id}`}

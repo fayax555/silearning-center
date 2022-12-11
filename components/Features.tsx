@@ -20,7 +20,7 @@ export default function Features({ features }: { features: Feature[] }) {
               src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${image}`}
               alt={title ?? ''}
             />
-            <h2 className='text-2xl  text-slate-800'>{title}</h2>
+            <h2 className='font-extrabold text-slate-800'>{title}</h2>
           </li>
         ))}
       </ul>

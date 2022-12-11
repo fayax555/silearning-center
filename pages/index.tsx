@@ -15,10 +15,10 @@ import Footer from 'components/Footer'
 import {
   AboutUsSchema,
   ClassSchema,
+  FeatureSchema,
   GallerySchema,
   TeacherSchema,
 } from '../types'
-import { z } from 'zod'
 
 export default function Home({
   features,
@@ -44,14 +44,6 @@ export default function Home({
   )
 }
 
-const FeatureSchema = z
-  .object({
-    id: z.number(),
-    title: z.string().nullable(),
-    image: z.string().nullable(),
-  })
-  .array()
-
 export const getStaticProps = async () => {
   const directus = new Directus('http://localhost:8055')
 
@@ -66,8 +58,6 @@ export const getStaticProps = async () => {
   const galleryRes = await directus.items('gallery').readByQuery({
     fields: ['id', 'title', 'thumbnail'],
   })
-
-  console.log(galleryRes)
 
   const classRes = await directus.items('classes').readByQuery({
     fields: ['id', 'name', 'age_group', 'class_size', 'image'],
@@ -84,6 +74,6 @@ export const getStaticProps = async () => {
   const aboutUs = AboutUsSchema.parse(aboutUsRes.data)
 
   return {
-    props: { features,teachers,gallery, classes, aboutUs },
+    props: { features, teachers, gallery, classes, aboutUs },
   }
 }

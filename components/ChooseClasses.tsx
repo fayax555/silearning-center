@@ -1,31 +1,40 @@
 import Image from 'next/image'
 import type { Class } from 'types'
 
-const itemColors = ['bg-purple-500', 'bg-orange-500', 'bg-lime-500'] as const
+const itemColors = [
+  ['bg-purple-50', 'text-purple-600', 'border-purple-300'],
+  ['bg-red-50', 'text-red-600', 'border-red-300'],
+  ['bg-green-50', 'text-green-600', 'border-green-300'],
+] as const
 
 export default function ChooseClasses({ classes }: { classes: Class[] }) {
   return (
     <section className='py-24 px-8 text-slate-700'>
       <div className='mx-auto max-w-[1200px]'>
-        <h2 className='text-center text-3xl md:text-4xl'>
-          CHOOSE CLASSES FOR YOUR CHILD
+        <h2 className='text-center text-3xl font-bold md:text-4xl'>
+          CLASSES
         </h2>
-        <ul className='mt-20 grid  gap-10 md:grid-cols-3'>
+        <ul className='mt-20 grid gap-10 md:grid-cols-3'>
           {classes.map(({ id, name, age_group, class_size, image }, idx) => (
-            <li key={id}>
+            <li
+              key={id}
+              className={`border-[1px] ${itemColors[idx][2]} rounded-xl text-center`}
+            >
               <Image
                 height={480}
                 width={480}
                 src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${image}`}
                 alt={name ?? ''}
-                className='rounded-t-md'
+                className='rounded-t-xl'
               />
               <div
-                className={`${itemColors[idx]} rounded-b-md px-8 py-6 text-white`}
+                className={`${itemColors[idx][0]} ${itemColors[idx][1]} rounded-b-xl   px-8 py-6 font-semibold`}
               >
-                <h3 className='font-neue mb-4 text-2xl'>{name}</h3>
-                <p className='font-neue'>{`AGE GROUP: ${age_group}`}</p>
-                <p className='font-neue'>{`CLASS SIZE: ${class_size}`}</p>
+                <h3 className='font-nunito mb-4 text-center text-xl font-bold'>
+                  {name}
+                </h3>
+                <p>{`Age: ${age_group}`}</p>
+                <p>{`Class Size: ${class_size}`}</p>
               </div>
             </li>
           ))}

@@ -11,7 +11,7 @@ export default function AboutUs({ aboutUs }: { aboutUs: AboutUs }) {
         height={600}
       />
       <div className='grid gap-10'>
-        <h2 className='font-neue text-4xl md:text-6xl'>About Us</h2>
+        <h2 className='font-nunito text-4xl font-bold md:text-6xl'>About Us</h2>
         <p>{aboutUs.text}</p>
         {/* <a
           href='#'

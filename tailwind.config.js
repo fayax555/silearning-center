@@ -8,9 +8,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['var(--font-neue)', ...fontFamily.sans],
-      },
+      fontFamily: {},
     },
   },
   plugins: [],
