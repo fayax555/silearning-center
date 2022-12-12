@@ -17,12 +17,12 @@ export default function Navbar() {
       <ul className='hidden md:flex'>
         {navItems.map(([item, color, hoverColor]) => (
           <li key={item}>
-            <a
-              href={`/${item.toLowerCase()}`}
+            <Link
+              href={`/${(item === 'HOME' ? '' : item).toLowerCase()}`}
               className={`block ${color} p-4 py-7 font-extrabold ${hoverColor}`}
             >
               {item}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
