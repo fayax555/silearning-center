@@ -17,7 +17,7 @@ export default function Features({ features }: { features: Feature[] }) {
             <Image
               height={120}
               width={120}
-              src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${image}`}
+              src={`${process.env.NEXT_PUBLIC_URL}/cms/assets/${image}`}
               alt={title ?? ''}
             />
             <h2 className='font-extrabold text-slate-800'>{title}</h2>

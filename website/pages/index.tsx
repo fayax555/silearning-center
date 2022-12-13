@@ -45,7 +45,9 @@ export default function Home({
 }
 
 export const getStaticProps = async () => {
-  const directus = new Directus('http://localhost:8055')
+  const nextUrl = process.env.NEXT_PUBLIC_URL
+  if (!nextUrl) throw new Error('NEXT_PUBLIC_URL is not defined')
+  const directus = new Directus(`${nextUrl}/cms/`)
 
   const featuresRes = await directus.items('features').readByQuery({
     fields: ['id', 'title', 'image'],

@@ -23,7 +23,7 @@ export default function ChooseClasses({ classes }: { classes: Class[] }) {
               <Image
                 height={480}
                 width={480}
-                src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${image}`}
+                src={`${process.env.NEXT_PUBLIC_URL}/cms/assets/${image}`}
                 alt={name ?? ''}
                 className='rounded-t-xl'
               />

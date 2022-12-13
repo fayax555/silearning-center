@@ -5,7 +5,7 @@ export default function AboutUs({ aboutUs }: { aboutUs: AboutUs }) {
   return (
     <section className='mx-auto grid max-w-[1200px] items-center gap-10 px-4 py-20 text-slate-700 md:grid-cols-2'>
       <Image
-        src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${aboutUs.image}`}
+        src={`${process.env.NEXT_PUBLIC_URL}/cms/assets/${aboutUs.image}`}
         alt=''
         width={1200}
         height={600}

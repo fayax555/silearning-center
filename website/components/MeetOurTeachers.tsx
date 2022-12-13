@@ -13,7 +13,7 @@ export default function MeetOurTeachers({ teachers }: { teachers: Teacher[] }) {
             <Image
               height={250}
               width={250}
-              src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${image}`}
+              src={`${process.env.NEXT_PUBLIC_URL}/cms/assets/${image}`}
               alt={name ?? ''}
               className='rounded-full'
             />
