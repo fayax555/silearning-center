@@ -1,62 +1,85 @@
-import Navbar from 'components/Navbar'
+import { Fragment } from 'react'
+import Layout from 'components/Layout'
+import Image from 'next/image'
+
+const programs = ['Baby Nursery', 'Nursery', 'LKG', 'UKG'] as const
+
+const formInputs = [
+  ['Student Name', 'studentName', 'text'],
+  ['Parent Name', 'parentName', 'text'],
+  ['Mobile Number', 'mobile', 'number'],
+] as const
 
 export default function Admission() {
   return (
-    <>
-      <Navbar />
+    <Layout title='Admission'>
+      <form className='mx-auto mt-20  max-w-[600px] rounded-md border-2 border-violet-400 p-10 [&>*]:block'>
+        {formInputs.map(([label, id, type]) => (
+          <Fragment key={label}>
+            <label htmlFor={id}>{label}</label>
+            <input
+              required
+              className='mt-1 mb-6 w-full rounded-md bg-slate-200 px-4 py-2'
+              type={type}
+              name={id}
+              id={id}
+              placeholder={label}
+            />
+          </Fragment>
+        ))}
 
-      <div>
-        <form className='mx-auto mt-20 max-w-[600px] rounded-md border-2 border-slate-400 p-10 [&>*]:block'>
-          <label htmlFor='studentName'>Student Name</label>
-          <input
-            className='mt-1 mb-6 w-full rounded-md bg-slate-200 px-4 py-2'
-            type='text'
-            name='studentName'
-            id='studentName'
-            placeholder='Student Name'
-          />
+        <label htmlFor='program'>Program</label>
+        <select
+          required
+          name='program'
+          id='program'
+          className='mt-2 w-full cursor-pointer rounded-md border-r-8 border-slate-200 bg-slate-200 px-4 py-2'
+        >
+          <option className='hidden' value=''>
+            Select Program
+          </option>
+          {programs.map((p) => (
+            <option key={p} value={p}>
+              {p}
+            </option>
+          ))}
+        </select>
 
-          <label htmlFor='parentName'>Parent Name</label>
-          <input
-            className='mt-1 mb-6 w-full rounded-md bg-slate-200 px-4 py-2'
-            type='text'
-            name='parentName'
-            id='parentName'
-            placeholder='Parent Name'
-          />
+        <button
+          type='submit'
+          className='mt-8 w-full rounded-md bg-violet-600 px-5 py-2 font-bold text-white'
+        >
+          Submit
+        </button>
+      </form>
 
-          <label htmlFor='mobile'>Mobile Number</label>
-          <input
-            className='mt-1 mb-6 w-full rounded-md bg-slate-200 px-4 py-2'
-            type='number'
-            name='mobile'
-            id='mobile'
-            placeholder='Mobile Number'
-          />
+      <div className='mx-auto mt-20 mb-80 max-w-[1000px] px-5 text-center'>
+        <h2 className='mb-6 text-4xl font-extrabold text-violet-800'>
+          Our Programs
+        </h2>
 
-          <label htmlFor='program'>Program</label>
-          <select
-            name='program'
-            id='program'
-            className='mt-2 w-full cursor-pointer rounded-md border-r-8 border-slate-200 bg-slate-200 px-4 py-2'
-          >
-            <option value=''>Select Program</option>
-            <option value=''>Program 1</option>
-            <option value=''>Program 2</option>
-          </select>
-
-          <button
-            type='submit'
-            className='mt-8 w-full rounded-md bg-violet-600 px-5 py-2 font-bold text-white'
-          >
-            Submit
-          </button>
-        </form>
-
-        <div className='mt-20 text-center'>
-          <h2 className='text-4xl font-bold text-slate-700'>Our Programs</h2>
-        </div>
+        <ul className='flex gap-5'>
+          {programs.map((p) => (
+            <li
+              key={p}
+              className='flex-1 rounded-md border-2 border-violet-500 p-7 font-semibold text-violet-800'
+            >
+              <Image
+                src={`/img/teachers/1.jpg`}
+                height={100}
+                width={100}
+                alt=''
+                className='mx-auto rounded-full'
+              />
+              <h2 className='mt-5 mb-2 text-xl font-bold'>{p}</h2>
+              <p className='text-sm'>
+                <span className='font-bold'>Age: </span>
+                <span>2-3 years</span>
+              </p>
+            </li>
+          ))}
+        </ul>
       </div>
-    </>
+    </Layout>
   )
 }

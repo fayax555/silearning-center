@@ -1,21 +1,15 @@
 import { Directus } from '@directus/sdk'
-import Navbar from 'components/Navbar'
+import Layout from 'components/Layout'
 import { GetServerSidePropsContext } from 'next'
 import Image from 'next/image'
-import React from 'react'
-import { Gallery, GallerySchema } from 'types'
+import { type Gallery, GallerySchema } from 'types'
 
 type GalleryPageProps = { gallery: Gallery & { images: string[] } }
 
 export default function GalleryPage({ gallery }: GalleryPageProps) {
   console.log(gallery)
   return (
-    <div className='mb-20'>
-      <Navbar />
-      <h1 className='mt-20 text-center text-4xl font-semibold'>
-        {gallery.title}
-      </h1>
-
+    <Layout title={gallery.title ?? ''}>
       <div className='mx-auto mt-20 grid max-w-[1200px] gap-10 px-4'>
         {gallery.images?.map((image) => (
           <Image
@@ -28,7 +22,7 @@ export default function GalleryPage({ gallery }: GalleryPageProps) {
           />
         ))}
       </div>
-    </div>
+    </Layout>
   )
 }
 

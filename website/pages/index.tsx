@@ -31,9 +31,11 @@ export default function Home({
     <div>
       <Navbar />
       <Hero />
+      <div className='bg-slate-50 pt-10'>
+        <AboutUs aboutUs={aboutUs} />
+      </div>
       <Features features={features} />
-      <AboutUs aboutUs={aboutUs} />
-      <SectionThree />
+      {/* <SectionThree /> */}
       <ChooseClasses classes={classes} />
       <MeetOurTeachers teachers={teachers} />
       <ParentReviews />
