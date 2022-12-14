@@ -1,5 +1,4 @@
 import { type InferGetStaticPropsType } from 'next'
-import { Directus } from '@directus/sdk'
 
 import Features from 'components/Features'
 import Hero from 'components/Hero'
@@ -19,7 +18,9 @@ import {
   GallerySchema,
   TeacherSchema,
 } from '../types'
+import Layout from 'components/Layout'
 
+import { Directus } from 'utils'
 export default function Home({
   features,
   teachers,
@@ -28,8 +29,7 @@ export default function Home({
   aboutUs,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div>
-      <Navbar />
+    <Layout title='SI Learning Centre' hideTitle>
       <Hero />
       <div className='bg-slate-50 pt-10'>
         <AboutUs aboutUs={aboutUs} />
@@ -42,14 +42,12 @@ export default function Home({
       <PhotoGallery gallery={gallery} />
       <EnrollChild />
       <Footer />
-    </div>
+    </Layout>
   )
 }
 
 export const getStaticProps = async () => {
-  const directusUrl = process.env.NEXT_PUBLIC_DIRECTUS_URL
-  if (!directusUrl) throw new Error('NEXT_PUBLIC_DIRECTUS_URL is not defined')
-  const directus = new Directus(directusUrl)
+  const directus = Directus()
 
   const featuresRes = await directus.items('features').readByQuery({
     fields: ['id', 'title', 'image'],

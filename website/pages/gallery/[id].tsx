@@ -1,8 +1,8 @@
-import { Directus } from '@directus/sdk'
 import Layout from 'components/Layout'
 import { GetServerSidePropsContext } from 'next'
 import Image from 'next/image'
 import { type Gallery, GallerySchema } from 'types'
+import { Directus } from 'utils'
 
 type GalleryPageProps = { gallery: Gallery & { images: string[] } }
 
@@ -27,9 +27,7 @@ export default function GalleryPage({ gallery }: GalleryPageProps) {
 }
 
 export async function getServerSideProps({ query }: GetServerSidePropsContext) {
-  const directusUrl = process.env.NEXT_PUBLIC_DIRECTUS_URL
-  if (!directusUrl) throw new Error('NEXT_PUBLIC_DIRECTUS_URL is not defined')
-  const directus = new Directus(directusUrl)
+  const directus = Directus()
 
   const galleryRes = await directus.items('gallery').readByQuery({
     fields: ['id', 'title'],

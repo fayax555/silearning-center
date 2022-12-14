@@ -1,6 +1,8 @@
 import { Fragment } from 'react'
 import Layout from 'components/Layout'
 import Image from 'next/image'
+import { Directus } from 'utils'
+import { ProgramSchema } from 'types'
 
 const programs = ['Baby Nursery', 'Nursery', 'LKG', 'UKG'] as const
 
@@ -54,7 +56,7 @@ export default function Admission() {
       </form>
 
       <div className='mx-auto mt-20 mb-80 max-w-[1000px] px-5 text-center'>
-        <h2 className='mb-6 text-4xl font-extrabold text-violet-800'>
+        <h2 className='mb-6 text-4xl font-extrabold text-violet-600'>
           Our Programs
         </h2>
 
@@ -82,4 +84,20 @@ export default function Admission() {
       </div>
     </Layout>
   )
+}
+
+export const getStaticProps = async () => {
+  const directus = Directus()
+
+  const programRes = await directus.items('programs').readByQuery({
+    fields: ['name', 'image', 'age'],
+  })
+
+  const program = ProgramSchema.parse(programRes.data)
+
+  console.log(program)
+
+  return {
+    props: {},
+  }
 }

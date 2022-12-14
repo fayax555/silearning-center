@@ -1,9 +1,19 @@
 import Head from 'next/head'
 import Navbar from './Navbar'
 
-type Props = { title: string; description?: string; children: React.ReactNode }
+type Props = {
+  title: string
+  description?: string
+  children: React.ReactNode
+  hideTitle?: true
+}
 
-export default function Layout({ title, description, children }: Props) {
+export default function Layout({
+  title,
+  description,
+  children,
+  hideTitle,
+}: Props) {
   return (
     <>
       <Head>
@@ -16,11 +26,13 @@ export default function Layout({ title, description, children }: Props) {
       </Head>
       <Navbar />
 
-      <div className='mx-auto mt-20 max-w-[1200px] px-4'>
-        <h1 className='text-center text-5xl font-bold text-violet-700'>
-          {title}
-        </h1>
-      </div>
+      {!hideTitle && (
+        <div className='mx-auto mt-20 max-w-[1200px] px-4'>
+          <h1 className='text-center text-6xl font-bold text-violet-700'>
+            {title}
+          </h1>
+        </div>
+      )}
       {children}
     </>
   )
