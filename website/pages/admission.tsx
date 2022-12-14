@@ -86,18 +86,18 @@ export default function Admission() {
   )
 }
 
-export const getStaticProps = async () => {
-  const directus = Directus()
+// export const getStaticProps = async () => {
+//   const directus = Directus()
 
-  const programRes = await directus.items('programs').readByQuery({
-    fields: ['name', 'image', 'age'],
-  })
+//   const programRes = await directus.items('programs').readByQuery({
+//     fields: ['name', 'image', 'age'],
+//   })
 
-  const program = ProgramSchema.parse(programRes.data)
+//   const program = ProgramSchema.parse(programRes.data)
 
-  console.log(program)
+//   console.log(program)
 
-  return {
-    props: {},
-  }
-}
+//   return {
+//     props: {},
+//   }
+// }
