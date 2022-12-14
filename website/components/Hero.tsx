@@ -9,8 +9,8 @@ export default function Hero() {
         "overlay relative mx-auto grid h-[710px] items-center bg-[url('/img/slide1-1.jpg')] bg-cover bg-center bg-no-repeat "
       }
     >
-      <div className='z-10 mx-auto grid  max-w-[1200px] gap-10 text-center md:w-full md:px-8'>
-        <h1 className=' text-4xl font-extrabold text-white sm:text-7xl'>
+      <div className='z-10 mx-auto grid  max-w-[1200px] gap-10 text-center md:w-full md:px-8 px-4'>
+        <h1 className='text-5xl leading-[1.1] font-extrabold text-white sm:text-7xl'>
           <span>WELCOME TO </span>
           <div className='text-[hsl(201,100%,60%)]'>SI LEARNING CENTER!</div>
         </h1>
