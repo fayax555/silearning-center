@@ -1,4 +1,4 @@
-export default function Admin() {
+export default function Cms() {
   if (typeof window === 'undefined') return null
 
   const directusUrl = process.env.NEXT_PUBLIC_DIRECTUS_URL

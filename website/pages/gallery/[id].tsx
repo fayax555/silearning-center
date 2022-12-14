@@ -20,7 +20,7 @@ export default function GalleryPage({ gallery }: GalleryPageProps) {
         {gallery.images?.map((image) => (
           <Image
             key={image}
-            src={`${process.env.NEXT_PUBLIC_URL}/cms/assets/${image}`}
+            src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${image}`}
             alt=''
             height={500}
             width={500}
@@ -33,9 +33,9 @@ export default function GalleryPage({ gallery }: GalleryPageProps) {
 }
 
 export async function getServerSideProps({ query }: GetServerSidePropsContext) {
-  const nextUrl = process.env.NEXT_PUBLIC_URL
-  if (!nextUrl) throw new Error('NEXT_PUBLIC_URL is not defined')
-  const directus = new Directus(`${nextUrl}/cms`)
+  const directusUrl = process.env.NEXT_PUBLIC_DIRECTUS_URL
+  if (!directusUrl) throw new Error('NEXT_PUBLIC_DIRECTUS_URL is not defined')
+  const directus = new Directus(directusUrl)
 
   const galleryRes = await directus.items('gallery').readByQuery({
     fields: ['id', 'title'],
