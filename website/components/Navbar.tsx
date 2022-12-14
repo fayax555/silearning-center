@@ -15,7 +15,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className='fixed inset-x-0 top-0 z-20 bg-white shadow-sm sm:shadow-none'>
+    <div className='fixed inset-x-0 top-0 z-20 bg-white shadow-sm'>
       <nav className='mx-auto max-w-[1200px] items-center justify-between px-4 py-1 sm:flex'>
         <div className='flex items-center justify-between sm:contents'>
           <Link href='/'>
