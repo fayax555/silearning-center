@@ -41,7 +41,7 @@ export const AboutUsSchema = z.object({
 })
 
 export const ProgramSchema = z.object({
-  name: z.string().nullable(),
+  name: z.string(),
   image: z.string().nullable(),
   age: z.string().nullable(),
 }).array()

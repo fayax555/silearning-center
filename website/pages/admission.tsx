@@ -3,8 +3,7 @@ import Layout from 'components/Layout'
 import Image from 'next/image'
 import { Directus } from 'utils'
 import { ProgramSchema } from 'types'
-
-const programs = ['Baby Nursery', 'Nursery', 'LKG', 'UKG'] as const
+import { InferGetStaticPropsType } from 'next'
 
 const formInputs = [
   ['Student Name', 'studentName', 'text'],
@@ -12,7 +11,9 @@ const formInputs = [
   ['Mobile Number', 'mobile', 'number'],
 ] as const
 
-export default function Admission() {
+export default function Admission({
+  programs,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout title='Admission'>
       <form className='mx-auto mt-20  max-w-[600px] rounded-md border-2 border-violet-400 p-10 [&>*]:block'>
@@ -41,8 +42,8 @@ export default function Admission() {
             Select Program
           </option>
           {programs.map((p) => (
-            <option key={p} value={p}>
-              {p}
+            <option key={p.name} value={p.name}>
+              {p.name}
             </option>
           ))}
         </select>
@@ -63,20 +64,20 @@ export default function Admission() {
         <ul className='flex gap-5'>
           {programs.map((p) => (
             <li
-              key={p}
+              key={p.name}
               className='flex-1 rounded-md border-2 border-violet-500 p-7 font-semibold text-violet-800'
             >
               <Image
-                src={`/img/teachers/1.jpg`}
+                src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${p.image}`}
                 height={100}
                 width={100}
                 alt=''
                 className='mx-auto rounded-full'
               />
-              <h2 className='mt-5 mb-2 text-xl font-bold'>{p}</h2>
+              <h2 className='mt-5 mb-2 text-xl font-bold'>{p.name}</h2>
               <p className='text-sm'>
                 <span className='font-bold'>Age: </span>
-                <span>2-3 years</span>
+                <span>{p.age}</span>
               </p>
             </li>
           ))}
@@ -86,18 +87,18 @@ export default function Admission() {
   )
 }
 
-// export const getStaticProps = async () => {
-//   const directus = Directus()
+export const getStaticProps = async () => {
+  const directus = Directus()
 
-//   const programRes = await directus.items('programs').readByQuery({
-//     fields: ['name', 'image', 'age'],
-//   })
+  const programRes = await directus.items('programs').readByQuery({
+    fields: ['name', 'image', 'age'],
+  })
 
-//   const program = ProgramSchema.parse(programRes.data)
+  const programs = ProgramSchema.parse(programRes.data)
 
-//   console.log(program)
+  console.log(programs)
 
-//   return {
-//     props: {},
-//   }
-// }
+  return {
+    props: { programs },
+  }
+}
