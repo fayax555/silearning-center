@@ -72,7 +72,7 @@ export default function Admission({
                 height={100}
                 width={100}
                 alt=''
-                className='mx-auto rounded-full'
+                className='mx-auto w-full rounded-md object-cover'
               />
               <h2 className='mt-5 mb-2 text-xl font-bold'>{p.name}</h2>
               <p className='text-sm'>
