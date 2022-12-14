@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { AiOutlineMenu } from 'react-icons/ai'
@@ -14,8 +14,21 @@ const navItems = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => window.scrollY > 0 ? setIsScrolled(true) : setIsScrolled(false)
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <div className='fixed inset-x-0 top-0 z-20 bg-white shadow-sm'>
+    <div
+      className={`fixed inset-x-0 top-0 z-20 bg-white ${
+        isScrolled && 'shadow-sm'
+      }`}
+    >
       <nav className='mx-auto max-w-[1200px] items-center justify-between px-4 py-1 sm:flex'>
         <div className='flex items-center justify-between sm:contents'>
           <Link href='/'>
