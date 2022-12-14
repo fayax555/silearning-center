@@ -28,7 +28,7 @@ export default function Layout({
 
       {!hideTitle && (
         <div className='mx-auto mt-20 max-w-[1200px] px-4'>
-          <h1 className='text-center text-6xl font-bold text-violet-700'>
+          <h1 className='text-center text-4xl sm:text-6xl font-bold text-violet-700'>
             {title}
           </h1>
         </div>

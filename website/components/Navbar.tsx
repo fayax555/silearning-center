@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { AiOutlineMenu } from 'react-icons/ai'
 
 const navItems = [
   ['HOME', 'text-red-600', 'hover:bg-red-50'],
@@ -10,23 +12,38 @@ const navItems = [
 ] as const
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <nav className='mx-auto flex max-w-[1200px]  items-center justify-between px-4'>
-      <Link href='/'>
-        <Image height={150} width={150} src='/img/silogo.svg' alt='' />
-      </Link>
-      <ul className='hidden md:flex'>
-        {navItems.map(([item, color, hoverColor]) => (
-          <li key={item}>
-            <Link
-              href={`/${(item === 'HOME' ? '' : item).toLowerCase()}`}
-              className={`block ${color} p-4 py-7 font-extrabold ${hoverColor}`}
-            >
-              {item}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div className='fixed inset-x-0 top-0 z-20 bg-white shadow-sm sm:shadow-none'>
+      <nav className='mx-auto max-w-[1200px] items-center justify-between px-4 py-1 sm:flex'>
+        <div className='flex items-center justify-between sm:contents'>
+          <Link href='/'>
+            <Image height={150} width={150} src='/img/silogo.svg' alt='' />
+          </Link>
+          <AiOutlineMenu
+            className='block text-2xl text-blue-800 sm:hidden'
+            onClick={() => setIsOpen(!isOpen)}
+          />
+        </div>
+
+        <ul
+          className={`${
+            isOpen ? 'block' : 'hidden'
+          } absolute inset-x-0 top-16 z-20 mx-2 rounded-md  bg-white py-5 text-center  sm:static sm:flex sm:py-0 `}
+        >
+          {navItems.map(([item, color, hoverColor]) => (
+            <li key={item}>
+              <Link
+                href={`/${(item === 'HOME' ? '' : item).toLowerCase()}`}
+                className={`block ${color} p-4 font-extrabold sm:py-7 ${hoverColor}`}
+              >
+                {item}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
   )
 }

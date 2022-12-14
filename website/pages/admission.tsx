@@ -16,7 +16,7 @@ export default function Admission({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout title='Admission'>
-      <form className='mx-auto mt-20  max-w-[600px] rounded-md border-2 border-violet-400 p-10 [&>*]:block'>
+      <form className='mx-4 mt-20 max-w-[600px]  rounded-md border-2 border-violet-400 px-4 py-8 sm:mx-auto sm:p-10 [&>*]:block'>
         {formInputs.map(([label, id, type]) => (
           <Fragment key={label}>
             <label htmlFor={id}>{label}</label>
@@ -56,12 +56,12 @@ export default function Admission({
         </button>
       </form>
 
-      <div className='mx-auto mt-20 mb-80 max-w-[1000px] px-5 text-center'>
-        <h2 className='mb-6 text-4xl font-extrabold text-violet-600'>
+      <div className='mx-auto mt-20 mb-80 max-w-[1200px] px-5 text-center'>
+        <h2 className='mb-6 text-3xl font-extrabold text-violet-600 sm:text-4xl'>
           Our Programs
         </h2>
 
-        <ul className='flex gap-5'>
+        <ul className='flex flex-col gap-5 sm:flex-row'>
           {programs.map((p) => (
             <li
               key={p.name}
@@ -95,8 +95,6 @@ export const getStaticProps = async () => {
   })
 
   const programs = ProgramSchema.parse(programRes.data)
-
-  console.log(programs)
 
   return {
     props: { programs },

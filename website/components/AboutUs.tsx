@@ -5,7 +5,9 @@ export default function AboutUs({ aboutUs }: { aboutUs: AboutUs }) {
   return (
     <section className='mx-auto grid max-w-[1200px] items-center gap-10 px-4 py-20 text-slate-700 md:grid-cols-2'>
       <div className='grid gap-10'>
-        <h2 className='font-nunito text-4xl font-bold md:text-6xl'>About Us</h2>
+        <h2 className='font-nunito text-center text-4xl font-bold sm:text-left md:text-6xl'>
+          About Us
+        </h2>
         <p>{aboutUs.text}</p>
         {/* <a
           href='#'

@@ -7,7 +7,6 @@ import { Directus } from 'utils'
 type GalleryPageProps = { gallery: Gallery & { images: string[] } }
 
 export default function GalleryPage({ gallery }: GalleryPageProps) {
-  console.log(gallery)
   return (
     <Layout title={gallery.title ?? ''}>
       <div className='mb-32 mx-auto mt-20 grid max-w-[1200px] gap-10 px-4'>
