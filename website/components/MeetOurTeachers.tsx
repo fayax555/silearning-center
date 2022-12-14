@@ -3,11 +3,11 @@ import type { Teacher } from 'types'
 
 export default function MeetOurTeachers({ teachers }: { teachers: Teacher[] }) {
   return (
-    <section className='mx-auto max-w-[1200px] py-24 px-8 text-slate-700'>
+    <section className='mx-auto max-w-[1200px] px-4 pb-36 pt-10 text-slate-700 sm:px-8'>
       <h2 className='text-center text-3xl font-bold md:text-4xl'>
         MEET OUR TEACHERS
       </h2>
-      <ul className='mt-16 grid justify-center justify-items-center gap-16 text-center md:grid-flow-col'>
+      <ul className='mt-12 grid justify-center justify-items-center gap-16 text-center md:grid-flow-col'>
         {teachers.map(({ id, image, name, title }) => (
           <li key={id} className=''>
             <Image

@@ -16,7 +16,7 @@ export default function Admission({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout title='Admission'>
-      <form className='mx-4 mt-20 max-w-[600px]  rounded-md border-2 border-violet-400 px-4 py-8 sm:mx-auto sm:p-10 [&>*]:block'>
+      <form className='mx-4 mt-14 max-w-[600px]  rounded-md border-2 border-violet-400 px-4 py-8 sm:mx-auto sm:p-10 [&>*]:block'>
         {formInputs.map(([label, id, type]) => (
           <Fragment key={label}>
             <label htmlFor={id}>{label}</label>

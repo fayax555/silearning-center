@@ -14,7 +14,7 @@ export default function ChooseClasses({ classes }: { classes: Class[] }) {
         <h2 className='text-center text-3xl font-bold md:text-4xl'>
           CLASSES
         </h2>
-        <ul className='mt-20 grid gap-10 md:grid-cols-3'>
+        <ul className='mt-12 grid gap-10 md:grid-cols-3'>
           {classes.map(({ id, name, age_group, class_size, image }, idx) => (
             <li
               key={id}

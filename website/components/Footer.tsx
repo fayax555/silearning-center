@@ -23,9 +23,9 @@ const SocialIcons = [
 
 export default function Footer() {
   return (
-    <footer className='bg-purple-600 py-24 text-center text-white'>
-      <h2 className='text-4xl md:text-6xl'>KINDERGARTEN</h2>
-      <div className='grid gap-6 px-4 pt-14 text-sm font-semibold'>
+    <footer className='bg-purple-600 py-16 text-center text-white'>
+      <h2 className='text-4xl md:text-6xl font-bold'>SI Learning Center</h2>
+      <div className='grid gap-6 px-4 pt-12 text-sm font-semibold'>
         {contactDetails.map(([Icon, text]) => (
           <div key={text} className='flex items-center justify-center gap-2'>
             <Icon size={16} />

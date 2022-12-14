@@ -2,14 +2,11 @@ import { type InferGetStaticPropsType } from 'next'
 
 import Features from 'components/Features'
 import Hero from 'components/Hero'
-import Navbar from 'components/Navbar'
 import AboutUs from 'components/AboutUs'
-import SectionThree from 'components/SectionThree'
 import ChooseClasses from 'components/ChooseClasses'
 import MeetOurTeachers from 'components/MeetOurTeachers'
 import ParentReviews from 'components/ParentReviews'
 import PhotoGallery from 'components/PhotoGallery'
-import EnrollChild from 'components/EnrollChild'
 import Footer from 'components/Footer'
 import {
   AboutUsSchema,
@@ -35,12 +32,10 @@ export default function Home({
         <AboutUs aboutUs={aboutUs} />
       </div>
       <Features features={features} />
-      {/* <SectionThree /> */}
       <ChooseClasses classes={classes} />
       <MeetOurTeachers teachers={teachers} />
       <ParentReviews />
       <PhotoGallery gallery={gallery} />
-      <EnrollChild />
       <Footer />
     </Layout>
   )

@@ -13,11 +13,11 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => window.scrollY > 0 ? setIsScrolled(true) : setIsScrolled(false)
+    const handleScroll = () =>
+      window.scrollY > 0 ? setIsScrolled(true) : setIsScrolled(false)
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -26,13 +26,13 @@ export default function Navbar() {
   return (
     <div
       className={`fixed inset-x-0 top-0 z-20 bg-white ${
-        isScrolled && 'shadow-sm'
+        (isScrolled || isOpen) && 'shadow-sm'
       }`}
     >
-      <nav className='mx-auto max-w-[1200px] items-center justify-between px-4 py-1 sm:flex'>
+      <nav className='mx-auto max-w-[1200px] items-center justify-between px-4 py-2 sm:flex'>
         <div className='flex items-center justify-between sm:contents'>
           <Link href='/'>
-            <Image height={150} width={150} src='/img/silogo.svg' alt='' />
+            <Image height={110} width={110} src='/img/silogo.svg' alt='' />
           </Link>
           <AiOutlineMenu
             className='block text-2xl text-blue-800 sm:hidden'
@@ -43,7 +43,7 @@ export default function Navbar() {
         <ul
           className={`${
             isOpen ? 'block' : 'hidden'
-          } absolute inset-x-0 top-16 z-20 mx-2 rounded-md  bg-white py-5 text-center  sm:static sm:flex sm:py-0 `}
+          } absolute inset-x-0 top-16 z-20 mx-2 rounded-md  bg-white py-5 text-center  shadow-md sm:static sm:flex sm:py-0 sm:shadow-none`}
         >
           {navItems.map(([item, color, hoverColor]) => (
             <li key={item}>
