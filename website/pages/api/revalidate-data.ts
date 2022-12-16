@@ -23,7 +23,7 @@ export default async function handler(
     await res.revalidate('/admission')
     await res.revalidate('/gallery')
 
-    galleryList.forEach(async ({id}) => {
+    galleryList.forEach(async ({ id }) => {
       await res.revalidate(`/gallery/${id}`)
     })
 

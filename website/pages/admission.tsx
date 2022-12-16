@@ -1,23 +1,49 @@
-import { Fragment } from 'react'
-import Layout from 'components/Layout'
+import { Fragment, type FormEvent, useState } from 'react'
+import { type InferGetStaticPropsType } from 'next'
 import Image from 'next/image'
+
+import Layout from 'components/Layout'
 import { Directus } from 'utils'
 import { ProgramSchema } from 'types'
-import { InferGetStaticPropsType } from 'next'
-
-const formInputs = [
-  ['Student Name', 'studentName', 'text'],
-  ['Parent Name', 'parentName', 'text'],
-  ['Mobile Number', 'mobile', 'number'],
-] as const
+import { z } from 'zod'
 
 export default function Admission({
   programs,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const [studentName, setStudentName] = useState('')
+  const [parentName, setParentName] = useState('')
+  const [mobile, setMobile] = useState('')
+  const [program, setProgram] = useState('')
+
+  const formInputs = [
+    ['Student Name', 'studentName', 'text', setStudentName],
+    ['Parent Name', 'parentName', 'text', setParentName],
+    ['Mobile Number', 'mobile', 'number', setMobile],
+  ] as const
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+
+    const res = await fetch('/api/admission', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ studentName, parentName, mobile, program }),
+    })
+
+    if (res.ok) {
+      alert('Form submitted successfully')
+    } else {
+      alert('Failed to submit form')
+    }
+  }
+
   return (
     <Layout title='Admission'>
-      <form className='mx-4 mt-14 max-w-[600px]  rounded-md border-2 border-violet-400 px-4 py-8 sm:mx-auto sm:p-10 [&>*]:block'>
-        {formInputs.map(([label, id, type]) => (
+      <form
+        onSubmit={handleSubmit}
+        className='mx-4 mt-14 max-w-[600px]  rounded-md border-2 border-violet-400 px-4 py-8 sm:mx-auto sm:p-10 [&>*]:block'
+      >
+        {formInputs.map(([label, id, type, setter]) => (
           <Fragment key={label}>
             <label htmlFor={id}>{label}</label>
             <input
@@ -27,6 +53,7 @@ export default function Admission({
               name={id}
               id={id}
               placeholder={label}
+              onChange={(e) => setter(e.target.value)}
             />
           </Fragment>
         ))}
@@ -34,9 +61,10 @@ export default function Admission({
         <label htmlFor='program'>Program</label>
         <select
           required
-          name='program'
           id='program'
           className='mt-2 w-full cursor-pointer rounded-md border-r-8 border-slate-200 bg-slate-200 px-4 py-2'
+          onChange={(e) => setProgram(e.target.value)}
+          value={program}
         >
           <option className='hidden' value=''>
             Select Program
