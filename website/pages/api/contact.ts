@@ -4,7 +4,7 @@ import { z } from 'zod'
 
 const ContactSchema = z.object({
   name: z.string().min(2),
-  mobile: z.string().min(7),
+  mobile: z.string().min(7).max(7),
   message: z.string().min(2),
 })
 

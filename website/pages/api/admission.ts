@@ -5,7 +5,7 @@ import { z } from 'zod'
 const AdmissionSchema = z.object({
   studentName: z.string().min(2),
   parentName: z.string().min(2),
-  mobile: z.string().min(7),
+  mobile: z.string().min(7).max(7),
   program: z.string().min(2),
 })
 

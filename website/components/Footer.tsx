@@ -22,7 +22,7 @@ export default function Footer() {
       <div className='mx-auto flex max-w-[1200px] flex-col items-center justify-evenly gap-10 px-4 sm:flex-row sm:gap-4'>
         <div>
           <h2 className='text-2xl font-bold mb-4'>SI Learning Center</h2>
-          <p className='text-sm'>&copy; 2022, All Rights Reserved</p>
+          <p className='text-sm'>&copy; 2022. All Rights Reserved</p>
         </div>
         <div className='px-4text-sm grid gap-6 font-semibold'>
           {contactDetails.map(([Icon, text]) => (

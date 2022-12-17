@@ -1,6 +1,7 @@
 import { Fragment, type FormEvent, useState } from 'react'
 import { type InferGetStaticPropsType } from 'next'
 import Image from 'next/image'
+import { toast } from 'react-hot-toast'
 
 import Layout from 'components/Layout'
 import { Directus } from 'utils'
@@ -14,6 +15,7 @@ export default function Admission({
   const [mobile, setMobile] = useState('')
   const [program, setProgram] = useState('')
   const [error, setError] = useState({ id: '', text: '' })
+  const [submitting, setSubmitting] = useState(false)
 
   const formInputs = [
     ['Student Name', 'studentName', 'text', studentName, setStudentName],
@@ -24,27 +26,35 @@ export default function Admission({
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
 
-    if (mobile.length !== 7) {
-      setError({
-        id: 'mobile',
-        text: 'Mobile number must be 7 digits',
+    try {
+      setSubmitting(true)
+
+      if (mobile.length !== 7) {
+        setError({
+          id: 'mobile',
+          text: 'Mobile number must be 7 digits',
+        })
+
+        return setTimeout(() => {
+          setError({ id: '', text: '' })
+        }, 3000)
+      }
+
+      const res = await fetch('/api/admission', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ studentName, parentName, mobile, program }),
       })
 
-      return setTimeout(() => {
-        setError({ id: '', text: '' })
-      }, 3000)
-    }
-
-    const res = await fetch('/api/admission', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ studentName, parentName, mobile, program }),
-    })
-
-    if (res.ok) {
-      alert('Form submitted successfully')
-    } else {
-      alert('Failed to submit form')
+      if (res.ok) {
+        toast.success('Form submitted successfully')
+      } else {
+        toast.error('Failed to submit form')
+      }
+    } catch (error) {
+      toast.error('Failed to submit form')
+    } finally {
+      setSubmitting(false)
     }
   }
 
@@ -57,7 +67,9 @@ export default function Admission({
         {formInputs.map(([label, id, type, val, setVal]) => (
           <Fragment key={label}>
             <div className='flex items-center gap-5'>
-              <label htmlFor={id} className='bg-slate-200 min-w-[120px]'>{label}</label>
+              <label htmlFor={id} className='min-w-[120px]'>
+                {label}
+              </label>
               {id === error.id && (
                 <p className='text-xs text-red-700'>{error.text}</p>
               )}
@@ -109,10 +121,13 @@ export default function Admission({
         </select>
 
         <button
+          disabled={submitting}
           type='submit'
-          className='mt-8 w-full rounded-md bg-violet-600 px-5 py-2 font-bold text-white transition hover:bg-violet-800'
+          className={`mt-6 w-full rounded-md ${
+            submitting ? 'bg-slate-500' : 'bg-violet-600 hover:bg-violet-800'
+          } px-5 py-2 font-bold text-white transition `}
         >
-          Submit
+          {submitting ? 'Submitting...' : 'Submit'}
         </button>
       </form>
 

@@ -1,11 +1,13 @@
 import Layout from 'components/Layout'
-import { FormEvent, Fragment, useState } from 'react' // 67 lines
+import { FormEvent, Fragment, useState } from 'react'
+import { toast } from 'react-hot-toast'
 
 export default function ContactPage() {
   const [name, setName] = useState('')
   const [mobile, setMobile] = useState('')
   const [message, setMessage] = useState('')
   const [error, setError] = useState({ id: '', text: '' })
+  const [submitting, setSubmitting] = useState(false)
 
   const formInputs = [
     ['Name', 'name', 'text', name, setName],
@@ -15,27 +17,35 @@ export default function ContactPage() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
 
-    if (mobile.length !== 7) {
-      setError({
-        id: 'mobile',
-        text: 'Mobile number must be 7 digits',
+    try {
+      if (mobile.length !== 7) {
+        setError({
+          id: 'mobile',
+          text: 'Mobile number must be 7 digits',
+        })
+
+        return setTimeout(() => {
+          setError({ id: '', text: '' })
+        }, 3000)
+      }
+
+      setSubmitting(true)
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, mobile, message }),
       })
 
-      return setTimeout(() => {
-        setError({ id: '', text: '' })
-      }, 3000)
-    }
-
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, mobile, message }),
-    })
-
-    if (res.ok) {
-      alert('Form submitted successfully')
-    } else {
-      alert('Failed to submit form')
+      if (res.ok) {
+        toast.success('Form submitted successfully')
+      } else {
+        toast.error('Failed to submit form')
+      }
+    } catch (error) {
+      toast.error('Failed to submit form')
+    } finally {
+      setSubmitting(false)
     }
   }
 
@@ -91,10 +101,13 @@ export default function ContactPage() {
           />
 
           <button
+            disabled={submitting}
             type='submit'
-            className='mt-6 w-full rounded-md bg-violet-600 px-5 py-2 font-bold text-white transition hover:bg-violet-800'
+            className={`mt-6 w-full rounded-md ${
+              submitting ? 'bg-slate-500' : 'bg-violet-600 hover:bg-violet-800'
+            } px-5 py-2 font-bold text-white transition `}
           >
-            Send Message
+            {submitting ? 'Sending Message...' : 'Send Message'}
           </button>
         </form>
       </div>
