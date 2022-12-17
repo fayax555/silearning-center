@@ -3,31 +3,21 @@ import Footer from './Footer'
 import Navbar from './Navbar'
 import { NextSeo } from 'next-seo'
 
-type Props = {
-  title: string
-  description?: string
-  children: React.ReactNode
-  hideTitle?: true
-}
+type Props = { title: string; children: React.ReactNode; hideTitle?: true }
 
-export default function Layout({
-  title,
-  description,
-  children,
-  hideTitle,
-}: Props) {
+export default function Layout({ title, children, hideTitle }: Props) {
   return (
     <>
       <Head>
         <title>{title}</title>
         <NextSeo
-          description='SILC is a learning centre to teach kids. We focus on improving their motor skills and building a strong foundation for their future.'
+          description='SILC is a learning center to teach kids. We focus on improving their motor skills and building a strong foundation for their future.'
           canonical='https://silearning.center'
           openGraph={{
             url: 'https://silearning.center',
             title: 'SI Learning Center',
             description:
-              'SILC is a learning centre to teach kids. We focus on improving their motor skills and building a strong foundation for their future.',
+              'SILC is a learning center to teach kids. We focus on improving their motor skills and building a strong foundation for their future.',
             images: [
               {
                 url: '/logo.svg',
@@ -40,7 +30,7 @@ export default function Layout({
             site_name: 'SI Learning Center',
           }}
         />
-       
+
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Navbar />

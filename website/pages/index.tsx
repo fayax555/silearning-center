@@ -25,7 +25,7 @@ export default function Home({
   aboutUs,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Layout title='SI Learning Centre' hideTitle>
+    <Layout title='SI Learning Center' hideTitle>
       <Hero />
       <div className='bg-slate-50 pt-10'>
         <AboutUs aboutUs={aboutUs} />

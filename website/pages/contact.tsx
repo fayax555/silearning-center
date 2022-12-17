@@ -5,16 +5,26 @@ export default function ContactPage() {
   const [name, setName] = useState('')
   const [mobile, setMobile] = useState('')
   const [message, setMessage] = useState('')
+  const [error, setError] = useState({ id: '', text: '' })
 
   const formInputs = [
-    ['Name', 'name', 'text', setName],
-    ['Mobile Number', 'mobile', 'number', setMobile],
+    ['Name', 'name', 'text', name, setName],
+    ['Mobile Number', 'mobile', 'number', mobile, setMobile],
   ] as const
-
-  console.log({ name, mobile, message })
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
+
+    if (mobile.length !== 7) {
+      setError({
+        id: 'mobile',
+        text: 'Mobile number must be 7 digits',
+      })
+
+      return setTimeout(() => {
+        setError({ id: '', text: '' })
+      }, 3000)
+    }
 
     const res = await fetch('/api/contact', {
       method: 'POST',
@@ -34,24 +44,46 @@ export default function ContactPage() {
       <div className='mb-40'>
         <form
           onSubmit={handleSubmit}
-          className='mx-4 mt-14 max-w-[600px]  rounded-md border-2 border-violet-400 px-4 py-8 sm:mx-auto sm:p-10 [&>*]:block'
+          className='mx-4 mt-14 max-w-[600px] rounded-md border-2 border-violet-400 px-4 py-8 sm:mx-auto sm:p-10'
         >
-          {formInputs.map(([label, id, type, setter]) => (
+          {formInputs.map(([label, id, type, val, setVal]) => (
             <Fragment key={label}>
-              <label htmlFor={id}>{label}</label>
+              <div className='flex items-center gap-5'>
+                <label htmlFor={id}>{label}</label>
+                {id === error.id && (
+                  <p className='text-sm text-red-700'>{error.text}</p>
+                )}
+              </div>
               <input
                 required
                 className='mt-1 mb-6 w-full rounded-md border-2 bg-slate-200 px-4 py-2 outline-violet-600'
                 type={type}
                 placeholder={label}
                 id={id}
-                onChange={(e) => setter(e.target.value)}
+                value={val}
+                onChange={(e) => {
+                  if (id === 'mobile') {
+                    if (e.target.value.length > 7) {
+                      setError({
+                        id: 'mobile',
+                        text: 'Mobile number cannot be more than 7 digits',
+                      })
+
+                      return setTimeout(() => {
+                        setError({ id: '', text: '' })
+                      }, 3000)
+                    }
+                  }
+
+                  setVal(e.target.value)
+                }}
               />
             </Fragment>
           ))}
 
           <label htmlFor='message'>Message</label>
           <textarea
+            required
             id='message'
             placeholder='Message'
             onChange={(e) => setMessage(e.target.value)}
@@ -60,7 +92,7 @@ export default function ContactPage() {
 
           <button
             type='submit'
-            className='mt-8 w-full rounded-md bg-violet-600 px-5 py-2 font-bold text-white transition hover:bg-violet-800'
+            className='mt-6 w-full rounded-md bg-violet-600 px-5 py-2 font-bold text-white transition hover:bg-violet-800'
           >
             Send Message
           </button>
