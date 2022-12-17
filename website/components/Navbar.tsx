@@ -8,7 +8,7 @@ const navItems = [
   ['ADMISSION', 'text-[hsl(308,95%,40%)]', 'hover:bg-purple-50'],
   // ['TIMETABLE', 'text-blue-600', 'hover:bg-blue-50'],
   ['GALLERY', 'text-[hsl(113,85%,29%)]', 'hover:bg-green-50'],
-  // ['CONTACT', 'text-[hsl(204,83%,47%)]', 'hover:bg-[hsl(204,83%,96%)]'],
+  ['CONTACT', 'text-[hsl(204,83%,47%)]', 'hover:bg-[hsl(204,83%,96%)]'],
 ] as const
 
 export default function Navbar() {

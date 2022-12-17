@@ -27,32 +27,33 @@ export default async function handler(
 
   // send mail with defined transport object
   const info = await transporter.sendMail({
-    from: '"Hassan Fayaz1" <fayax555@gmail.com>', // sender address
+    from: '"Admission @ lomamv" <fayax555@gmail.com>', // sender address
     to: 'hfayax5@gmail.com', // list of receivers
     subject: 'Admission Form Received', // Subject line
-    html: `
-          <div style='font-family: Lucida Sans Unicode;'>
-            <h1 style='font-size: 1.25rem; font-weight: bold; margin:0; padding:0;'>Admission Form Details</h1>
-            <ul style='padding:0; margin:0; font-size: 1rem; margin-top:1rem;'>
-              <li style= 'display: flex; margin:0; margin-top:0.4rem'>
-                <span style= 'width: 150px; font-weight: 600; color: #434446;'>Student Name</span>
+    html: /*html*/ `
+          <div style='margin:3rem auto; max-width:300px; padding:2rem; border:1px solid #475569; border-radius:10px; color:#1e293b; 
+          font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot; !important;'>
+          <h2 style="box-sizing: border-box; margin-top: 0px; margin-bottom: 0px; font-size: 20px; font-weight: 600; line-height: 1.25 !important;">Admission Form Details</h2>
+            <ul style='padding:0; margin:0; font-size: 16px; margin-top:1.75rem; line-height:1.6;'>
+              <li style='display: flex; margin:0; margin-top:0.4rem'>
+                <span style= 'width: 150px; font-weight: 600;'>Student Name</span>
                 <span>${studentName}</span>
               </li>
-              <li style= 'display: flex; margin:0; margin-top:0.4rem'>
-                <span style= 'width: 150px; font-weight: 700; color: #434446;'>Parent Name</span>
+              <li style='display: flex; margin:0; margin-top:0.4rem'>
+                <span style='width: 150px; font-weight: 600;'>Parent Name</span>
                 <span>${parentName}</span>
               </li>
-              <li style= 'display: flex; margin:0; margin-top:0.4rem'>
-                <span style= 'width: 150px; font-weight: bold; color: #434446;'>Mobile Number</span>
-                <span>${mobile}</span>
+              <li style='display: flex; margin:0; margin-top:0.4rem'>
+                <span style='width: 150px; font-weight: 600;'>Mobile Number</span>
+                <a href='tel:${mobile}'>${mobile}</a>
               </li>
-              <li style= 'display: flex; margin:0; margin-top:0.4rem'>
-                <span style= 'width: 150px; font-weight: bold; color: #434446;'>Program</span>
+              <li style='display: flex; margin:0; margin-top:0.4rem'>
+                <span style='width: 150px; font-weight: 600;'>Program</span>
                 <span>${program}</span>
               </li>
             </ul>
           </div>
-    `, // html body
+    `,
   })
 
   console.log('Message sent: %s', info.messageId)
