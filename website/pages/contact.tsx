@@ -39,6 +39,9 @@ export default function ContactPage() {
 
       if (res.ok) {
         toast.success('Form submitted successfully')
+        setName('')
+        setMobile('')
+        setMessage('')
       } else {
         toast.error('Failed to submit form')
       }

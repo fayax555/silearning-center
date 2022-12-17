@@ -48,6 +48,10 @@ export default function Admission({
 
       if (res.ok) {
         toast.success('Form submitted successfully')
+        setStudentName('')
+        setParentName('')
+        setMobile('')
+        setProgram('')
       } else {
         toast.error('Failed to submit form')
       }
