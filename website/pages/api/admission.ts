@@ -20,18 +20,18 @@ export default async function handler(
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'fayax555@gmail.com',
-      pass: 'qobwgswzapmqxqgm',
+      user: 'silearningcenterwebsite@gmail.com',
+      pass: 'vceyuwwnqjswincj',
     },
   })
 
   // send mail with defined transport object
   const info = await transporter.sendMail({
-    from: '"Admission @ lomamv" <fayax555@gmail.com>', // sender address
+    from: '"SI Learning Center" <silearningcenterwebsite@gmail.com>', // sender address
     to: 'hfayax5@gmail.com', // list of receivers
     subject: 'Admission Form Received', // Subject line
     html: /*html*/ `
-          <div style='margin:3rem auto; max-width:300px; padding:2rem; border:1px solid #475569; border-radius:10px; color:#1e293b; 
+          <div style='margin:3rem auto; max-width:300px; padding:2rem; border:1px solid #94a3b8; border-radius:10px; color:#1e293b; 
           font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot; !important;'>
           <h2 style="box-sizing: border-box; margin-top: 0px; margin-bottom: 0px; font-size: 20px; font-weight: 600; line-height: 1.25 !important;">Admission Form Details</h2>
             <ul style='padding:0; margin:0; font-size: 16px; margin-top:1.75rem; line-height:1.6;'>

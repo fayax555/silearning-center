@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Footer from './Footer'
 import Navbar from './Navbar'
+import { NextSeo } from 'next-seo'
 
 type Props = {
   title: string
@@ -19,10 +20,27 @@ export default function Layout({
     <>
       <Head>
         <title>{title}</title>
-        <meta
-          name='description'
-          content={description ?? 'SILC is a learning centre to teach kids.'}
+        <NextSeo
+          description='SILC is a learning centre to teach kids. We focus on improving their motor skills and building a strong foundation for their future.'
+          canonical='https://silearning.center'
+          openGraph={{
+            url: 'https://silearning.center',
+            title: 'SI Learning Center',
+            description:
+              'SILC is a learning centre to teach kids. We focus on improving their motor skills and building a strong foundation for their future.',
+            images: [
+              {
+                url: '/logo.svg',
+                width: 733,
+                height: 322,
+                alt: 'SI Learning Center logo',
+                type: 'image',
+              },
+            ],
+            site_name: 'SI Learning Center',
+          }}
         />
+       
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Navbar />

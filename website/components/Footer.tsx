@@ -5,7 +5,7 @@ import { MdMail } from 'react-icons/md'
 import { AiFillPhone } from 'react-icons/ai'
 
 const contactDetails = [
-  [MdMail, 'contact@lomamv.com'],
+  [MdMail, 'contact@silearning.center'],
   [AiFillPhone, '7777777'],
 ] as const
 
