@@ -11,7 +11,7 @@ export default function GalleryPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout title='Gallery'>
-      <div className='mt-16 grid justify-center gap-10 md:grid-flow-col'>
+      <div className='mt-16 mb-40 grid justify-center gap-10 md:grid-flow-col'>
         {gallery.map(({ id, title, thumbnail }) => (
           <Link
             href={`/gallery/${id}`}
@@ -39,7 +39,7 @@ export default function GalleryPage({
 }
 
 export const getStaticProps = async () => {
-  const directus =  Directus()
+  const directus = Directus()
 
   const galleryRes = await directus.items('gallery').readByQuery({
     fields: ['id', 'title', 'thumbnail'],
@@ -47,7 +47,5 @@ export const getStaticProps = async () => {
 
   const gallery = GallerySchema.parse(galleryRes.data)
 
-  return {
-    props: { gallery },
-  }
+  return { props: { gallery } }
 }

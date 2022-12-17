@@ -84,7 +84,7 @@ export default function Admission({
         </button>
       </form>
 
-      <div className='mx-auto mt-20 mb-80 max-w-[1200px] px-5 text-center'>
+      <div className='mx-auto mt-20 mb-40 max-w-[1200px] px-5 text-center'>
         <h2 className='mb-6 text-3xl font-extrabold text-violet-600 sm:text-4xl'>
           Our Programs
         </h2>

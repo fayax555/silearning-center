@@ -7,7 +7,6 @@ import ChooseClasses from 'components/ChooseClasses'
 import MeetOurTeachers from 'components/MeetOurTeachers'
 import ParentReviews from 'components/ParentReviews'
 import PhotoGallery from 'components/PhotoGallery'
-import Footer from 'components/Footer'
 import {
   AboutUsSchema,
   ClassSchema,
@@ -36,7 +35,6 @@ export default function Home({
       <MeetOurTeachers teachers={teachers} />
       <ParentReviews />
       <PhotoGallery gallery={gallery} />
-      <Footer />
     </Layout>
   )
 }

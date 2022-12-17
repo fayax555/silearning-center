@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Footer from './Footer'
 import Navbar from './Navbar'
 
 type Props = {
@@ -36,6 +37,8 @@ export default function Layout({
         )}
         {children}
       </div>
+
+      <Footer />
     </>
   )
 }

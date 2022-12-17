@@ -1,5 +1,5 @@
 import Layout from 'components/Layout'
-import {  GetStaticPropsContext } from 'next'
+import { GetStaticPropsContext } from 'next'
 import Image from 'next/image'
 import { type Gallery, GallerySchema } from 'types'
 import { Directus } from 'utils'
@@ -9,7 +9,7 @@ type GalleryPageProps = { gallery: Gallery & { images: string[] } }
 export default function GalleryPage({ gallery }: GalleryPageProps) {
   return (
     <Layout title={gallery.title ?? ''}>
-      <div className='mb-32 mx-auto mt-20 grid max-w-[1200px] gap-10 px-4'>
+      <div className='mx-auto mb-40 mt-20 grid max-w-[1200px] gap-10 px-4'>
         {gallery.images?.map((image) => (
           <Image
             key={image}
@@ -52,9 +52,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
   const galleryList = GallerySchema.parse(galleryRes.data)
   const gallery = galleryList.find((g) => g.id === Number(id))
 
-  return {
-    props: { gallery: { ...gallery, images } },
-  }
+  return { props: { gallery: { ...gallery, images } } }
 }
 
 export async function getStaticPaths() {

@@ -49,7 +49,7 @@ export default function Navbar() {
             <li key={item}>
               <Link
                 href={`/${(item === 'HOME' ? '' : item).toLowerCase()}`}
-                className={`block ${color} p-4 font-bold sm:py-4 ${hoverColor}`}
+                className={`block ${color} text-sm p-4 font-bold sm:py-4 ${hoverColor}`}
               >
                 {item}
               </Link>
