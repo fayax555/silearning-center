@@ -87,20 +87,18 @@ export default function Admission({
               placeholder={label}
               value={val}
               onChange={(e) => {
-                if (id === 'mobile') {
-                  if (e.target.value.length > 7) {
-                    setError({
-                      id: 'mobile',
-                      text: 'Mobile number cannot be more than 7 digits',
-                    })
+                if (id !== 'mobile') return setVal(e.target.value)
 
-                    return setTimeout(() => {
-                      setError({ id: '', text: '' })
-                    }, 3000)
-                  }
+                if (e.target.value.length > 7) {
+                  setError({
+                    id: 'mobile',
+                    text: 'Mobile number cannot be more than 7 digits',
+                  })
+
+                  return setTimeout(() => {
+                    setError({ id: '', text: '' })
+                  }, 3000)
                 }
-
-                setVal(e.target.value)
               }}
             />
           </Fragment>
@@ -153,7 +151,7 @@ export default function Admission({
                 alt=''
                 className='mx-auto w-full rounded-md object-cover'
               />
-              <h2 className='mt-5 mb-2 text-xl font-bold'>{p.name}</h2>
+              <h3 className='mt-5 mb-2 text-xl font-bold'>{p.name}</h3>
               <p className='text-sm'>
                 <span className='font-bold'>Age: </span>
                 <span>{p.age}</span>

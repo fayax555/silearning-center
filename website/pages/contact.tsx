@@ -38,15 +38,15 @@ export default function ContactPage() {
       })
 
       if (res.ok) {
-        toast.success('Form submitted successfully')
+        toast.success('Your message has been sent')
         setName('')
         setMobile('')
         setMessage('')
       } else {
-        toast.error('Failed to submit form')
+        toast.error('Failed to send message')
       }
     } catch (error) {
-      toast.error('Failed to submit form')
+      toast.error('Failed to send message')
     } finally {
       setSubmitting(false)
     }

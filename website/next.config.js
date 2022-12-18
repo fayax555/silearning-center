@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  images: { domains: ['a4ida36s.directus.app', 'localhost','lomamv.com'] },
+  images: { domains: ['silearning.center'] },
 }
 
 module.exports = nextConfig
