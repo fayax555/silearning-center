@@ -1,6 +1,8 @@
 import Layout from 'components/Layout'
 import { FormEvent, Fragment, useState } from 'react'
 import { toast } from 'react-hot-toast'
+import { AiFillPhone } from 'react-icons/ai'
+import { MdMail } from 'react-icons/md'
 
 export default function ContactPage() {
   const [name, setName] = useState('')
@@ -8,6 +10,7 @@ export default function ContactPage() {
   const [message, setMessage] = useState('')
   const [error, setError] = useState({ id: '', text: '' })
   const [submitting, setSubmitting] = useState(false)
+  const [clicked, setClicked] = useState(false)
 
   const formInputs = [
     ['Name', 'name', 'text', name, setName],
@@ -118,6 +121,33 @@ export default function ContactPage() {
             {submitting ? 'Sending Message...' : 'Send Message'}
           </button>
         </form>
+
+        <div className='mx-auto grid max-w-[500px] justify-items-center gap-8 pt-24 font-semibold sm:grid-cols-2'>
+          <div className={`grid justify-items-center items-center gap-3 ${
+              clicked
+                ? '[&>button]:opacity-100'
+                : '[&>button]:hover:opacity-100'
+            }`}>
+            <MdMail className='text-slate-600' size={50} />
+            <button
+              onClick={() => {
+                setClicked(true)
+                navigator.clipboard.writeText('contact@silearning.center')
+                setTimeout(() => setClicked(false), 2000)
+              }}
+              type='button'
+              className='absolute translate-y-2 -translate-x-14 rounded-md bg-slate-700 px-2 py-1 text-xs text-slate-50 opacity-0 transition'
+            >
+              {clicked ? 'Copied' : 'Click to Copy'}
+            </button>
+            <p className='text-lg font-semibold'>contact@silearning.center</p>
+          </div>
+
+          <div className='grid justify-items-center gap-3'>
+            <AiFillPhone className='text-slate-600' size={50} />
+            <a href='tel:7777777' className='text-lg font-semibold'>7777777</a>
+          </div>
+        </div>
       </div>
     </Layout>
   )
