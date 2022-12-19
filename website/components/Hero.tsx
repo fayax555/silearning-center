@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <div
       className={
-        "overlay relative mx-auto grid min-h-screen items-center bg-[url('/img/slide1-1.jpg')] bg-cover bg-center bg-no-repeat "
+        "overlay relative mx-auto grid min-h-[94.5vh] items-center bg-[url('/img/slide1-1.jpg')] bg-cover bg-center bg-no-repeat "
       }
     >
       <div className='z-10 mx-auto grid  max-w-[1200px] gap-10 text-center md:w-full md:px-8 px-4'>

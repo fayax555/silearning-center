@@ -35,7 +35,7 @@ export default function Layout({ title, children, hideTitle }: Props) {
       </Head>
       <Navbar />
 
-      <div>
+      <div className='pt-14'>
         {!hideTitle && (
           <div className='mx-auto mt-20 max-w-[1200px] px-4'>
             <h1 className='text-center text-4xl font-bold text-violet-700 sm:text-6xl'>
