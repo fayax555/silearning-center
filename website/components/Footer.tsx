@@ -17,13 +17,13 @@ export default function Footer() {
 
   return (
     <footer className='bg-slate-900 py-16 text-white'>
-      <div className='mx-auto flex max-w-[1200px] flex-col  justify-evenly gap-10 px-4 sm:flex-row sm:gap-4'>
+      <div className='mx-auto flex max-w-[1200px] flex-col items-center justify-evenly gap-10 px-4 max-sm:text-center sm:flex-row sm:gap-4'>
         <div>
           <h2 className='mb-2 text-2xl font-bold'>SI Learning Center</h2>
           <p className='text-xs'>&copy; 2022. All Rights Reserved</p>
         </div>
 
-        <div className='grid gap-4 font-semibold'>
+        <div className='grid gap-4 font-semibold max-sm:justify-items-center'>
           <div
             className={`flex items-center gap-3 ${
               clicked

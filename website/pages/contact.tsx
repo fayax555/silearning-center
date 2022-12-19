@@ -122,7 +122,7 @@ export default function ContactPage() {
           </button>
         </form>
 
-        <div className='mx-auto grid max-w-[500px] justify-items-center gap-8 pt-24 font-semibold sm:grid-cols-2'>
+        <div className='mx-auto grid max-w-[500px] justify-items-center gap-8 pt-20 font-semibold sm:grid-cols-2'>
           <div className={`grid justify-items-center items-center gap-3 ${
               clicked
                 ? '[&>button]:opacity-100'
