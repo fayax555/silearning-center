@@ -29,8 +29,8 @@ export default function Navbar() {
         (isScrolled || isOpen) && 'shadow-sm'
       }`}
     >
-      <nav className='mx-auto max-w-[1200px] items-center justify-between px-4 py-1 sm:flex'>
-        <div className='flex items-center justify-between sm:contents'>
+      <nav className='mx-auto h-[60px] max-w-[1200px] items-center justify-between px-4 py-1 sm:flex'>
+        <div className='flex items-center h-[50px] justify-between sm:contents'>
           <Link href='/'>
             <Image height={110} width={110} src='/img/logo.svg' alt='' />
           </Link>
@@ -49,7 +49,7 @@ export default function Navbar() {
             <li key={item}>
               <Link
                 href={`/${(item === 'HOME' ? '' : item).toLowerCase()}`}
-                className={`block ${color} text-sm p-4 font-bold sm:py-4 ${hoverColor}`}
+                className={`block ${color} p-4 text-sm font-bold sm:py-4 ${hoverColor}`}
               >
                 {item}
               </Link>
