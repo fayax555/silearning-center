@@ -19,15 +19,16 @@ const SocialIcons = [
 export default function Footer() {
   return (
     <footer className='bg-slate-900 py-16 text-white'>
-      <div className='mx-auto flex max-w-[1200px] flex-col items-center justify-evenly gap-10 px-4 sm:flex-row sm:gap-4'>
+      <div className='mx-auto flex max-w-[1200px] flex-col  justify-evenly gap-10 px-4 sm:flex-row sm:gap-4'>
         <div>
-          <h2 className='text-2xl font-bold mb-4'>SI Learning Center</h2>
-          <p className='text-sm'>&copy; 2022. All Rights Reserved</p>
+          <h2 className='text-2xl font-bold mb-2'>SI Learning Center</h2>
+          <p className='text-xs'>&copy; 2022. All Rights Reserved</p>
         </div>
-        <div className='px-4text-sm grid gap-6 font-semibold'>
+        
+        <div className='grid gap-4 font-semibold'>
           {contactDetails.map(([Icon, text]) => (
-            <div key={text} className='flex items-center gap-3 text-lg'>
-              <Icon size={30} />
+            <div key={text} className='flex items-center gap-3'>
+              <Icon size={26} />
               <p>{text}</p>
             </div>
           ))}
