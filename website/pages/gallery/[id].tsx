@@ -42,12 +42,13 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
   const images = galleryFilesRes.data
     ?.map((file) => {
       const fileId = file.directus_files_id
-      if (typeof fileId === 'string' && file.gallery_id !== Number(id))
+      if (typeof fileId === 'string' && file.gallery_id === Number(id))
         return fileId
     })
     .filter(Boolean)
 
   if (!images) throw new Error('No images found')
+
 
   const galleryList = GallerySchema.parse(galleryRes.data)
   const gallery = galleryList.find((g) => g.id === Number(id))

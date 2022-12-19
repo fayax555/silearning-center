@@ -11,7 +11,7 @@ export default function GalleryPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout title='Gallery'>
-      <div className='mt-16 mb-40 grid justify-center gap-10 md:grid-flow-col'>
+      <div className='mt-16 mb-44 grid justify-center gap-10 md:grid-flow-col'>
         {gallery.map(({ id, title, thumbnail }) => (
           <Link
             href={`/gallery/${id}`}
