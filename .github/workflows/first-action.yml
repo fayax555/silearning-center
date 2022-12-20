@@ -10,8 +10,4 @@ jobs:
           host: 129.154.224.17
           username: ubuntu
           key: ${{ secrets.SSHKEY }}
-          script: |
-            cd /home/ubuntu/sites/silearning-center/website
-            curl -fsSL https://get.pnpm.io/install.sh | sh -
-            pnpm -v
-            pnpm build
+          script: sh deploy.sh
