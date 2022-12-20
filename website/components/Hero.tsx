@@ -11,7 +11,7 @@ export default function Hero() {
     >
       <div className='z-10 mx-auto grid  max-w-[1200px] gap-10 text-center md:w-full md:px-8 px-4'>
         <h1 className='text-5xl leading-[1.1] font-extrabold text-white sm:text-7xl'>
-          <span>WELCOME TO </span>
+          <span>TO </span>
           <div className='text-[hsl(201,100%,60%)]'>SI LEARNING CENTER!</div>
         </h1>
         <div className='grid justify-center gap-6 font-bold sm:grid-cols-[auto_auto]'>
