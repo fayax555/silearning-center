@@ -11,8 +11,8 @@ jobs:
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v0.1.6
         with:
-          host: 129.154.224.17
-          username: ubuntu
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           script: |
             cd /home/ubuntu/sites/silearning-center/website
