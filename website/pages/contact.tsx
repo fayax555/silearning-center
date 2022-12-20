@@ -129,7 +129,7 @@ export default function ContactPage() {
               navigator.clipboard.writeText('contact@silearning.center')
               setTimeout(() => setClicked(false), 2000)
             }}
-            className={`grid items-center cursor-pointer justify-items-center gap-3 ${
+            className={`grid cursor-pointer items-center justify-items-center gap-3 ${
               clicked
                 ? '[&>button]:opacity-100'
                 : '[&>button]:hover:opacity-100'
@@ -145,12 +145,10 @@ export default function ContactPage() {
             <p className='text-lg font-semibold'>contact@silearning.center</p>
           </div>
 
-          <div className='grid justify-items-center gap-3'>
+          <a href='tel:7777777' className='grid justify-items-center gap-3'>
             <AiFillPhone className='text-slate-600' size={50} />
-            <a href='tel:7777777' className='text-lg font-semibold'>
-              7777777
-            </a>
-          </div>
+            <span className='text-lg font-semibold'>7777777</span>
+          </a>
         </div>
       </div>
     </Layout>
