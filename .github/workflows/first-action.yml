@@ -13,4 +13,5 @@ jobs:
           script: |
             cd /home/ubuntu/sites/silearning-center/website
             curl -fsSL https://get.pnpm.io/install.sh | sh -
+            pnpm -v
             pnpm build
