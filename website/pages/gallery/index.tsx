@@ -11,20 +11,16 @@ export default function GalleryPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout title='Gallery'>
-      <div className='mt-16 mb-44 grid justify-center gap-10 md:grid-flow-col'>
+      <div className='mx-auto mt-16 mb-48 grid max-w-[1200px] justify-center gap-10 px-4 sm:grid-cols-2 md:grid-cols-3'>
         {gallery.map(({ id, title, thumbnail }) => (
-          <Link
-            href={`/gallery/${id}`}
-            key={id}
-            className='relative grid h-[350px] w-[350px]'
-          >
+          <Link href={`/gallery/${id}`} key={id} className='relative grid lg:min-h-[300px] lg:min-w-[300px]'>
             <div className='z-10 bg-white p-5 shadow-md'>
               <Image
                 height={300}
                 width={300}
                 src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${thumbnail}`}
                 alt=''
-                className='block h-[88%] object-cover'
+                className='block h-[88%] object-cover w-full'
               />
               <h3 className='mt-3 text-center text-lg font-bold text-violet-500'>
                 {title}

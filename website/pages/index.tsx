@@ -3,7 +3,7 @@ import { type InferGetStaticPropsType } from 'next'
 import Features from 'components/Features'
 import Hero from 'components/Hero'
 import AboutUs from 'components/AboutUs'
-import ChooseClasses from 'components/ChooseClasses'
+import Classes from 'components/Classes'
 import MeetOurTeachers from 'components/MeetOurTeachers'
 import ParentReviews from 'components/ParentReviews'
 import PhotoGallery from 'components/PhotoGallery'
@@ -31,7 +31,7 @@ export default function Home({
         <AboutUs aboutUs={aboutUs} />
       </div>
       <Features features={features} />
-      <ChooseClasses classes={classes} />
+      <Classes classes={classes} />
       <MeetOurTeachers teachers={teachers} />
       <ParentReviews />
       <PhotoGallery gallery={gallery} />
@@ -64,7 +64,7 @@ export const getStaticProps = async () => {
 
   const features = FeatureSchema.parse(featuresRes.data)
   const teachers = TeacherSchema.parse(teachersRes.data)
-  const gallery = GallerySchema.parse(galleryRes.data)
+  const gallery = GallerySchema.parse(galleryRes.data).slice(0, 3)
   const classes = ClassSchema.parse(classRes.data)
   const aboutUs = AboutUsSchema.parse(aboutUsRes.data)
 
