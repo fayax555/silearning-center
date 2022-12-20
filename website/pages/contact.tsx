@@ -123,18 +123,20 @@ export default function ContactPage() {
         </form>
 
         <div className='mx-auto grid max-w-[500px] justify-items-center gap-8 pt-20 font-semibold sm:grid-cols-2'>
-          <div className={`grid justify-items-center items-center gap-3 ${
+          <div
+            onClick={() => {
+              setClicked(true)
+              navigator.clipboard.writeText('contact@silearning.center')
+              setTimeout(() => setClicked(false), 2000)
+            }}
+            className={`grid items-center cursor-pointer justify-items-center gap-3 ${
               clicked
                 ? '[&>button]:opacity-100'
                 : '[&>button]:hover:opacity-100'
-            }`}>
+            }`}
+          >
             <MdMail className='text-slate-600' size={50} />
             <button
-              onClick={() => {
-                setClicked(true)
-                navigator.clipboard.writeText('contact@silearning.center')
-                setTimeout(() => setClicked(false), 2000)
-              }}
               type='button'
               className='absolute translate-y-2 -translate-x-14 rounded-md bg-slate-700 px-2 py-1 text-xs text-slate-50 opacity-0 transition'
             >
@@ -145,7 +147,9 @@ export default function ContactPage() {
 
           <div className='grid justify-items-center gap-3'>
             <AiFillPhone className='text-slate-600' size={50} />
-            <a href='tel:7777777' className='text-lg font-semibold'>7777777</a>
+            <a href='tel:7777777' className='text-lg font-semibold'>
+              7777777
+            </a>
           </div>
         </div>
       </div>
