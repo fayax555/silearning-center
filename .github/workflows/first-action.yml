@@ -10,4 +10,6 @@ jobs:
           host: 129.154.224.17
           username: ubuntu
           key: ${{ secrets.SSHKEY }}
-          script: ls
+          script: |
+            cd /home/ubuntu/sites/silearning-center/
+            ls
