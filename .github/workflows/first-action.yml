@@ -11,5 +11,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSHKEY }}
           script: |
-            cd /home/ubuntu/sites/silearning-center/
-            ls
+            cd /home/ubuntu/sites/silearning-center/website
+            git pull
+            pb
+            pm2 reload all
