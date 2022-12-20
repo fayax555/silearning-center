@@ -12,4 +12,6 @@ jobs:
           key: ${{ secrets.SSHKEY }}
           script: |
             cd /home/ubuntu/sites/silearning-center/website
-            node dep.js
+            git pull
+            pnpm build
+            pm2 reload all
