@@ -10,4 +10,4 @@ jobs:
           host: 129.154.224.17
           username: ubuntu
           key: ${{ secrets.SSHKEY }}
-          script: whoami
+          script: ls
