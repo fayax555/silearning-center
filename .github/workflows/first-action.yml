@@ -10,4 +10,8 @@ jobs:
           host: 129.154.224.17
           username: ubuntu
           key: ${{ secrets.SSHKEY }}
-          script: sh deploy.sh
+          script: |
+            cd /home/ubuntu/sites/silearning-center/website
+            git pull
+            /home/ubuntu/.local/share/pnpm/pnpm build
+            /home/ubuntu/.local/share/pnpm/pm2 reload all
