@@ -24,7 +24,7 @@ export default function GalleryPage({
                 width={300}
                 src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${thumbnail}`}
                 alt=''
-                className='block h-[88%] w-full object-cover'
+                className='block h-[230px] w-full object-cover'
               />
               <h3 className='mt-3 text-center text-lg font-bold text-violet-500'>
                 {title}

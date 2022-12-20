@@ -18,9 +18,9 @@ export default function PhotoGallery({ gallery }: { gallery: Gallery[] }) {
                   width={300}
                   src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${thumbnail}`}
                   alt=''
-                  className='block h-[88%] object-cover'
+                  className='block h-[250px] object-cover'
                 />
-                <h3 className='mt-3 pb-5 text-center text-lg -translate-y-1 font-bold text-violet-500'>
+                <h3 className='mt-3 text-center text-lg font-bold text-violet-500'>
                   {title}
                 </h3>
               </div>

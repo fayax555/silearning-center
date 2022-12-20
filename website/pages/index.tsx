@@ -64,7 +64,7 @@ export const getStaticProps = async () => {
 
   const features = FeatureSchema.parse(featuresRes.data)
   const teachers = TeacherSchema.parse(teachersRes.data)
-  const gallery = GallerySchema.parse(galleryRes.data).slice(0,3)
+  const gallery = GallerySchema.parse(galleryRes.data).slice(0, 3)
   const classes = ClassSchema.parse(classRes.data)
   const aboutUs = AboutUsSchema.parse(aboutUsRes.data)
 

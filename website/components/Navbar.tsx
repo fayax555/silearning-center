@@ -28,7 +28,6 @@ export default function Navbar() {
 
   const router = useRouter()
   const activeLink = router.pathname.split('/')[1].toUpperCase()
-  console.log(activeLink)
 
   useEffect(() => {
     const handleScroll = () =>
