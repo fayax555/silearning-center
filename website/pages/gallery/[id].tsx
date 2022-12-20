@@ -49,7 +49,6 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 
   if (!images) throw new Error('No images found')
 
-
   const galleryList = GallerySchema.parse(galleryRes.data)
   const gallery = galleryList.find((g) => g.id === Number(id))
 
@@ -65,6 +64,8 @@ export async function getStaticPaths() {
 
   const galleryList = GallerySchema.parse(galleryRes.data)
 
-  const paths = galleryList.map(({ id }) => ({ params: { id: id.toString() } }))
-  return { paths, fallback: false }
+  const paths = galleryList?.map(({ id }) => ({
+    params: { id: id.toString() },
+  }))
+  return { paths, fallback: 'blocking' }
 }

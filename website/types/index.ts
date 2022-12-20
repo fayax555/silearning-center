@@ -20,7 +20,7 @@ export const TeacherSchema = z
 export const GallerySchema = z
   .object({
     id: z.number(),
-    title: z.string().nullable(),
+    title: z.string().nullish(),
     thumbnail: z.string().nullish(),
   })
   .array()
