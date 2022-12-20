@@ -1,0 +1,13 @@
+name: Frist Workflow
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: 129.154.224.17
+          username: ubuntu
+          key: ${{ secrets.SSHKEY }}
+          script: whoami
