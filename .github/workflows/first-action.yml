@@ -5,7 +5,7 @@ on:
       - main
       
 jobs:
-  first-job:
+  deploy-site:
     runs-on: ubuntu-latest
     steps:
       - name: executing remote ssh commands using ssh key
