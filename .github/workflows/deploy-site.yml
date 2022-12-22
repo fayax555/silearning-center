@@ -17,10 +17,10 @@ jobs:
           script: |
             cd /home/ubuntu/sites/silearning-center/website
             git pull
-            rm -rf node_modules .next
+            rm -rf .next
             export PNPM_HOME="/home/ubuntu/.local/share/pnpm"
             export PATH="$PNPM_HOME:$PATH"
-            pnpm i
+            pnpm i --frozen-lockfile
             pnpm build
             pnpm prune --prod
             pm2 reload all
