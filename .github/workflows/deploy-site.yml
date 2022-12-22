@@ -18,7 +18,8 @@ jobs:
             cd /home/ubuntu/sites/silearning-center/website
             git pull
             rm -rf node_modules .next
-            export PATH="/home/ubuntu/.local/share/pnpm"
+            export PNPM_HOME="/home/ubuntu/.local/share/pnpm"
+            export PATH="$PNPM_HOME:$PATH"
             pnpm i
             pnpm build
             pnpm prune --prod
