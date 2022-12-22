@@ -17,8 +17,9 @@ jobs:
           script: |
             cd /home/ubuntu/sites/silearning-center/website
             git pull
-            rm -rf node_modules .next
+            rm -rf .next
             /home/ubuntu/.local/share/pnpm/pnpm i
             /home/ubuntu/.local/share/pnpm/pnpm build
-            /home/ubuntu/.local/share/pnpm/pnpm prune --prod
+            rm -rf node_modules
+            /home/ubuntu/.local/share/pnpm/pnpm i --prod
             /home/ubuntu/.local/share/pnpm/pm2 reload all
