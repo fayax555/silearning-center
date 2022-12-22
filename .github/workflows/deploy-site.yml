@@ -17,8 +17,7 @@ jobs:
           script: |
             cd $HOME/sites/silearning-center/website
             git pull
-            export PNPM_HOME="$HOME/.local/share/pnpm"
-            export PATH="$PNPM_HOME:$PATH"
+            export PATH="$HOME/.local/share/pnpm:$PATH"
             pnpm i --frozen-lockfile
             pnpm build
             pnpm prune --prod
