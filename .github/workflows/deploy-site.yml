@@ -15,10 +15,10 @@ jobs:
           key: ${{ secrets.KEY }}
           script_stop: true
           script: |
-            cd /home/ubuntu/sites/silearning-center/website
+            cd $HOME/sites/silearning-center/website
             git pull
             rm -rf .next
-            export PNPM_HOME="/home/ubuntu/.local/share/pnpm"
+            export PNPM_HOME="$HOME/.local/share/pnpm"
             export PATH="$PNPM_HOME:$PATH"
             pnpm i --frozen-lockfile
             pnpm build
