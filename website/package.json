@@ -18,11 +18,11 @@
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.6.0",
     "sharp": "^0.31.2",
-    "typescript": "4.9.3",
     "zod": "^3.19.1"
   },
   "devDependencies": {
     "@types/node": "18.11.9",
+    "typescript": "4.9.3",
     "@types/nodemailer": "^6.4.6",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
