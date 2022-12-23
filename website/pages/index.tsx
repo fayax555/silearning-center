@@ -15,8 +15,8 @@ import {
   TeacherSchema,
 } from '../types'
 import Layout from 'components/Layout'
-
 import { Directus } from 'utils'
+
 export default function Home({
   features,
   teachers,
@@ -25,7 +25,7 @@ export default function Home({
   aboutUs,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Layout title='SI Learning Center' hideTitle>
+    <Layout title='Siyama Imad Learning Center' hideTitle>
       <Hero />
       <div className='bg-slate-50 pt-10'>
         <AboutUs aboutUs={aboutUs} />

@@ -11,8 +11,9 @@ export default function Hero() {
     >
       <div className='z-10 mx-auto grid  max-w-[1200px] gap-10 text-center md:w-full md:px-8 px-4'>
         <h1 className='text-5xl leading-[1.1] font-extrabold text-white sm:text-7xl'>
-          <span>WELCOME TO </span>
-          <div className='text-[hsl(201,100%,70%)]'>SI LEARNING CENTER!</div>
+          <div>WELCOME TO </div>
+          <div className='text-[hsl(93,71%,56%)]'>SIYAMA IMAD</div>
+          <div>LEARNING CENTER!</div>
         </h1>
         <div className='grid justify-center gap-6 font-bold sm:grid-cols-[auto_auto]'>
           <Link href='/admission' className='rounded-md bg-white px-5 py-3 '>
