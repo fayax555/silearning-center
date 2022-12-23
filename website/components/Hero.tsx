@@ -10,7 +10,7 @@ export default function Hero() {
       }
     >
       <div className='z-10 mx-auto grid  max-w-[1200px] gap-10 text-center md:w-full md:px-8 px-4'>
-        <h1 className='text-5xl leading-[1.1] font-extrabold text-white sm:text-7xl'>
+        <h1 className='text-5xl leading-[1.1] font-extrabold text-[hsl(93,39%,95%)] sm:text-7xl'>
           <div>WELCOME TO </div>
           <div className='text-[hsl(93,71%,56%)]'>SIYAMA IMAD</div>
           <div>LEARNING CENTER!</div>

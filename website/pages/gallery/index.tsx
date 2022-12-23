@@ -9,14 +9,19 @@ import { Directus } from 'utils'
 export default function GalleryPage({
   gallery,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const count = gallery.length
   return (
     <Layout title='Gallery'>
-      <div className='mx-auto mt-16 mb-48 grid max-w-[1200px] justify-center gap-10 px-4 sm:grid-cols-2 md:grid-cols-3'>
+      <div
+        className={
+          `mx-auto mt-16 mb-52 grid max-w-[1200px] justify-center justify-items-center gap-10 px-4 sm:grid-cols-2 md:grid-flow-col`
+        }
+      >
         {gallery.map(({ id, title, thumbnail }) => (
           <Link
             href={`/gallery/${id}`}
             key={id}
-            className='relative grid lg:min-h-[300px] lg:min-w-[300px]'
+            className='relative grid md:h-[300px] md:w-[300px]'
           >
             <div className='z-10 bg-white p-5 shadow-md'>
               <Image
