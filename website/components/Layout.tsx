@@ -15,7 +15,7 @@ export default function Layout({ title, children, hideTitle }: Props) {
           canonical='https://silearning.center'
           openGraph={{
             url: 'https://silearning.center',
-            title: 'SI Learning Center',
+            title: 'Siyama Imad Learning Center',
             description:
               'SILC is a learning center to teach kids. We focus on improving their motor skills and building a strong foundation for their future.',
             images: [
@@ -27,7 +27,7 @@ export default function Layout({ title, children, hideTitle }: Props) {
                 type: 'image',
               },
             ],
-            site_name: 'SI Learning Center',
+            site_name: 'Siyama Imad Learning Center',
           }}
         />
 

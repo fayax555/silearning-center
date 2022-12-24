@@ -14,14 +14,14 @@ export default function GalleryPage({
     <Layout title='Gallery'>
       <div
         className={
-          `mx-auto mt-16 mb-52 grid max-w-[1200px] justify-center justify-items-center gap-10 px-4 sm:grid-cols-2 md:grid-flow-col`
+          `mx-auto mt-16 mb-52 grid max-w-[1200px] justify-center justify-items-center gap-10 px-4 sm:grid-cols-2 md:grid-cols-3`
         }
       >
         {gallery.map(({ id, title, thumbnail }) => (
           <Link
             href={`/gallery/${id}`}
             key={id}
-            className='relative grid md:h-[300px] md:w-[300px]'
+            className='relative grid lg:min-h-[300px] lg:min-w-[300px]'
           >
             <div className='z-10 bg-white p-5 shadow-md'>
               <Image
