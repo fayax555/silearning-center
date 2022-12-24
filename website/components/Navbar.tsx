@@ -46,7 +46,7 @@ export default function Navbar() {
       <nav className='mx-auto h-[60px] max-w-[1200px] items-center justify-between px-4 py-1 sm:flex'>
         <div className='flex h-[50px] items-center justify-between sm:contents'>
           <Link href='/'>
-            <Image height={110} width={110} src='/img/logo.svg' alt='' />
+            <Image height={110} width={110} src='/logo.svg' alt='' />
           </Link>
           <AiOutlineMenu
             className='block text-2xl text-blue-800 sm:hidden'

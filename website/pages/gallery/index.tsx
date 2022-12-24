@@ -9,9 +9,8 @@ import { Directus } from 'utils'
 export default function GalleryPage({
   gallery,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const count = gallery.length
   return (
-    <Layout title='Gallery'>
+    <Layout title='Gallery' description=''>
       <div
         className={
           `mx-auto mt-16 mb-52 grid max-w-[1200px] justify-center justify-items-center gap-10 px-4 sm:grid-cols-2 md:grid-cols-3`

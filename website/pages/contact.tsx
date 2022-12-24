@@ -51,7 +51,10 @@ export default function ContactPage() {
   }
 
   return (
-    <Layout title='Contact Us'>
+    <Layout
+      title='Contact Us'
+      description='Contact us by filling out the form below. Alternatively, you can contact us directly via our phone number or email.'
+    >
       <div className='mb-40'>
         <form
           onSubmit={handleSubmit}

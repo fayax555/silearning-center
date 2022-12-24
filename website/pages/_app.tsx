@@ -4,9 +4,9 @@ import { Toaster } from 'react-hot-toast'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main>
+    <>
       <Toaster position='top-center' reverseOrder={false} />
       <Component {...pageProps} />
-    </main>
+    </>
   )
 }

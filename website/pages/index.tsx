@@ -25,7 +25,11 @@ export default function Home({
   aboutUs,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Layout title='Siyama Imad Learning Center' hideTitle>
+    <Layout
+      title='Siyama Imad Learning Center'
+      description='SILC is a learning center to teach kids. We focus on improving their motor skills and building a strong foundation for their future.'
+      hideTitle
+    >
       <Hero />
       <div className='bg-slate-50 pt-10'>
         <AboutUs aboutUs={aboutUs} />
