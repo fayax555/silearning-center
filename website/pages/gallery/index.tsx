@@ -12,15 +12,13 @@ export default function GalleryPage({
   return (
     <Layout title='Gallery' description=''>
       <div
-        className={
-          `mx-auto mt-16 mb-52 grid max-w-[1200px] justify-center justify-items-center gap-10 px-4 sm:grid-cols-2 md:grid-cols-3`
-        }
+        className={`mx-auto mt-16 mb-52 flex max-w-[1200px] flex-wrap justify-center gap-10 px-5`}
       >
-        {gallery.map(({ id, title, thumbnail }) => (
+        {gallery.slice(0, 4).map(({ id, title, thumbnail }) => (
           <Link
             href={`/gallery/${id}`}
             key={id}
-            className='relative grid lg:min-h-[300px] lg:min-w-[300px]'
+            className='relative grid w-full flex-1 min-w-[280px] max-w-[380px] md:min-w-[300px] lg:max-w-[31%]'
           >
             <div className='z-10 bg-white p-5 shadow-md'>
               <Image
