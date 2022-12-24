@@ -37,6 +37,11 @@ export default function Layout({
           ],
           site_name: 'Siyama Imad Learning Center',
         }}
+        twitter={{
+          handle: '@silearningcenter',
+          site: '@silearningcenter',
+          cardType: 'summary_large_image',
+        }}
         additionalLinkTags={[{ rel: 'icon', href: '/favicon.ico' }]}
       />
 

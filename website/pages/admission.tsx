@@ -63,7 +63,7 @@ export default function Admission({
   }
 
   return (
-    <Layout title='Admission'>
+    <Layout title='Admission' description='Our programs are designed to help students achieve their academic goals and prepare them for the future.'>
       <form
         onSubmit={handleSubmit}
         className='mx-4 mt-14 max-w-[600px] rounded-md border-2 border-violet-400 px-4 py-8 sm:mx-auto sm:p-10'
