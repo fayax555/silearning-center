@@ -14,7 +14,7 @@ export default function GalleryPage({
       <div
         className={`mx-auto mt-16 mb-52 flex max-w-[1200px] flex-wrap justify-center gap-10 px-5`}
       >
-        {gallery.slice(0, 4).map(({ id, title, thumbnail }) => (
+        {gallery.map(({ id, title, thumbnail }) => (
           <Link
             href={`/gallery/${id}`}
             key={id}
