@@ -29,7 +29,7 @@ export default function Layout({
           images: [
             {
               url: '/logo.png',
-              width: 1385,
+              width: 100,
               height: 502,
               alt: 'SI Learning Center logo',
               type: 'image',
