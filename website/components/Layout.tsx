@@ -29,8 +29,8 @@ export default function Layout({
           images: [
             {
               url: '/logo.png',
-              width: 733,
-              height: 322,
+              width: 1385,
+              height: 502,
               alt: 'SI Learning Center logo',
               type: 'image',
             },
