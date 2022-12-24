@@ -1,4 +1,4 @@
-import { Fragment, type FormEvent, useState } from 'react'
+import { type FormEvent, useState } from 'react'
 import { type InferGetStaticPropsType } from 'next'
 import Image from 'next/image'
 import { toast } from 'react-hot-toast'
@@ -63,7 +63,10 @@ export default function Admission({
   }
 
   return (
-    <Layout title='Admission' description='Our programs are designed to help students achieve their academic goals and prepare them for the future.'>
+    <Layout
+      title='Admission'
+      description='Our programs are designed to help students achieve their academic goals and prepare them for the future.'
+    >
       <form
         onSubmit={handleSubmit}
         className='mx-4 mt-14 max-w-[600px] rounded-md border-2 border-violet-400 px-4 py-8 sm:mx-auto sm:p-10'
@@ -147,16 +150,16 @@ export default function Admission({
           Our Programs
         </h2>
 
-        <ul className='flex flex-col gap-5 sm:flex-row'>
+        <ul className='flex max-w-[1200px] grid-cols-1 flex-wrap justify-center gap-5'>
           {programs.map((p) => (
             <li
               key={p.name}
-              className='flex-1 rounded-md border-2 border-violet-500 p-7 font-semibold text-violet-800'
+              className='rounded-md border-2 border-violet-500 p-7 font-semibold text-violet-800 max-[450px]:w-full sm:w-[275px]'
             >
               <Image
                 src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${p.image}`}
-                height={100}
-                width={100}
+                height={500}
+                width={500}
                 alt=''
                 className='mx-auto w-full rounded-md object-cover'
               />

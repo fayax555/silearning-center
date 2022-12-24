@@ -15,8 +15,8 @@ export default function AboutUs({ aboutUs }: { aboutUs: AboutUs }) {
         src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${aboutUs.image}`}
         alt=''
         width={1200}
-        height={600}
-        className='rounded-lg object-cover'
+        height={700}
+        className='rounded-lg object-cover w-full'
       />
     </section>
   )

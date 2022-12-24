@@ -19,8 +19,8 @@ export default function Classes({ classes }: { classes: Class[] }) {
               className={`border-2 ${itemColors[idx][0]} ${itemColors[idx][1]}  ${itemColors[idx][2]} rounded-xl text-center`}
             >
               <Image
-                height={480}
-                width={480}
+                height={600}
+                width={600}
                 src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${image}`}
                 alt={name ?? ''}
                 className='w-full rounded-t-xl object-cover'

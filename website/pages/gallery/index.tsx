@@ -22,8 +22,8 @@ export default function GalleryPage({
           >
             <div className='z-10 bg-white p-5 shadow-md'>
               <Image
-                height={300}
-                width={300}
+                height={600}
+                width={600}
                 src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${thumbnail}`}
                 alt=''
                 className='block h-[230px] w-full object-cover'
