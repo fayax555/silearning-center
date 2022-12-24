@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Footer from './Footer'
 import Navbar from './Navbar'
 import { NextSeo } from 'next-seo'
@@ -29,8 +28,8 @@ export default function Layout({
           images: [
             {
               url: '/logo.png',
-              width: 100,
-              height: 502,
+              width: 1435,
+              height: 594,
               alt: 'SI Learning Center logo',
               type: 'image',
             },
