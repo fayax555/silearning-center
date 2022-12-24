@@ -12,12 +12,14 @@ import {
   ClassSchema,
   FeatureSchema,
   GallerySchema,
+  HeroSchema,
   TeacherSchema,
 } from '../types'
 import Layout from 'components/Layout'
 import { Directus } from 'utils'
 
 export default function Home({
+  hero,
   features,
   teachers,
   gallery,
@@ -30,7 +32,7 @@ export default function Home({
       description='SILC is a learning center to teach kids. We focus on improving their motor skills and building a strong foundation for their future.'
       hideTitle
     >
-      <Hero />
+      <Hero heroImage={hero.image} />
       <div className='bg-slate-50 pt-10'>
         <AboutUs aboutUs={aboutUs} />
       </div>
@@ -45,6 +47,10 @@ export default function Home({
 
 export const getStaticProps = async () => {
   const directus = Directus()
+
+  const heroRes = await directus.items('hero').readByQuery({
+    fields: ['image'],
+  })
 
   const featuresRes = await directus.items('features').readByQuery({
     fields: ['id', 'title', 'image'],
@@ -66,6 +72,7 @@ export const getStaticProps = async () => {
     fields: ['title', 'text', 'image'],
   })
 
+  const hero = HeroSchema.parse(heroRes.data)
   const features = FeatureSchema.parse(featuresRes.data)
   const teachers = TeacherSchema.parse(teachersRes.data)
   const gallery = GallerySchema.parse(galleryRes.data).slice(0, 3)
@@ -73,6 +80,6 @@ export const getStaticProps = async () => {
   const aboutUs = AboutUsSchema.parse(aboutUsRes.data)
 
   return {
-    props: { features, teachers, gallery, classes, aboutUs },
+    props: { hero, features, teachers, gallery, classes, aboutUs },
   }
 }

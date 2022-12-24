@@ -13,17 +13,6 @@ body {
   font-family: 'Nunito', sans-serif;
 }
 
-.font-nunito {
-  font-family: 'Nunito', sans-serif;
-}
-
-.overlay::before {
-  content: ' ';
-  position: absolute;
-  inset: 0;
-  background-color: hsla(135, 72%, 22%, 0.2);
-}
-
 .rotate {
   transform: rotate3d(0, 0, 1, -4deg);
   /* transform: rotate(-4deg); */

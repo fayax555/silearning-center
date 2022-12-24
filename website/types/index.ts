@@ -1,5 +1,9 @@
 import { z } from 'zod'
 
+export const HeroSchema = z.object({
+  image: z.string().nullable(),
+})
+
 export const FeatureSchema = z
   .object({
     id: z.number(),

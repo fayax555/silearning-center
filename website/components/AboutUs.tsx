@@ -9,12 +9,6 @@ export default function AboutUs({ aboutUs }: { aboutUs: AboutUs }) {
           About Us
         </h2>
         <p>{aboutUs.text}</p>
-        {/* <a
-          href='#'
-          className='font-neue justify-self-start rounded-md bg-orange-600 px-8 py-4 text-xl text-white'
-        >
-          WHY KINDERGARTEN
-        </a> */}
       </div>
 
       <Image
@@ -22,6 +16,7 @@ export default function AboutUs({ aboutUs }: { aboutUs: AboutUs }) {
         alt=''
         width={1200}
         height={600}
+        className='rounded-lg object-cover'
       />
     </section>
   )
