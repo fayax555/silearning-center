@@ -8,31 +8,29 @@ type Props = { title: string; children: React.ReactNode; hideTitle?: true }
 export default function Layout({ title, children, hideTitle }: Props) {
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <NextSeo
-          description='SILC is a learning center to teach kids. We focus on improving their motor skills and building a strong foundation for their future.'
-          canonical='https://silearning.center'
-          openGraph={{
-            url: 'https://silearning.center',
-            title: 'Siyama Imad Learning Center',
-            description:
-              'SILC is a learning center to teach kids. We focus on improving their motor skills and building a strong foundation for their future.',
-            images: [
-              {
-                url: '/logo.svg',
-                width: 733,
-                height: 322,
-                alt: 'SI Learning Center logo',
-                type: 'image',
-              },
-            ],
-            site_name: 'Siyama Imad Learning Center',
-          }}
-        />
+      <NextSeo
+        title={title}
+        description='SILC is a learning center to teach kids. We focus on improving their motor skills and building a strong foundation for their future.'
+        canonical='https://silearning.center'
+        openGraph={{
+          url: 'https://silearning.center',
+          title: 'Siyama Imad Learning Center',
+          description:
+            'SILC is a learning center to teach kids. We focus on improving their motor skills and building a strong foundation for their future.',
+          images: [
+            {
+              url: '/logo.svg',
+              width: 733,
+              height: 322,
+              alt: 'SI Learning Center logo',
+              type: 'image',
+            },
+          ],
+          site_name: 'Siyama Imad Learning Center',
+        }}
+        additionalLinkTags={[{ rel: 'icon', href: '/favicon.ico' }]}
+      />
 
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
       <Navbar />
 
       <div className='pt-14'>
