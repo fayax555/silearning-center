@@ -15,8 +15,8 @@ export default function GalleryPage({ gallery }: GalleryPageProps) {
             key={image}
             src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${image}`}
             alt=''
-            height={500}
-            width={500}
+            height={1980}
+            width={1080}
             className='h-auto w-full'
           />
         ))}
