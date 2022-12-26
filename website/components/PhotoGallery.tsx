@@ -4,10 +4,10 @@ import type { Gallery } from 'types'
 
 export default function PhotoGallery({ gallery }: { gallery: Gallery[] }) {
   return (
-    <section className='bg-zinc-100 py-20 pb-32'>
+    <section className='bg-slate-50 py-20 pb-32'>
       <div className='mx-auto max-w-[1200px] px-6 pb-8'>
         <h2 className='text-center text-3xl font-bold text-slate-700 md:text-4xl'>
-          PHOTO GALLERY
+          GALLERY
         </h2>
         <div className='mt-16 grid justify-center gap-10 md:grid-flow-col'>
           {gallery.map(({ id, title, thumbnail }) => (

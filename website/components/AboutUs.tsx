@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import type { AboutUs } from 'types'
+import {} from 'react'
 
 export default function AboutUs({ aboutUs }: { aboutUs: AboutUs }) {
   return (
@@ -8,7 +9,8 @@ export default function AboutUs({ aboutUs }: { aboutUs: AboutUs }) {
         <h2 className='font-nunito text-center text-4xl font-bold sm:text-left md:text-6xl'>
           About Us
         </h2>
-        <p>{aboutUs.text}</p>
+
+        <div className='[&_p]:py-1' dangerouslySetInnerHTML={{ __html: aboutUs.text ?? '' }} />
       </div>
 
       <Image
@@ -16,7 +18,7 @@ export default function AboutUs({ aboutUs }: { aboutUs: AboutUs }) {
         alt=''
         width={1200}
         height={700}
-        className='rounded-lg object-cover w-full'
+        className='w-full rounded-lg object-cover'
       />
     </section>
   )

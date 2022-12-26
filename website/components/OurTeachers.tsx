@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import type { Teacher } from 'types'
 
-export default function MeetOurTeachers({ teachers }: { teachers: Teacher[] }) {
+export default function OurTeachers({ teachers }: { teachers: Teacher[] }) {
   return (
-    <section className='mx-auto max-w-[1200px] px-4 pb-36 pt-10 text-slate-700 sm:px-8'>
+    <section className='mx-auto max-w-[1200px] px-4 pt-10 text-slate-700 sm:px-8'>
       <h2 className='text-center text-3xl font-bold md:text-4xl'>
         MEET OUR TEACHERS
       </h2>

@@ -4,8 +4,8 @@ import Features from 'components/Features'
 import Hero from 'components/Hero'
 import AboutUs from 'components/AboutUs'
 import Classes from 'components/Classes'
-import MeetOurTeachers from 'components/MeetOurTeachers'
-import ParentReviews from 'components/ParentReviews'
+import OurTeachers from 'components/OurTeachers'
+import Testimonials from 'components/Testimonials'
 import PhotoGallery from 'components/PhotoGallery'
 import {
   AboutUsSchema,
@@ -14,6 +14,7 @@ import {
   GallerySchema,
   HeroSchema,
   TeacherSchema,
+  TestimonialsSchema,
 } from '../types'
 import Layout from 'components/Layout'
 import { Directus } from 'utils'
@@ -25,6 +26,7 @@ export default function Home({
   gallery,
   classes,
   aboutUs,
+  testimonials
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout
@@ -33,13 +35,13 @@ export default function Home({
       hideTitle
     >
       <Hero heroImage={hero.image} />
-      <div className='bg-slate-50 pt-10'>
+      <div className='pt-10'>
         <AboutUs aboutUs={aboutUs} />
       </div>
       <Features features={features} />
       <Classes classes={classes} />
-      <MeetOurTeachers teachers={teachers} />
-      <ParentReviews />
+      <OurTeachers teachers={teachers} />
+      <Testimonials testimonials={testimonials} />
       <PhotoGallery gallery={gallery} />
     </Layout>
   )
@@ -72,14 +74,27 @@ export const getStaticProps = async () => {
     fields: ['title', 'text', 'image'],
   })
 
+  const testimonialsRes = await directus.items('testimonials').readByQuery({
+    fields: ['id', 'name', 'title', 'testimonial'],
+  })
+
   const hero = HeroSchema.parse(heroRes.data)
   const features = FeatureSchema.parse(featuresRes.data)
   const teachers = TeacherSchema.parse(teachersRes.data)
   const gallery = GallerySchema.parse(galleryRes.data).slice(0, 3)
   const classes = ClassSchema.parse(classRes.data)
   const aboutUs = AboutUsSchema.parse(aboutUsRes.data)
+  const testimonials = TestimonialsSchema.parse(testimonialsRes.data)
 
   return {
-    props: { hero, features, teachers, gallery, classes, aboutUs },
+    props: {
+      hero,
+      features,
+      teachers,
+      gallery,
+      classes,
+      aboutUs,
+      testimonials,
+    },
   }
 }

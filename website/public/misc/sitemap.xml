@@ -7,18 +7,30 @@
 
 <url>
   <loc>https://silearning.center/</loc>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://silearning.center/admission</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://silearning.center/gallery</loc>
-  <priority>0.80</priority>
+  <priority>1</priority>
 </url>
 <url>
   <loc>https://silearning.center/contact</loc>
-  <priority>0.80</priority>
+  <priority>0.9</priority>
+<url>
+<url>
+  <loc>https://silearning.center/admission</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://silearning.center/gallery</loc>
+  <priority>0.8</priority>
+</url>
+  <loc>https://silearning.center/gallery/1</loc>
+  <priority>0.2</priority>
+</url>
+<url>
+  <loc>https://silearning.center/gallery/2</loc>
+  <priority>0.2</priority>
+</url>
+<url>
+  <loc>https://silearning.center/gallery/3</loc>
+  <priority>0.2</priority>
+</url>
 </url>
 </urlset>

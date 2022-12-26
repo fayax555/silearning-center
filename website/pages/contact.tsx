@@ -56,6 +56,10 @@ export default function ContactPage() {
       description='Contact us by filling out the form below. Alternatively, you can contact us directly via our phone number or email.'
     >
       <div className='mb-40'>
+        <p className='mx-auto max-w-[60ch] pt-5 text-center text-slate-700'>
+          Contact us by filling out the form below. Alternatively, you can
+          contact us directly via our phone number or email.
+        </p>
         <form
           onSubmit={handleSubmit}
           className='mx-4 mt-14 max-w-[600px] rounded-md border-2 border-violet-400 px-4 py-8 sm:mx-auto sm:p-10'
@@ -134,14 +138,14 @@ export default function ContactPage() {
             }}
             className={`grid cursor-pointer items-center justify-items-center gap-3 ${
               clicked
-                ? '[&>button]:opacity-100'
-                : '[&>button]:hover:opacity-100'
+                ? '[&>button]:block'
+                : '[&>button]:hover:block'
             }`}
           >
             <MdMail className='text-slate-600' size={50} />
             <button
               type='button'
-              className='absolute translate-y-2 -translate-x-14 rounded-md bg-slate-700 px-2 py-1 text-xs text-slate-50 opacity-0 transition'
+              className='absolute translate-y-2 -translate-x-14 rounded-md bg-slate-700 px-2 py-1 text-xs text-slate-50 hidden transition'
             >
               {clicked ? 'Copied' : 'Click to Copy'}
             </button>

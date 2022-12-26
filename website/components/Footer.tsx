@@ -33,14 +33,14 @@ export default function Footer() {
               }}
               className={`flex cursor-pointer items-center gap-3 ${
                 clicked
-                  ? '[&>button]:opacity-100'
-                  : '[&>button]:hover:opacity-100'
+                  ? '[&>button]:block'
+                  : '[&>button]:hover:block'
               } `}
             >
               <MdMail size={26} />
               <button
                 type='button'
-                className='absolute -translate-y-6 translate-x-9 rounded-md bg-slate-50 px-2 py-1 text-xs text-slate-900 opacity-0 transition'
+                className='absolute -translate-y-6 translate-x-9 rounded-md bg-slate-50 px-2 py-1 text-xs text-slate-900 hidden transition'
               >
                 {clicked ? 'Copied' : 'Click to Copy'}
               </button>
