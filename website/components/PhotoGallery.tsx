@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Gallery } from 'types'
+import { slugify } from 'utils'
 
 export default function PhotoGallery({ gallery }: { gallery: Gallery[] }) {
   return (
@@ -10,8 +11,12 @@ export default function PhotoGallery({ gallery }: { gallery: Gallery[] }) {
           GALLERY
         </h2>
         <div className='mt-16 grid justify-center gap-10 md:grid-flow-col'>
-          {gallery.map(({ id, title, thumbnail }) => (
-            <Link href={`/gallery/${id}`} key={id} className='relative grid '>
+          {gallery.map(({ title, thumbnail }) => (
+            <Link
+              href={`/gallery/${slugify(title)}`}
+              key={title}
+              className='relative grid '
+            >
               <div className='z-10 bg-white p-5 shadow-md'>
                 <Image
                   height={300}
