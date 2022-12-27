@@ -154,7 +154,7 @@ export default function Admission({
           {programs.map((p) => (
             <li
               key={p.name}
-              className='rounded-md border-2 border-violet-500 p-7 font-semibold text-violet-800 max-[450px]:w-full sm:w-[275px]'
+              className='rounded-md border-2 border-violet-400 p-6 font-semibold text-violet-800 max-[450px]:w-full sm:w-[275px]'
             >
               <Image
                 src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${p.image}`}
@@ -163,8 +163,8 @@ export default function Admission({
                 alt=''
                 className='mx-auto w-full rounded-md object-cover'
               />
-              <h3 className='mt-5 mb-2 text-xl font-bold'>{p.name}</h3>
-              <p className='text-sm'>
+              <h3 className='mt-4 mb-1 text-xl font-bold'>{p.name}</h3>
+              <p className='text-sm text-violet-700'>
                 <span className='font-bold'>Age: </span>
                 <span>{p.age}</span>
               </p>

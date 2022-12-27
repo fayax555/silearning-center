@@ -21,7 +21,7 @@ export default function Testimonials({
               <p className='block text-left text-slate-700'>{testimonial}</p>
               <div className='mt-5'>
                 <h2 className='mb-1 text-lg font-bold'>{name}</h2>
-                <p className='text-sm'>{title}</p>
+                <p className='text-sm text-slate-600'>{title}</p>
               </div>
             </article>
           ))}

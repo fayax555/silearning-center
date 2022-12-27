@@ -44,18 +44,32 @@ export const AboutUsSchema = z.object({
   image: z.string().nullable(),
 })
 
-export const ProgramSchema = z.object({
-  name: z.string(),
-  image: z.string().nullable(),
-  age: z.string().nullable(),
-}).array()
+export const ProgramSchema = z
+  .object({
+    name: z.string(),
+    image: z.string().nullable(),
+    age: z.string().nullable(),
+  })
+  .array()
 
-export const TestimonialsSchema = z.object({
-  id: z.number(),
-  name: z.string().nullable(),
-  title: z.string().nullable(),
-  testimonial: z.string().nullable(),
-}).array()
+export const TestimonialsSchema = z
+  .object({
+    id: z.number(),
+    name: z.string().nullable(),
+    title: z.string().nullable(),
+    testimonial: z.string().nullable(),
+  })
+  .array()
+
+export const EventsSchema = z
+  .object({
+    name: z.string(),
+    start: z.string().nullable(),
+    end: z.string().nullable(),
+    description: z.string().nullable(),
+    image: z.string().nullable(),
+  })
+  .array()
 
 export type Feature = z.infer<typeof FeatureSchema>[number]
 export type Teacher = z.infer<typeof TeacherSchema>[number]
@@ -64,3 +78,4 @@ export type Class = z.infer<typeof ClassSchema>[number]
 export type AboutUs = z.infer<typeof AboutUsSchema>
 export type Program = z.infer<typeof ProgramSchema>[number]
 export type Testimonial = z.infer<typeof TestimonialsSchema>[number]
+export type UpcomingEvent = z.infer<typeof EventsSchema>[number]
