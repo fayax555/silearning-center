@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { GallerySchema } from 'types'
-import { Directus } from 'utils'
+import { Directus, slugify } from 'utils'
 
 export default function GalleryPage({
   gallery,
@@ -14,11 +14,11 @@ export default function GalleryPage({
       <div
         className={`mx-auto mt-16 mb-52 flex max-w-[1200px] flex-wrap justify-center gap-10 px-5`}
       >
-        {gallery.map(({ id, title, thumbnail }) => (
+        {gallery.map(({ title, thumbnail }) => (
           <Link
-            href={`/gallery/${id}`}
-            key={id}
-            className='relative grid w-full flex-1 min-w-[280px] max-w-[380px] md:min-w-[300px] lg:max-w-[31%]'
+            href={`/gallery/${slugify(title)}`}
+            key={title}
+            className='relative grid w-full min-w-[280px] max-w-[380px] flex-1 md:min-w-[300px] lg:max-w-[31%]'
           >
             <div className='z-10 bg-white p-5 shadow-md'>
               <Image

@@ -2,7 +2,7 @@ import Layout from 'components/Layout'
 import { GetStaticPropsContext } from 'next'
 import Image from 'next/image'
 import { type Gallery, GallerySchema } from 'types'
-import { Directus } from 'utils'
+import { Directus, slugify } from 'utils'
 
 type GalleryPageProps = { gallery: Gallery & { images: string[] } }
 
@@ -26,8 +26,8 @@ export default function GalleryPage({ gallery }: GalleryPageProps) {
 }
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const id = params?.id
-  if (typeof id !== 'string') throw new Error('Invalid id')
+  const slug = params?.slug
+  if (typeof slug !== 'string') throw new Error('Invalid id')
 
   const directus = Directus()
 
@@ -39,6 +39,10 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
     fields: ['id', 'gallery_id', 'directus_files_id'],
   })
 
+  const galleryList = GallerySchema.parse(galleryRes.data)
+
+  const id = galleryList.find((g) => slugify(g.title) === slug)?.id
+
   const images = galleryFilesRes.data
     ?.map((file) => {
       const fileId = file.directus_files_id
@@ -49,8 +53,9 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 
   if (!images) throw new Error('No images found')
 
-  const galleryList = GallerySchema.parse(galleryRes.data)
   const gallery = galleryList.find((g) => g.id === Number(id))
+
+  if (!gallery) return { notFound: true }
 
   return { props: { gallery: { ...gallery, images } } }
 }
@@ -64,8 +69,6 @@ export async function getStaticPaths() {
 
   const galleryList = GallerySchema.parse(galleryRes.data)
 
-  const paths = galleryList?.map(({ id }) => ({
-    params: { id: id.toString() },
-  }))
+  const paths = galleryList.map((g) => ({ params: { slug: slugify(g.title) } }))
   return { paths, fallback: 'blocking' }
 }

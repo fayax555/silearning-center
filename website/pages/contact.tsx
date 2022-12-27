@@ -121,7 +121,7 @@ export default function ContactPage() {
           <button
             disabled={submitting}
             type='submit'
-            className={`mt-8 w-full rounded-md ${
+            className={`mt-7 w-full rounded-md ${
               submitting ? 'bg-slate-500' : 'bg-violet-600 hover:bg-violet-800'
             } px-5 py-2 font-bold text-white transition `}
           >
