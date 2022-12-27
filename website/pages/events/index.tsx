@@ -19,9 +19,12 @@ export default function EventsPage({
             <Link
               href={`/events/${slugify(name)}`}
               key={name}
-              className={clsx('grid items-center bg-slate-50', {
-                'md:grid-cols-[500px_auto]': image,
-              })}
+              className={clsx(
+                'border-transparent grid items-center rounded-lg border-2 bg-slate-50 hover:border-violet-600',
+                {
+                  'md:grid-cols-[500px_auto]': image,
+                }
+              )}
             >
               <div className='order-2 rounded-lg p-6 md:order-1'>
                 <p className='text-lg font-semibold'>
