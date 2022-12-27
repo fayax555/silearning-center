@@ -3,10 +3,10 @@ import dayjs from 'dayjs'
 import { clsx } from 'clsx'
 
 import Layout from 'components/Layout'
-import { EventsSchema } from 'types'
-import { Directus } from 'utils'
 import Image from 'next/image'
 import Link from 'next/link'
+import { EventsSchema } from 'types'
+import { Directus, slugify } from 'utils'
 
 export default function EventsPage({
   events,
@@ -17,7 +17,7 @@ export default function EventsPage({
         <div className='grid gap-10'>
           {events.map(({ name, start, end, image, description }) => (
             <Link
-              href={`/events/${name}`}
+              href={`/events/${slugify(name)}`}
               key={name}
               className={clsx('grid items-center bg-slate-50', {
                 'md:grid-cols-[500px_auto]': image,
@@ -34,9 +34,9 @@ export default function EventsPage({
                     <span className='hidden md:block'>-</span>
                     <p>{dayjs(end).format('MMMM D, YYYY @ h:mm a')}</p>
                   </div>
-                  <h3 className='mt-2 text-3xl font-semibold md:text-4xl'>
+                  <h2 className='mt-2 text-3xl font-semibold md:text-4xl'>
                     {name}
-                  </h3>
+                  </h2>
                   <div
                     dangerouslySetInnerHTML={{ __html: description ?? '' }}
                     className='text-slate-600 line-clamp-4'
@@ -64,15 +64,13 @@ export default function EventsPage({
 export const getStaticProps = async () => {
   const directus = Directus()
 
-  const galleryRes = await directus.items('gallery').readByQuery({
-    fields: ['id', 'title', 'thumbnail'],
-  })
-
   const eventsRes = await directus.items('upcoming_events').readByQuery({
     fields: ['name', 'start', 'end', 'description', 'image'],
   })
 
-  const events = EventsSchema.parse(eventsRes.data)
+  const events = EventsSchema.parse(eventsRes.data).sort((a, b) =>
+    dayjs(a.start).diff(dayjs(b.start))
+  )
 
   return { props: { events } }
 }

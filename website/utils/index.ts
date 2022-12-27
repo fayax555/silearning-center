@@ -5,3 +5,10 @@ export function Directus() {
   if (!directusUrl) throw new Error('NEXT_PUBLIC_DIRECTUS_URL is not defined')
   return new DirectusSDK(directusUrl)
 }
+
+
+export const slugify = (str: string) =>
+  str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '')
