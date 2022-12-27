@@ -10,7 +10,7 @@ export default function EventItemPage(
   e: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   return (
-    <Layout title={e.name}>
+    <Layout title={e.name} backButtonText='Events'>
       <div className='mx-auto mt-4 grid justify-center gap-2 text-xs text-slate-700 min-[350px]:text-sm md:flex'>
         <p>{dayjs(e.start).format('MMMM D, YYYY @ h:mm a')}</p>
         <span className='hidden md:block'>-</span>

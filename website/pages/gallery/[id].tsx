@@ -8,7 +8,7 @@ type GalleryPageProps = { gallery: Gallery & { images: string[] } }
 
 export default function GalleryPage({ gallery }: GalleryPageProps) {
   return (
-    <Layout title={gallery.title ?? ''}>
+    <Layout title={gallery.title ?? ''} backButtonText='Gallery'>
       <div className='mx-auto mb-40 mt-20 grid max-w-[1200px] gap-10 px-4'>
         {gallery.images?.map((image) => (
           <Image
