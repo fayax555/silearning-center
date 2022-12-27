@@ -19,12 +19,12 @@ export default function UpcomingEvents({ events }: Props) {
     <section className='mx-auto max-w-[1200px] py-24 px-4 text-slate-800'>
       <Link
         href='/events'
-        className='flex items-center justify-center gap-5 hover:text-violet-700'
+        className='md:flex text-center items-center justify-center gap-5 hover:text-violet-700'
       >
-        <h2 className='text-center text-3xl font-bold md:text-4xl'>
+        <h2 className='text-3xl font-bold md:text-4xl'>
           Upcoming Events
         </h2>
-        <p className='underline underline-offset-2'>View More</p>
+        <p className='underline underline-offset-2 text-sm'>View More</p>
       </Link>
 
       <div className='mt-10 grid items-center gap-5 lg:h-[408px] lg:grid-cols-[605px_auto]'>
