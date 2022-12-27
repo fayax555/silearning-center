@@ -6,6 +6,7 @@ import { AiOutlineMenu } from 'react-icons/ai'
 
 const navItems = [
   ['HOME', 'text-red-600', 'bg-red-50', 'hover:bg-red-50'],
+  ['EVENTS', 'text-violet-600', 'bg-violet-50', 'hover:bg-violet-50'],
   [
     'ADMISSION',
     'text-[hsl(308,95%,40%)]',

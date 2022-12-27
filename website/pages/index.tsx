@@ -1,4 +1,5 @@
 import { type InferGetStaticPropsType } from 'next'
+
 import Features from 'components/Features'
 import Hero from 'components/Hero'
 import AboutUs from 'components/AboutUs'

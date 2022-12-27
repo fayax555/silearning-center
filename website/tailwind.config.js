@@ -1,5 +1,3 @@
-const { fontFamily } = require('tailwindcss/defaultTheme')
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -11,5 +9,5 @@ module.exports = {
       fontFamily: {},
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 }

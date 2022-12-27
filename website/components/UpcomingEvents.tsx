@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import dayjs from 'dayjs'
-import { BiImage } from 'react-icons/bi'
+import { clsx } from 'clsx'
 
 import type { UpcomingEvent } from 'types'
-import Link from 'next/link'
 
 type Props = { events: UpcomingEvent[] }
 type ActiveItem = { name: string; image: string | null }
@@ -30,16 +30,17 @@ export default function UpcomingEvents({ events }: Props) {
       <div className='mt-10 grid items-center gap-5 lg:h-[408px] lg:grid-cols-[605px_auto]'>
         <div className='order-2 lg:order-1'>
           {events.slice(0, 3).map(({ name, start, end, image }) => (
-            <article
+            <button
+              type='button'
               key={name}
               onClick={() => setActiveItem({ name, image })}
-              className={`my-4 grid cursor-pointer grid-cols-[50px_auto] items-center rounded-xl border-2 border-slate-300 p-4 sm:gap-2 ${
+              className={`my-4 grid w-full cursor-pointer grid-cols-[50px_auto] items-center rounded-xl border-2 border-slate-300 p-4 text-left sm:gap-2 ${
                 activeItem.name === name
                   ? 'bg-violet-600 text-violet-50'
                   : 'bg-white'
               }`}
             >
-              <div className='grid gap-1 '>
+              <div className='grid gap-1 pl-1'>
                 <span>{dayjs(start).format('MMM')}</span>
                 <span className='text-xl font-bold'>
                   {dayjs(start).format('D')}
@@ -47,14 +48,18 @@ export default function UpcomingEvents({ events }: Props) {
               </div>
 
               <div className='grid gap-1'>
-                <div className='gap-2 text-xs min-[350px]:text-sm md:flex  '>
+                <div
+                  className={clsx('gap-2 text-xs min-[350px]:text-sm md:flex', {
+                    'text-slate-500': activeItem.name !== name,
+                  })}
+                >
                   <p>{dayjs(start).format('MMMM D, YYYY @ h:mm a')}</p>
                   <span className='hidden md:block'>-</span>
                   <p>{dayjs(end).format('MMMM D, YYYY @ h:mm a')}</p>
                 </div>
                 <h3 className='text-xl font-semibold md:text-2xl'>{name}</h3>
               </div>
-            </article>
+            </button>
           ))}
         </div>
 

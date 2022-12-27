@@ -2,11 +2,13 @@ lockfileVersion: 5.4
 
 specifiers:
   '@directus/sdk': ^10.3.0
+  '@tailwindcss/line-clamp': ^0.4.2
   '@types/node': 18.11.9
   '@types/nodemailer': ^6.4.6
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
   autoprefixer: ^10.4.13
+  clsx: ^1.2.1
   dayjs: ^1.11.7
   eslint: 8.28.0
   eslint-config-next: 13.0.5
@@ -27,6 +29,7 @@ specifiers:
 
 dependencies:
   '@directus/sdk': 10.3.0
+  clsx: 1.2.1
   dayjs: 1.11.7
   next: 13.0.5_biqbaboplfbrettd7655fr4n2y
   next-seo: 5.15.0_7iuvftg57tblwyxclfkwku5xo4
@@ -39,6 +42,7 @@ dependencies:
   zod: 3.20.2
 
 devDependencies:
+  '@tailwindcss/line-clamp': 0.4.2_tailwindcss@3.2.4
   '@types/node': 18.11.9
   '@types/nodemailer': 6.4.6
   '@types/react': 18.0.25
@@ -283,6 +287,14 @@ packages:
     dependencies:
       tslib: 2.4.1
     dev: false
+
+  /@tailwindcss/line-clamp/0.4.2_tailwindcss@3.2.4:
+    resolution: {integrity: sha512-HFzAQuqYCjyy/SX9sLGB1lroPzmcnWv1FHkIpmypte10hptf4oPUfucryMKovZh2u0uiS9U5Ty3GghWfEJGwVw==}
+    peerDependencies:
+      tailwindcss: '>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1'
+    dependencies:
+      tailwindcss: 3.2.4_postcss@8.4.19
+    dev: true
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
@@ -650,6 +662,11 @@ packages:
 
   /client-only/0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+    dev: false
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
     dev: false
 
   /color-convert/2.0.1:
