@@ -1,8 +1,8 @@
 import Footer from './Footer'
 import Navbar from './Navbar'
-import { NextSeo } from 'next-seo'
 import Link from 'next/link'
 import { IoMdArrowBack } from 'react-icons/io'
+import Head from 'next/head'
 
 type Props = {
   title: string
@@ -21,32 +21,25 @@ export default function Layout({
 }: Props) {
   return (
     <>
-      <NextSeo
-        title={title}
-        description={description}
-        canonical='https://silearning.center'
-        openGraph={{
-          url: 'https://silearning.center',
-          title,
-          description,
-          images: [
-            {
-              url: '/logo.png',
-              width: 1435,
-              height: 594,
-              alt: 'SI Learning Center logo',
-              type: 'image',
-            },
-          ],
-          site_name: 'Siyama Imad Learning Center',
-        }}
-        twitter={{
-          handle: '@silearningcenter',
-          site: '@silearningcenter',
-          cardType: 'summary_large_image',
-        }}
-        additionalLinkTags={[{ rel: 'icon', href: '/favicon.ico' }]}
-      />
+      <Head>
+        <title>{title}</title>
+        <meta name='robots' content='index,follow' />
+        <meta name='description' content={description} />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:site' content='@silearningcenter' />
+        <meta name='twitter:creator' content='@silearningcenter' />
+        <meta property='og:title' content={title} />
+        <meta property='og:description' content={description} />
+        <meta property='og:url' content='https://silearning.center' />
+        <meta property='og:image' content='/logo.png' />
+        <meta property='og:image:alt' content='SI Learning Center logo' />
+        <meta property='og:image:type' content='image' />
+        <meta property='og:image:width' content='1435' />
+        <meta property='og:image:height' content='594' />
+        <meta property='og:site_name' content='Siyama Imad Learning Center' />
+        <link rel='canonical' href='https://silearning.center' />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
 
       <header>
         <Navbar />
