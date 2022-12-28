@@ -16,7 +16,6 @@ jobs:
           script_stop: true
           script: |
             cd $HOME/sites/silearning-center/website
-            rm -rf pnpm-lock.yaml
             git pull
             export PATH="$HOME/.local/share/pnpm:$PATH"
             pnpm i --frozen-lockfile
