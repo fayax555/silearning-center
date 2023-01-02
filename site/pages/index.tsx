@@ -18,7 +18,7 @@ export default function Home(
   return (
     <Layout
       title='Siyama Imad Learning Center'
-      description='SILC is a learning center to teach kids. We focus on improving their motor skills and building a strong foundation for their future.'
+      description='Siyama Imad Learning Center is a learning center is an early education center based in Aa. Ukulhas, Maldives mainly focuses on improving skills in a playful environment under Islamic guidance.'
       hideTitle
     >
       <Hero heroImage={p.hero.image} />
