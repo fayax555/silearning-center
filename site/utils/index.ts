@@ -6,6 +6,19 @@ export function Directus() {
   return new DirectusSDK(directusUrl)
 }
 
+export const directusItems = (name: string) => {
+  const directus = Directus()
+
+  return {
+    async read({ fields }: { fields: string[] }) {
+      const res = await directus
+        .items(name)
+        .readByQuery({ fields, filter: { status: { _eq: 'published' } } })
+
+      return res.data
+    },
+  }
+}
 
 export const slugify = (str: string) =>
   str

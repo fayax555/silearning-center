@@ -6,7 +6,7 @@ import Layout from 'components/Layout'
 import Image from 'next/image'
 import Link from 'next/link'
 import { EventsSchema } from 'types'
-import { Directus, slugify } from 'utils'
+import { directusItems, slugify } from 'utils'
 
 export default function EventsPage({
   events,
@@ -20,7 +20,7 @@ export default function EventsPage({
               href={`/events/${slugify(name)}`}
               key={name}
               className={clsx(
-                'border-transparent grid items-center rounded-lg border-2 bg-slate-50 hover:border-violet-600',
+                'grid items-center rounded-lg border-2 border-transparent bg-slate-50 hover:border-violet-600',
                 {
                   'md:grid-cols-[500px_auto]': image,
                 }
@@ -65,13 +65,11 @@ export default function EventsPage({
 }
 
 export const getStaticProps = async () => {
-  const directus = Directus()
-
-  const eventsRes = await directus.items('upcoming_events').readByQuery({
+  const eventsRes = await directusItems('upcoming_events').read({
     fields: ['name', 'start', 'end', 'description', 'image'],
   })
 
-  const events = EventsSchema.parse(eventsRes.data).sort((a, b) =>
+  const events = EventsSchema.parse(eventsRes).sort((a, b) =>
     dayjs(a.start).diff(dayjs(b.start))
   )
 

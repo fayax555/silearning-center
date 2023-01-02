@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { toast } from 'react-hot-toast'
 
 import Layout from 'components/Layout'
-import { Directus } from 'utils'
+import { Directus, directusItems } from 'utils'
 import { ProgramSchema } from 'types'
 
 export default function Admission({
@@ -177,15 +177,11 @@ export default function Admission({
 }
 
 export const getStaticProps = async () => {
-  const directus = Directus()
-
-  const programRes = await directus.items('programs').readByQuery({
+  const programRes = await directusItems('programs').read({
     fields: ['name', 'image', 'age'],
   })
 
-  const programs = ProgramSchema.parse(programRes.data)
+  const programs = ProgramSchema.parse(programRes)
 
-  return {
-    props: { programs },
-  }
+  return { props: { programs } }
 }

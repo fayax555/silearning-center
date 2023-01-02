@@ -8,7 +8,7 @@ import OurTeachers from 'components/OurTeachers'
 import Testimonials from 'components/Testimonials'
 import PhotoGallery from 'components/PhotoGallery'
 import Layout from 'components/Layout'
-import { Directus } from 'utils'
+import { Directus, directusItems } from 'utils'
 import UpcomingEvents from 'components/UpcomingEvents'
 import * as S from '../types'
 
@@ -36,48 +36,44 @@ export default function Home(
 }
 
 export const getStaticProps = async () => {
-  const directus = Directus()
+  const heroRes = await directusItems('hero').read({ fields: ['image'] })
 
-  const heroRes = await directus.items('hero').readByQuery({
-    fields: ['image'],
+  const featuresRes = await directusItems('features').read({
+    fields: ['id', 'title', 'image', 'status'],
   })
 
-  const featuresRes = await directus.items('features').readByQuery({
-    fields: ['id', 'title', 'image'],
-  })
-
-  const teachersRes = await directus.items('teachers').readByQuery({
+  const teachersRes = await directusItems('teachers').read({
     fields: ['id', 'name', 'title', 'image'],
   })
 
-  const galleryRes = await directus.items('gallery').readByQuery({
+  const galleryRes = await directusItems('gallery').read({
     fields: ['id', 'title', 'thumbnail'],
   })
 
-  const classRes = await directus.items('classes').readByQuery({
+  const classRes = await directusItems('classes').read({
     fields: ['id', 'name', 'age_group', 'class_size', 'image'],
   })
 
-  const aboutUsRes = await directus.items('about_us').readByQuery({
+  const aboutUsRes = await directusItems('about_us').read({
     fields: ['title', 'text', 'image'],
   })
 
-  const testimonialsRes = await directus.items('testimonials').readByQuery({
+  const testimonialsRes = await directusItems('testimonials').read({
     fields: ['id', 'name', 'title', 'testimonial'],
   })
 
-  const eventsRes = await directus.items('upcoming_events').readByQuery({
+  const eventsRes = await directusItems('upcoming_events').read({
     fields: ['name', 'start', 'end', 'description', 'image'],
   })
 
-  const hero = S.HeroSchema.parse(heroRes.data)
-  const features = S.FeatureSchema.parse(featuresRes.data)
-  const teachers = S.TeacherSchema.parse(teachersRes.data)
-  const gallery = S.GallerySchema.parse(galleryRes.data).slice(0, 3)
-  const classes = S.ClassSchema.parse(classRes.data)
-  const aboutUs = S.AboutUsSchema.parse(aboutUsRes.data)
-  const testimonials = S.TestimonialsSchema.parse(testimonialsRes.data)
-  const events = S.EventsSchema.parse(eventsRes.data)
+  const hero = S.HeroSchema.parse(heroRes)
+  const features = S.FeatureSchema.parse(featuresRes)
+  const teachers = S.TeacherSchema.parse(teachersRes)
+  const gallery = S.GallerySchema.parse(galleryRes).slice(0, 3)
+  const classes = S.ClassSchema.parse(classRes)
+  const aboutUs = S.AboutUsSchema.parse(aboutUsRes)
+  const testimonials = S.TestimonialsSchema.parse(testimonialsRes)
+  const events = S.EventsSchema.parse(eventsRes)
 
   return {
     props: {

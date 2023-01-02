@@ -4,7 +4,7 @@ import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import Image from 'next/image'
 import React from 'react'
 import { EventsSchema } from 'types'
-import { Directus, slugify } from 'utils'
+import { directusItems, slugify } from 'utils'
 
 export default function EventItemPage(
   e: InferGetStaticPropsType<typeof getStaticProps>
@@ -24,7 +24,7 @@ export default function EventItemPage(
             width={1000}
             src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${e.image}`}
             alt={e.name}
-            className='rounded-lg w-full object-cover'
+            className='w-full rounded-lg object-cover'
           />
         )}
 
@@ -58,13 +58,11 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
   const slug = params?.slug
   if (typeof slug !== 'string') throw new Error('Invalid id')
 
-  const directus = Directus()
-
-  const eventsRes = await directus.items('upcoming_events').readByQuery({
+  const eventsRes = await directusItems('upcoming_events').read({
     fields: ['name', 'start', 'end', 'description', 'image'],
   })
 
-  const events = EventsSchema.parse(eventsRes.data)
+  const events = EventsSchema.parse(eventsRes)
   const event = events.find((e) => slugify(e.name) === slug)
   if (!event) throw new Error('Event not found')
 
@@ -72,13 +70,11 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 }
 
 export async function getStaticPaths() {
-  const directus = Directus()
-
-  const eventsRes = await directus.items('upcoming_events').readByQuery({
+  const eventsRes = await directusItems('upcoming_events').read({
     fields: ['name', 'start', 'end', 'description', 'image'],
   })
 
-  const events = EventsSchema.parse(eventsRes.data)
+  const events = EventsSchema.parse(eventsRes)
   if (!events) throw new Error('Event not found')
 
   const paths = events.map(({ name }) => ({ params: { slug: slugify(name) } }))

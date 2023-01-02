@@ -2,7 +2,7 @@ import Layout from 'components/Layout'
 import { GetStaticPropsContext } from 'next'
 import Image from 'next/image'
 import { type Gallery, GallerySchema } from 'types'
-import { Directus, slugify } from 'utils'
+import { directusItems, slugify } from 'utils'
 
 type GalleryPageProps = { gallery: Gallery & { images: string[] } }
 
@@ -29,21 +29,19 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
   const slug = params?.slug
   if (typeof slug !== 'string') throw new Error('Invalid id')
 
-  const directus = Directus()
-
-  const galleryRes = await directus.items('gallery').readByQuery({
+  const galleryRes = await directusItems('gallery').read({
     fields: ['id', 'title'],
   })
 
-  const galleryFilesRes = await directus.items('gallery_files').readByQuery({
+  const galleryFilesRes = await directusItems('gallery_files').read({
     fields: ['id', 'gallery_id', 'directus_files_id'],
   })
 
-  const galleryList = GallerySchema.parse(galleryRes.data)
+  const galleryList = GallerySchema.parse(galleryRes)
 
   const id = galleryList.find((g) => slugify(g.title) === slug)?.id
 
-  const images = galleryFilesRes.data
+  const images = galleryFilesRes
     ?.map((file) => {
       const fileId = file.directus_files_id
       if (typeof fileId === 'string' && file.gallery_id === Number(id))
@@ -61,13 +59,11 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 }
 
 export async function getStaticPaths() {
-  const directus = Directus()
-
-  const galleryRes = await directus.items('gallery').readByQuery({
+  const galleryRes = await directusItems('gallery').read({
     fields: ['id', 'title'],
   })
 
-  const galleryList = GallerySchema.parse(galleryRes.data)
+  const galleryList = GallerySchema.parse(galleryRes)
 
   const paths = galleryList.map((g) => ({ params: { slug: slugify(g.title) } }))
   return { paths, fallback: 'blocking' }

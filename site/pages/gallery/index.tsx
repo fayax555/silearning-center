@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { GallerySchema } from 'types'
-import { Directus, slugify } from 'utils'
+import { Directus, directusItems, slugify } from 'utils'
 
 export default function GalleryPage({
   gallery,
@@ -41,13 +41,11 @@ export default function GalleryPage({
 }
 
 export const getStaticProps = async () => {
-  const directus = Directus()
-
-  const galleryRes = await directus.items('gallery').readByQuery({
+  const galleryRes = await directusItems('gallery').read({
     fields: ['id', 'title', 'thumbnail'],
   })
 
-  const gallery = GallerySchema.parse(galleryRes.data)
+  const gallery = GallerySchema.parse(galleryRes)
 
   return { props: { gallery } }
 }
