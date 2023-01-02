@@ -15,7 +15,7 @@ jobs:
           key: ${{ secrets.KEY }}
           script_stop: true
           script: |
-            cd $HOME/sites/silearning-center/website
+            cd $HOME/sites/silearning-center/site
             git pull
             export PATH="$HOME/.local/share/pnpm:$PATH"
             pnpm i --frozen-lockfile
