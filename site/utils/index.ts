@@ -6,7 +6,7 @@ export function Directus() {
   return new DirectusSDK(directusUrl)
 }
 
-export const directusItems = (name: string, shouldFilter?: false) => {
+export const directusItems = (name: string, shouldFilter = true) => {
   const directus = Directus()
 
   return {
