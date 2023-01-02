@@ -6,14 +6,19 @@ export function Directus() {
   return new DirectusSDK(directusUrl)
 }
 
-export const directusItems = (name: string) => {
+export const directusItems = (name: string, shouldFilter?: false) => {
   const directus = Directus()
 
   return {
     async read({ fields }: { fields: string[] }) {
-      const res = await directus
-        .items(name)
-        .readByQuery({ fields, filter: { status: { _eq: 'published' } } })
+      const res = await directus.items(name).readByQuery(
+        shouldFilter
+          ? {
+              fields: [...fields, 'status'],
+              filter: { status: { _eq: 'published' } },
+            }
+          : { fields }
+      )
 
       return res.data
     },

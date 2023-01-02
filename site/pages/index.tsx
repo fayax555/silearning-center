@@ -39,7 +39,7 @@ export const getStaticProps = async () => {
   const heroRes = await directusItems('hero').read({ fields: ['image'] })
 
   const featuresRes = await directusItems('features').read({
-    fields: ['id', 'title', 'image', 'status'],
+    fields: ['id', 'title', 'image',],
   })
 
   const teachersRes = await directusItems('teachers').read({

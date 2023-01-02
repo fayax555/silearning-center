@@ -33,7 +33,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
     fields: ['id', 'title'],
   })
 
-  const galleryFilesRes = await directusItems('gallery_files').read({
+  const galleryFilesRes = await directusItems('gallery_files', false).read({
     fields: ['id', 'gallery_id', 'directus_files_id'],
   })
 
