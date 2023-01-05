@@ -18,13 +18,13 @@ export default function Programs({ programs, home }: Props) {
         </h2>
       )}
 
-      <ul className='flex max-w-[1200px] grid-cols-1 flex-wrap justify-center gap-5'>
+      <ul className='grid sm:flex max-w-[1200px] grid-cols-1 flex-wrap justify-center gap-5'>
         {programsToRender.map((p) => (
           <li
             key={p.name}
             className='grid rounded-md border-2 border-violet-400 p-6 font-semibold text-violet-800 max-[450px]:w-full sm:w-[275px]'
           >
-            <div className=''>
+            <div>
               {p.image && (
                 <Image
                   src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${p.image}`}
