@@ -11,6 +11,7 @@ import Layout from 'components/Layout'
 import { directusItems } from 'utils'
 import UpcomingEvents from 'components/UpcomingEvents'
 import * as S from '../types'
+import Programs from 'components/Programs'
 
 export default function Home(
   p: InferGetStaticPropsType<typeof getStaticProps>
@@ -26,6 +27,7 @@ export default function Home(
         <AboutUs aboutUs={p.aboutUs} />
       </div>
       <Features features={p.features} />
+      <Programs programs={p.programs} limit />
       <UpcomingEvents events={p.events} />
       <Classes classes={p.classes} />
       <OurTeachers teachers={p.teachers} />
@@ -40,6 +42,10 @@ export const getStaticProps = async () => {
 
   const featuresRes = await directusItems('features').read({
     fields: ['id', 'title', 'image'],
+  })
+
+  const programRes = await directusItems('programs').read({
+    fields: ['name', 'image', 'age'],
   })
 
   const teachersRes = await directusItems('teachers').read({
@@ -68,6 +74,7 @@ export const getStaticProps = async () => {
 
   const hero = S.HeroSchema.parse(heroRes)
   const features = S.FeatureSchema.parse(featuresRes)
+  const programs = S.ProgramSchema.parse(programRes)
   const teachers = S.TeacherSchema.parse(teachersRes)
   const gallery = S.GallerySchema.parse(galleryRes).slice(0, 3)
   const classes = S.ClassSchema.parse(classRes)
@@ -79,6 +86,7 @@ export const getStaticProps = async () => {
     props: {
       hero,
       features,
+      programs,
       teachers,
       gallery,
       classes,
