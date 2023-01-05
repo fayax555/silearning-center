@@ -1,15 +1,22 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Program } from 'types'
 
-type Props = { programs: Program[]; limit?: true }
-export default function Programs({ programs, limit }: Props) {
-  const programsToRender = limit ? programs.slice(0, 3) : programs
+type Props = { programs: Program[]; home?: true }
+export default function Programs({ programs, home }: Props) {
+  const programsToRender = home ? programs.slice(0, 3) : programs
 
   return (
     <div className='mx-auto mt-12 max-w-[1200px] px-5 text-center'>
-      <h2 className='mb-6 text-3xl font-extrabold text-violet-600 sm:text-4xl'>
-        Our Programs
-      </h2>
+      {home ? (
+        <h2 className='mb-10 text-center text-3xl font-bold text-slate-700 md:text-4xl'>
+          Our Programs
+        </h2>
+      ) : (
+        <h2 className='mb-6 text-3xl font-extrabold text-violet-600 sm:text-4xl'>
+          Our Programs
+        </h2>
+      )}
 
       <ul className='flex max-w-[1200px] grid-cols-1 flex-wrap justify-center gap-5'>
         {programsToRender.map((p) => (
@@ -41,6 +48,12 @@ export default function Programs({ programs, limit }: Props) {
           </li>
         ))}
       </ul>
+      <Link
+        className='mx-auto mt-5 block w-[140px] rounded-md bg-violet-600 px-4 py-2 text-center font-bold text-violet-100 transition hover:bg-violet-800'
+        href='/admission'
+      >
+        View More
+      </Link>
     </div>
   )
 }

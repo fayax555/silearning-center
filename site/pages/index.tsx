@@ -27,7 +27,7 @@ export default function Home(
         <AboutUs aboutUs={p.aboutUs} />
       </div>
       <Features features={p.features} />
-      <Programs programs={p.programs} limit />
+      <Programs programs={p.programs} home />
       <UpcomingEvents events={p.events} />
       <Classes classes={p.classes} />
       <OurTeachers teachers={p.teachers} />
