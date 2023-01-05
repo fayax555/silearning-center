@@ -2,6 +2,8 @@ import { ImQuotesLeft } from 'react-icons/im'
 import { Testimonial } from 'types'
 
 export default function Testimonials(p: { testimonials: Testimonial[] }) {
+  if(!p.testimonials.length) return null
+
   return (
     <section className='grid py-32 text-center text-slate-800'>
       <div className='mx-auto max-w-[1200px] px-6'>

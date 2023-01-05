@@ -4,12 +4,50 @@ import Image from 'next/image'
 import { toast } from 'react-hot-toast'
 
 import Layout from 'components/Layout'
-import { Directus, directusItems } from 'utils'
+import { directusItems } from 'utils'
 import { ProgramSchema } from 'types'
 
-export default function Admission({
-  programs,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+type Props = InferGetStaticPropsType<typeof getStaticProps>
+const Programs = ({ programs }: Props) => (
+  <div className='mx-auto mb-40 max-w-[1200px] px-5 text-center'>
+    <h2 className='mb-6 text-3xl font-extrabold text-violet-600 sm:text-4xl'>
+      Our Programs
+    </h2>
+
+    <ul className='flex max-w-[1200px] grid-cols-1 flex-wrap justify-center gap-5'>
+      {programs.map((p) => (
+        <li
+          key={p.name}
+          className='grid rounded-md border-2 border-violet-400 p-6 font-semibold text-violet-800 max-[450px]:w-full sm:w-[275px]'
+        >
+          <div className=''>
+            {p.image && (
+              <Image
+                src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${p.image}`}
+                height={500}
+                width={500}
+                alt=''
+                className='mx-auto w-full rounded-md object-cover sm:h-[150px]'
+              />
+            )}
+          </div>
+
+          <div>
+            <h3 className='mt-4 mb-1 text-xl font-bold'>{p.name}</h3>
+            {p.age && (
+              <p className='text-sm text-violet-700'>
+                <span className='font-bold'>Age: </span>
+                <span>{p.age}</span>
+              </p>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+)
+
+export default function Admission({ programs }: Props) {
   const [studentName, setStudentName] = useState('')
   const [parentName, setParentName] = useState('')
   const [mobile, setMobile] = useState('')
@@ -69,7 +107,7 @@ export default function Admission({
     >
       <form
         onSubmit={handleSubmit}
-        className='mx-4 mt-14 max-w-[600px] rounded-md border-2 border-violet-400 px-4 py-8 sm:mx-auto sm:p-10'
+        className='mx-4 mt-14 mb-20 max-w-[600px] rounded-md border-2 border-violet-400 px-4 py-8 sm:mx-auto sm:p-10'
       >
         {formInputs.map(([label, id, type, val, setVal]) => (
           <div className='relative mb-6' key={label}>
@@ -145,42 +183,7 @@ export default function Admission({
         </button>
       </form>
 
-      <div className='mx-auto mt-20 mb-40 max-w-[1200px] px-5 text-center'>
-        <h2 className='mb-6 text-3xl font-extrabold text-violet-600 sm:text-4xl'>
-          Our Programs
-        </h2>
-
-        <ul className='flex max-w-[1200px] grid-cols-1 flex-wrap justify-center gap-5'>
-          {programs.map((p) => (
-            <li
-              key={p.name}
-              className='grid rounded-md border-2 border-violet-400 p-6 font-semibold text-violet-800 max-[450px]:w-full sm:w-[275px]'
-            >
-              <div className=''>
-                {p.image && (
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${p.image}`}
-                    height={500}
-                    width={500}
-                    alt=''
-                    className='mx-auto w-full rounded-md object-cover sm:h-[150px]'
-                  />
-                )}
-              </div>
-
-              <div>
-                <h3 className='mt-4 mb-1 text-xl font-bold'>{p.name}</h3>
-                {p.age && (
-                  <p className='text-sm text-violet-700'>
-                    <span className='font-bold'>Age: </span>
-                    <span>{p.age}</span>
-                  </p>
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {!!programs.length && <Programs programs={programs} />}
     </Layout>
   )
 }

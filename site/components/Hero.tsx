@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const green = 'hsl(72,64%,45%)'
 
-export default function Hero({ heroImage }: { heroImage: string | null }) {
+export default function Hero({ heroImage }: { heroImage?: string | null }) {
   return (
     <div
       className={

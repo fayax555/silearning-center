@@ -1,23 +1,23 @@
 import { z } from 'zod'
 
 export const HeroSchema = z.object({
-  image: z.string().nullable(),
-})
+  image: z.string().nullish(),
+}).nullish()
 
 export const FeatureSchema = z
   .object({
     id: z.number(),
-    title: z.string().nullable(),
-    image: z.string().nullable(),
+    title: z.string().nullish(),
+    image: z.string().nullish(),
   })
   .array()
 
 export const TeacherSchema = z
   .object({
     id: z.number(),
-    name: z.string().nullable(),
-    title: z.string().nullable(),
-    image: z.string().nullable(),
+    name: z.string().nullish(),
+    title: z.string().nullish(),
+    image: z.string().nullish(),
   })
   .array()
 
@@ -32,42 +32,42 @@ export const GallerySchema = z
 export const ClassSchema = z
   .object({
     id: z.number(),
-    image: z.string().nullable(),
-    name: z.string().nullable(),
-    age_group: z.string().nullable(),
-    class_size: z.string().nullable(),
+    image: z.string().nullish(),
+    name: z.string().nullish(),
+    age_group: z.string().nullish(),
+    class_size: z.string().nullish(),
   })
   .array()
 
 export const AboutUsSchema = z.object({
-  text: z.string().nullable(),
-  image: z.string().nullable(),
-})
+  text: z.string().nullish(),
+  image: z.string().nullish(),
+}).nullish()
 
 export const ProgramSchema = z
   .object({
     name: z.string(),
-    image: z.string().nullable(),
-    age: z.string().nullable(),
+    image: z.string().nullish(),
+    age: z.string().nullish(),
   })
   .array()
 
 export const TestimonialsSchema = z
   .object({
     id: z.number(),
-    name: z.string().nullable(),
-    title: z.string().nullable(),
-    testimonial: z.string().nullable(),
+    name: z.string().nullish(),
+    title: z.string().nullish(),
+    testimonial: z.string().nullish(),
   })
   .array()
 
 export const EventsSchema = z
   .object({
     name: z.string(),
-    start: z.string().nullable(),
-    end: z.string().nullable(),
-    description: z.string().nullable(),
-    image: z.string().nullable(),
+    start: z.string().nullish(),
+    end: z.string().nullish(),
+    description: z.string().nullish(),
+    image: z.string().nullish(),
   })
   .array()
 

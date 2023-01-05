@@ -7,13 +7,15 @@ import { clsx } from 'clsx'
 import type { UpcomingEvent } from 'types'
 
 type Props = { events: UpcomingEvent[] }
-type ActiveItem = { name: string; image: string | null }
+type ActiveItem = { name?: string; image?: string | null }
 
 export default function UpcomingEvents({ events }: Props) {
   const [activeItem, setActiveItem] = useState<ActiveItem>({
-    name: events[0].name,
-    image: events[0].image,
+    name: events[0]?.name,
+    image: events[0]?.image,
   })
+
+  if(!events.length) return null
 
   return (
     <section className='mx-auto max-w-[1200px] py-10 pt-14 px-4 text-slate-800 md:py-24 lg:pb-40'>

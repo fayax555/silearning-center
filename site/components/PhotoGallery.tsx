@@ -4,6 +4,8 @@ import type { Gallery } from 'types'
 import { slugify } from 'utils'
 
 export default function PhotoGallery({ gallery }: { gallery: Gallery[] }) {
+  if(!gallery.length) return null
+  
   return (
     <section className='bg-slate-50 py-20 pb-32'>
       <div className='mx-auto max-w-[1200px] px-6 pb-8'>

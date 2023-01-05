@@ -5,9 +5,13 @@ const itemColors = [
   ['bg-purple-50', 'text-purple-600', 'border-purple-300'],
   ['bg-red-50', 'text-red-600', 'border-red-300'],
   ['bg-green-50', 'text-green-600', 'border-green-300'],
+  ['bg-blue-50', 'text-blue-600', 'border-blue-300'],
+  ['bg-yellow-50', 'text-yellow-600', 'border-yellow-300'],
 ] as const
 
 export default function Classes({ classes }: { classes: Class[] }) {
+  if (!classes.length) return null
+
   return (
     <section className='py-24 px-8 text-slate-700'>
       <div className='mx-auto max-w-[1200px]'>

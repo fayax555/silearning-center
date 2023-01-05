@@ -2,6 +2,8 @@ import Image from 'next/image'
 import type { Teacher } from 'types'
 
 export default function OurTeachers({ teachers }: { teachers: Teacher[] }) {
+  if (!teachers.length) return null
+
   return (
     <section className='mx-auto max-w-[1200px] px-4 pt-10 text-slate-700 sm:px-8'>
       <h2 className='text-center text-3xl font-bold md:text-4xl'>

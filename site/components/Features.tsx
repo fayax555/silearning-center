@@ -2,6 +2,8 @@ import Image from 'next/image'
 import type { Feature } from 'types'
 
 export default function Features({ features }: { features: Feature[] }) {
+  if(!features.length) return null
+
   return (
     <div className='py-16 pb-20 px-4'>
       <ul className='mx-auto grid max-w-[1200px] justify-center gap-8 px-8 sm:flex md:gap-4'>

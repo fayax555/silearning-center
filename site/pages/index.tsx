@@ -21,7 +21,7 @@ export default function Home(
       description='Siyama Imad Learning Center is a learning center is an early education center based in Aa. Ukulhas, Maldives mainly focuses on improving skills in a playful environment under Islamic guidance.'
       hideTitle
     >
-      <Hero heroImage={p.hero.image} />
+      <Hero heroImage={p.hero?.image} />
       <div className='pt-10'>
         <AboutUs aboutUs={p.aboutUs} />
       </div>
