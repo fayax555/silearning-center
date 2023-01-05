@@ -149,12 +149,12 @@ export default function ContactPage() {
             >
               {clicked ? 'Copied' : 'Click to Copy'}
             </button>
-            <p className='text-lg font-semibold'>contact@silearning.center</p>
+            <p className='text-lg font-semibold'>siyamaimadlearningcentre@gmail.com</p>
           </div>
 
-          <a href='tel:7777777' className='grid justify-items-center gap-3'>
+          <a href='tel:7615084' className='grid justify-items-center gap-3'>
             <AiFillPhone className='text-slate-600' size={50} />
-            <span className='text-lg font-semibold'>7777777</span>
+            <span className='text-lg font-semibold'>7615084</span>
           </a>
         </div>
       </div>

@@ -8,7 +8,7 @@ import OurTeachers from 'components/OurTeachers'
 import Testimonials from 'components/Testimonials'
 import PhotoGallery from 'components/PhotoGallery'
 import Layout from 'components/Layout'
-import { Directus, directusItems } from 'utils'
+import { directusItems } from 'utils'
 import UpcomingEvents from 'components/UpcomingEvents'
 import * as S from '../types'
 
@@ -39,7 +39,7 @@ export const getStaticProps = async () => {
   const heroRes = await directusItems('hero').read({ fields: ['image'] })
 
   const featuresRes = await directusItems('features').read({
-    fields: ['id', 'title', 'image',],
+    fields: ['id', 'title', 'image'],
   })
 
   const teachersRes = await directusItems('teachers').read({

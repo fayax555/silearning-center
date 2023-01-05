@@ -25,7 +25,7 @@ export default async function handler(
   // send mail with defined transport object
   const info = await transporter.sendMail({
     from: '"SI Learning Center" <silearningcenterwebsite@gmail.com>', // sender address
-    to: 'hfayax5@gmail.com', // list of receivers
+    to: 'siyamaimadlearningcentre@gmail.com', // list of receivers
     subject: 'Message Received via Contact Us Form', // Subject line
     html: /*html*/ `
           <div style='margin:3rem auto; max-width:400px; padding:2rem; border:1px solid #94a3b8; border-radius:10px; color:#1e293b; 

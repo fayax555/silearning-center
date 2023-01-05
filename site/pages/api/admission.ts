@@ -20,16 +20,16 @@ export default async function handler(
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'silearningcenterwebsite@gmail.com',
+      user: 'siyamaimadlearningcentre@gmail.com',
       pass: 'vceyuwwnqjswincj',
     },
   })
 
   // send mail with defined transport object
   const info = await transporter.sendMail({
-    from: '"SI Learning Center" <silearningcenterwebsite@gmail.com>', // sender address
-    to: 'hfayax5@gmail.com', // list of receivers
-    subject: 'Admission Form Received', // Subject line
+    from: '"SI Learning Center" <siyamaimadlearningcentre@gmail.com>', // sender address
+    to: 'siyamaimadlearningcentre@gmail.com', // list of receivers
+    subject: 'Admission Form Received via Admission Form', // Subject line
     html: /*html*/ `
           <div style='margin:3rem auto; max-width:300px; padding:2rem; border:1px solid #94a3b8; border-radius:10px; color:#1e293b; 
           font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot; !important;'>
