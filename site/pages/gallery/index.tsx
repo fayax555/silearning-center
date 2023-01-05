@@ -51,5 +51,5 @@ export const getStaticProps = async () => {
 
   const gallery = GallerySchema.parse(galleryRes)
 
-  return { props: { gallery } }
+  return { props: { gallery }, revalidate: 24 * 60 * 60 }
 }

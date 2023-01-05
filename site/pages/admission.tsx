@@ -206,5 +206,5 @@ export const getStaticProps = async () => {
 
   const programs = ProgramSchema.parse(programRes)
 
-  return { props: { programs } }
+  return { props: { programs }, revalidate: 24 * 60 * 60 }
 }

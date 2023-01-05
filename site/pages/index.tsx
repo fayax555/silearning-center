@@ -86,5 +86,6 @@ export const getStaticProps = async () => {
       testimonials,
       events,
     },
+    revalidate: 24 * 60 * 60,
   }
 }

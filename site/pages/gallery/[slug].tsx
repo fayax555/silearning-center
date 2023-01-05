@@ -55,7 +55,10 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 
   if (!gallery) return { notFound: true }
 
-  return { props: { gallery: { ...gallery, images } } }
+  return {
+    props: { gallery: { ...gallery, images } },
+    revalidate: 24 * 60 * 60,
+  }
 }
 
 export async function getStaticPaths() {

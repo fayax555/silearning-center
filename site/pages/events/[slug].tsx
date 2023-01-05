@@ -66,7 +66,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
   const event = events.find((e) => slugify(e.name) === slug)
   if (!event) throw new Error('Event not found')
 
-  return { props: event }
+  return { props: event, revalidate: 24 * 60 * 60 }
 }
 
 export async function getStaticPaths() {

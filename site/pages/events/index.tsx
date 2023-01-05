@@ -15,9 +15,7 @@ const Event = ({ name, start, end, image, description }: EventType) => (
     key={name}
     className={clsx(
       'grid items-center rounded-lg border-2 border-transparent bg-slate-50 hover:border-violet-600',
-      {
-        'md:grid-cols-[500px_auto]': image,
-      }
+      { 'md:grid-cols-[500px_auto]': image }
     )}
   >
     <div className='order-2 rounded-lg p-6 md:order-1'>
@@ -77,5 +75,5 @@ export const getStaticProps = async () => {
     dayjs(a.start).diff(dayjs(b.start))
   )
 
-  return { props: { events } }
+  return { props: { events }, revalidate: 24 * 60 * 60 }
 }
