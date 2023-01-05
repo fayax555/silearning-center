@@ -17,27 +17,29 @@ export default function Classes({ classes }: { classes: Class[] }) {
       <div className='mx-auto max-w-[1200px]'>
         <h2 className='text-center text-3xl font-bold md:text-4xl'>CLASSES</h2>
         <ul className='mt-12 grid gap-10 sm:grid-cols-2 md:grid-cols-3'>
-          {classes.map(({ id, name, age_group, class_size, image }, idx) => (
-            <li
-              key={id}
-              className={`border-2 ${itemColors[idx][0]} ${itemColors[idx][1]}  ${itemColors[idx][2]} rounded-xl text-center`}
-            >
-              <Image
-                height={600}
-                width={600}
-                src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${image}`}
-                alt={name ?? ''}
-                className='w-full rounded-t-xl object-cover'
-              />
-              <div
-                className={`self-stretch rounded-b-xl object-fill px-8 py-6 font-semibold`}
+          {classes
+            .slice(0, 3)
+            .map(({ id, name, age_group, class_size, image }, idx) => (
+              <li
+                key={id}
+                className={`border-2 ${itemColors[idx][0]} ${itemColors[idx][1]}  ${itemColors[idx][2]} rounded-xl text-center`}
               >
-                <h3 className='mb-4 text-center text-xl font-bold'>{name}</h3>
-                <p>{`Age: ${age_group}`}</p>
-                <p>{`Class Size: ${class_size}`}</p>
-              </div>
-            </li>
-          ))}
+                <Image
+                  height={600}
+                  width={600}
+                  src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${image}`}
+                  alt={name ?? ''}
+                  className='w-full rounded-t-xl object-cover'
+                />
+                <div
+                  className={`self-stretch rounded-b-xl object-fill px-8 py-6 font-semibold`}
+                >
+                  <h3 className='mb-4 text-center text-xl font-bold'>{name}</h3>
+                  <p>{`Age: ${age_group}`}</p>
+                  <p>{`Class Size: ${class_size}`}</p>
+                </div>
+              </li>
+            ))}
         </ul>
       </div>
     </section>

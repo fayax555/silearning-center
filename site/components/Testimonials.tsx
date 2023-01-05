@@ -13,7 +13,7 @@ export default function Testimonials(p: { testimonials: Testimonial[] }) {
           {p.testimonials.map(({ id, name, title, testimonial }) => (
             <article
               key={id}
-              className='grid min-w-[300px] flex-1 grid-rows-[80%_1fr] rounded-lg bg-slate-100 p-6 sm:pb-10 md:pb-9'
+              className='grid min-w-[300px] flex-1 rounded-lg bg-slate-100 p-6 sm:pb-10 md:pb-9'
             >
               <div>
                 <ImQuotesLeft className='-translate-y-2 text-3xl text-slate-600' />
