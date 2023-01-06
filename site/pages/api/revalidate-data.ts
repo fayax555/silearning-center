@@ -28,13 +28,11 @@ export default async function handler(
     await res.revalidate('/admission')
     await res.revalidate('/gallery')
 
-    for (const g of galleryList) {
+    for (const g of galleryList)
       await res.revalidate(`/gallery/${slugify(g.title)}`)
-    }
 
-    for (const e of eventsList) {
+    for (const e of eventsList)
       await res.revalidate(`/events/${slugify(e.name)}`)
-    }
 
     return res.json({ revalidated: true })
   } catch (err) {
