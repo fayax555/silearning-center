@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { GallerySchema } from 'types'
-import { Directus } from 'utils'
+import { EventsSchema, GallerySchema } from 'types'
+import { Directus, slugify } from 'utils'
 
 export default async function handler(
   req: NextApiRequest,
@@ -19,14 +19,23 @@ export default async function handler(
       fields: ['id', 'title'],
     })
 
+    const eventsRes = await directus.items('upcoming_events').readByQuery({
+      fields: ['name', 'start', 'end', 'description', 'image'],
+    })
+
     const galleryList = GallerySchema.parse(galleryRes.data)
+    const eventsList = EventsSchema.parse(eventsRes.data)
 
     await res.revalidate('/')
     await res.revalidate('/admission')
     await res.revalidate('/gallery')
 
-    galleryList.forEach(async ({ id }) => {
-      await res.revalidate(`/gallery/${id}`)
+    galleryList.forEach(async ({ title }) => {
+      await res.revalidate(`/gallery/${slugify(title)}`)
+    })
+
+    eventsList.forEach(async ({ name }) => {
+      await res.revalidate(`/events/${slugify(name)}`)
     })
 
     return res.json({ revalidated: true })
