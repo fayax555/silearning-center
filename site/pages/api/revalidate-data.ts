@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { EventsSchema, GallerySchema } from 'types'
-import { Directus, slugify } from 'utils'
+import { directusItems, slugify } from 'utils'
 
 export default async function handler(
   req: NextApiRequest,
@@ -13,30 +13,28 @@ export default async function handler(
   }
 
   try {
-    const directus = Directus()
-
-    const galleryRes = await directus.items('gallery').readByQuery({
+    const galleryRes = await directusItems('gallery').read({
       fields: ['id', 'title'],
     })
 
-    const eventsRes = await directus.items('upcoming_events').readByQuery({
+    const eventsRes = await directusItems('upcoming_events').read({
       fields: ['name', 'start', 'end', 'description', 'image'],
     })
 
-    const galleryList = GallerySchema.parse(galleryRes.data)
-    const eventsList = EventsSchema.parse(eventsRes.data)
+    const galleryList = GallerySchema.parse(galleryRes)
+    const eventsList = EventsSchema.parse(eventsRes)
 
     await res.revalidate('/')
     await res.revalidate('/admission')
     await res.revalidate('/gallery')
 
-    galleryList.forEach(async ({ title }) => {
-      await res.revalidate(`/gallery/${slugify(title)}`)
-    })
+    for (const g of galleryList) {
+      await res.revalidate(`/gallery/${slugify(g.title)}`)
+    }
 
-    eventsList.forEach(async ({ name }) => {
-      await res.revalidate(`/events/${slugify(name)}`)
-    })
+    for (const e of eventsList) {
+      await res.revalidate(`/events/${slugify(e.name)}`)
+    }
 
     return res.json({ revalidated: true })
   } catch (err) {
