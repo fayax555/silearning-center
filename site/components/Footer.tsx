@@ -27,7 +27,7 @@ export default function Footer() {
             <div
               onClick={() => {
                 setClicked(true)
-                navigator.clipboard.writeText('contact@silearning.center')
+                navigator.clipboard.writeText('siyamaimadlearningcentre@gmail.com')
                 setTimeout(() => setClicked(false), 2000)
               }}
               className={`flex cursor-pointer items-center gap-3 ${

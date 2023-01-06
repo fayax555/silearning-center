@@ -133,7 +133,7 @@ export default function ContactPage() {
           <div
             onClick={() => {
               setClicked(true)
-              navigator.clipboard.writeText('contact@silearning.center')
+              navigator.clipboard.writeText('siyamaimadlearningcentre@gmail.com')
               setTimeout(() => setClicked(false), 2000)
             }}
             className={`grid cursor-pointer items-center justify-items-center gap-3 ${
