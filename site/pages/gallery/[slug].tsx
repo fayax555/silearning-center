@@ -17,7 +17,7 @@ export default function GalleryPage({ gallery }: GalleryPageProps) {
             alt=''
             width={1980}
             height={1080}
-            className='h-auto w-full'
+            className='max-h-[92vh] w-auto mx-auto'
           />
         ))}
       </div>
