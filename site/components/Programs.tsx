@@ -8,17 +8,17 @@ export default function Programs({ programs, home }: Props) {
 
   return (
     <div className='mx-auto mt-12 max-w-[1200px] px-5 text-center'>
-      {home ? (
-        <h2 className='mb-10 text-center text-3xl font-bold text-slate-700 md:text-4xl'>
-          Our Programs
-        </h2>
-      ) : (
-        <h2 className='mb-6 text-3xl font-extrabold text-violet-600 sm:text-4xl'>
-          Our Programs
-        </h2>
-      )}
+      <h2
+        className={`text-3xl ${
+          home
+            ? 'tet-slate-700 mb-10 text-center font-bold md:text-4xl'
+            : 'mb-6 font-extrabold text-violet-600 '
+        }`}
+      >
+        Our Programs
+      </h2>
 
-      <ul className='grid sm:flex max-w-[1200px] grid-cols-1 flex-wrap justify-center gap-5'>
+      <ul className='grid max-w-[1200px] grid-cols-1 flex-wrap justify-center gap-5 sm:flex'>
         {programsToRender.map((p) => (
           <li
             key={p.name}
@@ -48,12 +48,14 @@ export default function Programs({ programs, home }: Props) {
           </li>
         ))}
       </ul>
-      <Link
-        className='mx-auto mt-5 block w-[140px] rounded-md bg-violet-600 px-4 py-2 text-center font-bold text-violet-100 transition hover:bg-violet-800'
-        href='/admission'
-      >
-        View More
-      </Link>
+      {home && (
+        <Link
+          className='mx-auto mt-5 block w-[140px] rounded-md bg-violet-600 px-4 py-2 text-center font-bold text-violet-100 transition hover:bg-violet-800'
+          href='/admission'
+        >
+          View More
+        </Link>
+      )}
     </div>
   )
 }
