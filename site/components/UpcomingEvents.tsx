@@ -15,10 +15,10 @@ export default function UpcomingEvents({ events }: Props) {
     image: events[0]?.image,
   })
 
-  if(!events.length) return null
+  if (!events.length) return null
 
   return (
-    <section className='mx-auto max-w-[1200px] py-10 pt-14 px-4 text-slate-800 md:py-24 lg:pb-40'>
+    <section className='mx-auto max-w-[1200px] py-10 px-4 pt-14 text-slate-800 md:py-24 lg:pb-40'>
       <Link
         href='/events'
         className='items-center justify-center gap-5 text-center hover:text-violet-700 md:flex'
@@ -63,19 +63,21 @@ export default function UpcomingEvents({ events }: Props) {
           ))}
         </div>
 
-        <Image
-          src={
-            activeItem.image
-              ? `${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${activeItem.image}`
-              : '/placeholder.png'
-          }
-          alt=''
-          width={1000}
-          height={1000}
-          className={`order-1 h-[300px] w-full rounded-xl lg:h-[500px] ${
-            activeItem.image ? 'object-cover' : 'object-contain'
-          }`}
-        />
+        <Link href={`/events/${activeItem}`}>
+          <Image
+            src={
+              activeItem.image
+                ? `${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${activeItem.image}`
+                : '/placeholder.png'
+            }
+            alt=''
+            width={1000}
+            height={1000}
+            className={`order-1 h-[300px] w-full rounded-xl lg:h-[500px] ${
+              activeItem.image ? 'object-cover' : 'object-contain'
+            }`}
+          />
+        </Link>
       </div>
     </section>
   )
