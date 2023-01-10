@@ -10,6 +10,7 @@ type Props = {
   hideTitle?: true
   description?: string
   backButtonText?: string
+  noindex?: true
 }
 
 export default function Layout({
@@ -18,6 +19,7 @@ export default function Layout({
   hideTitle,
   description,
   backButtonText,
+  noindex,
 }: Props) {
   return (
     <>
@@ -37,6 +39,7 @@ export default function Layout({
         <meta property='og:image:width' content='1435' />
         <meta property='og:image:height' content='594' />
         <meta property='og:site_name' content='Siyama Imad Learning Center' />
+        {noindex && <meta name='robots' content='noindex' />}
         <link rel='canonical' href='https://silearning.center' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
