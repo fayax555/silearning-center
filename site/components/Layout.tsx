@@ -25,7 +25,11 @@ export default function Layout({
     <>
       <Head>
         <title>{title}</title>
-        <meta name='robots' content='index,follow' />
+        {noindex ? (
+          <meta name='robots' content='noindex' />
+        ) : (
+          <meta name='robots' content='index,follow' />
+        )}
         <meta name='description' content={description} />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:site' content='@silearningcenter' />
@@ -39,7 +43,6 @@ export default function Layout({
         <meta property='og:image:width' content='1435' />
         <meta property='og:image:height' content='594' />
         <meta property='og:site_name' content='Siyama Imad Learning Center' />
-        {noindex && <meta name='robots' content='noindex' />}
         <link rel='canonical' href='https://silearning.center' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
