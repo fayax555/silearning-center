@@ -30,9 +30,4 @@
   <priority>0.8</priority>
 </url>
 
-<url>
-  <loc>https://silearning.center/gallery/*</loc>
-  <priority>0.4</priority>
-</url>
-
 </urlset>
