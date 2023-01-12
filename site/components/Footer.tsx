@@ -6,7 +6,11 @@ import { AiFillPhone } from 'react-icons/ai'
 
 const SocialIcons = [
   ['instagram', AiFillInstagram, 'https://instagram.com'],
-  ['facebook', FaFacebookF, 'https://facebook.com'],
+  [
+    'facebook',
+    FaFacebookF,
+    'https://web.facebook.com/profile.php?id=100084554445045',
+  ],
 ] as const
 
 export default function Footer() {
@@ -27,7 +31,9 @@ export default function Footer() {
             <div
               onClick={() => {
                 setClicked(true)
-                navigator.clipboard.writeText('siyamaimadlearningcentre@gmail.com')
+                navigator.clipboard.writeText(
+                  'siyamaimadlearningcentre@gmail.com'
+                )
                 setTimeout(() => setClicked(false), 2000)
               }}
               className={`flex cursor-pointer items-center gap-3 ${
