@@ -5,6 +5,7 @@ import dayjs from 'dayjs'
 import { clsx } from 'clsx'
 
 import type { UpcomingEvent } from 'types'
+import { slugify } from 'utils'
 
 type Props = { events: UpcomingEvent[] }
 type ActiveItem = { name?: string; image?: string | null }
@@ -63,7 +64,7 @@ export default function UpcomingEvents({ events }: Props) {
           ))}
         </div>
 
-        <Link href={`/events/${activeItem}`}>
+        <Link href={`/events/${slugify(activeItem.name ??'')}`}>
           <Image
             src={
               activeItem.image
