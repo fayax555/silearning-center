@@ -5,7 +5,7 @@ import { MdMail } from 'react-icons/md'
 import { AiFillPhone } from 'react-icons/ai'
 
 const SocialIcons = [
-  ['instagram', AiFillInstagram, 'https://instagram.com'],
+  ['instagram', AiFillInstagram, 'https://web.facebook.com/profile.php?id=100084554445045'],
   [
     'facebook',
     FaFacebookF,
